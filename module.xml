@@ -6,4 +6,5 @@
 	<category>Call Management</category>
 	<location>release/callforward-1.0.tgz</location>
 	<info>http://freepbx.org/wiki/CallForward</info>
+	<md5sum>33c345d3d3e83d782665242ff3a9c89a</md5sum>
 </module>
