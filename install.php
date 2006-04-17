@@ -14,7 +14,7 @@ $fcc->update();
 unset($fcc);
 
 $fcc = new featurecode('callforward', 'cfoff_any');
-$fcc->setDescription('Call Forward All Prompting Deativate');
+$fcc->setDescription('Call Forward All Prompting Deactivate');
 $fcc->setDefault('*74');
 $fcc->update();
 unset($fcc);
@@ -27,13 +27,13 @@ $fcc->update();
 unset($fcc);
 
 $fcc = new featurecode('callforward', 'cfboff');
-$fcc->setDescription('Call Forward Busy Deativate');
+$fcc->setDescription('Call Forward Busy Deactivate');
 $fcc->setDefault('*91');
 $fcc->update();
 unset($fcc);
 
 $fcc = new featurecode('callforward', 'cfboff_any');
-$fcc->setDescription('Call Forward Busy Prompting Deactive');
+$fcc->setDescription('Call Forward Busy Prompting Deactivate');
 $fcc->setDefault('*92');
 $fcc->update();
 unset($fcc);
@@ -46,7 +46,7 @@ $fcc->update();
 unset($fcc);
 
 $fcc = new featurecode('callforward', 'cfuoff');
-$fcc->setDescription('Call Forward No Answer/Unavailable Deativate');
+$fcc->setDescription('Call Forward No Answer/Unavailable Deactivate');
 $fcc->setDefault('*53');
 $fcc->update();
 unset($fcc);
