@@ -1,10 +1,10 @@
 <module>
 	<rawname>callforward</rawname>
 	<name>Call Forward</name>
-	<version>1.0</version>
+	<version>1.0.1</version>
 	<type>setup</type>
 	<category>Call Management</category>
-	<location>release/callforward-1.0.tgz</location>
+	<location>release/callforward-1.0.1.tgz</location>
 	<info>http://freepbx.org/wiki/CallForward</info>
-	<md5sum>1975f53f449bfbd2377e278a2a9c541e</md5sum>
+	<md5sum>56ce77f06e789a0c44b80a6765dc22da</md5sum>
 </module>
