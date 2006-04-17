@@ -1,5 +1,6 @@
 <?php
 
+// Unconditional Call Forwarding
 $fcc = new featurecode('callforward', 'cfon');
 $fcc->setDescription('Call Forward All Activate');
 $fcc->setDefault('*72');
@@ -18,6 +19,7 @@ $fcc->setDefault('*74');
 $fcc->update();
 unset($fcc);
 
+// Call Forward on Busy
 $fcc = new featurecode('callforward', 'cfbon');
 $fcc->setDescription('Call Forward Busy Activate');
 $fcc->setDefault('*90');
@@ -33,6 +35,19 @@ unset($fcc);
 $fcc = new featurecode('callforward', 'cfboff_any');
 $fcc->setDescription('Call Forward Busy Prompting Deactive');
 $fcc->setDefault('*92');
+$fcc->update();
+unset($fcc);
+
+// Call Forward on No Answer/Unavailable (i.e. phone not registered)
+$fcc = new featurecode('callforward', 'cfuon');
+$fcc->setDescription('Call Forward No Answer/Unavailable Activate');
+$fcc->setDefault('*52');
+$fcc->update();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfuoff');
+$fcc->setDescription('Call Forward No Answer/Unavailable Deativate');
+$fcc->setDefault('*53');
 $fcc->update();
 unset($fcc);
 
