@@ -4,7 +4,7 @@
 	<version>1.0.2</version>
 	<type>setup</type>
 	<category>Call Management</category>
-	<location>release/callforward-1.0.1.tgz</location>
+	<location>release/callforward-1.0.2.tgz</location>
 	<info>http://freepbx.org/wiki/CallForward</info>
-	<md5sum>56ce77f06e789a0c44b80a6765dc22da</md5sum>
+	<md5sum>df9afdd919357562351e8fb898e7ef09</md5sum>
 </module>
