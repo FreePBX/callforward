@@ -1,7 +1,7 @@
 <module>
 	<rawname>callforward</rawname>
 	<name>Call Forward</name>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<type>setup</type>
 	<category>Call Management</category>
 	<location>release/callforward-1.0.1.tgz</location>
