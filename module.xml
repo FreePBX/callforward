@@ -6,7 +6,7 @@
 	</changelog>
 	<type>setup</type>
 	<category>Provides a Feature Code</category>
-	<location>release//2.2/callforward-1.0.2.tgz</location>
+	<location>release/2.2/callforward-1.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
-	<md5sum>504e013e078300db4b0029964eccb1e0</md5sum>
+	<md5sum>de8184265af71ab71d6a14d56080cde7</md5sum>
 </module>
