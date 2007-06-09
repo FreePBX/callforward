@@ -1,8 +1,10 @@
 <module>
 	<rawname>callforward</rawname>
 	<name>Call Forward</name>
-	<version>1.1</version>
-	<changelog>*1.1* First release for 2.2
+	<version>1.1.1</version>
+	<changelog>
+		*1.1.1* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
+		*1.1* First release for 2.2
 	</changelog>
 	<type>setup</type>
 	<category>Provides a Feature Code</category>
