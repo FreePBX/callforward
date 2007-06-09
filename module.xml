@@ -8,7 +8,7 @@
 	</changelog>
 	<type>setup</type>
 	<category>Provides a Feature Code</category>
-	<location>release/2.2/callforward-1.1.tgz</location>
+	<location>release/2.3/callforward-1.1.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
-	<md5sum>de8184265af71ab71d6a14d56080cde7</md5sum>
+	<md5sum>395d7212ced57cd154e12fcf4c31c2e4</md5sum>
 </module>
