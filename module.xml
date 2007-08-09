@@ -9,6 +9,6 @@
 	</changelog>
 	<type>setup</type>
 	<category>Provides a Feature Code</category>
-	<location>release/2.3/callforward-1.1.1.tgz</location>
-	<md5sum>395d7212ced57cd154e12fcf4c31c2e4</md5sum>
+	<location>release/2.3/callforward-1.1.1.1.tgz</location>
+	<md5sum>f7c385caf963ad5ae20ab60a3352d3b0</md5sum>
 </module>
