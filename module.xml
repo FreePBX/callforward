@@ -1,14 +1,14 @@
 <module>
 	<rawname>callforward</rawname>
 	<name>Call Forward</name>
-	<version>1.1.1</version>
+	<version>1.1.1.1</version>
 	<changelog>
+		*1.1.1.1* bump for rc1
 		*1.1.1* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
 		*1.1* First release for 2.2
 	</changelog>
 	<type>setup</type>
 	<category>Provides a Feature Code</category>
 	<location>release/2.3/callforward-1.1.1.tgz</location>
-	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
 	<md5sum>395d7212ced57cd154e12fcf4c31c2e4</md5sum>
 </module>
