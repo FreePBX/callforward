@@ -1,14 +1,15 @@
 <module>
 	<rawname>callforward</rawname>
 	<name>Call Forward</name>
-	<version>1.1.1.1</version>
+	<version>1.1.1.2</version>
 	<changelog>
+		*1.1.1.2* changed categories
 		*1.1.1.1* bump for rc1
 		*1.1.1* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
 		*1.1* First release for 2.2
 	</changelog>
 	<type>setup</type>
-	<category>Provides a Feature Code</category>
-	<location>release/2.3/callforward-1.1.1.1.tgz</location>
-	<md5sum>f7c385caf963ad5ae20ab60a3352d3b0</md5sum>
+	<category>Internal Options &amp; Configuration</category>
+	<location>release/2.3/callforward-1.1.1.2.tgz</location>
+	<md5sum>83b552d1c530cbe2f7d6c0d5d892c85b</md5sum>
 </module>
