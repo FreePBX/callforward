@@ -60,7 +60,7 @@ function callforward_cfon($c) {
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-	$ext->add($id, $c, '', new ext_setvar('DB(CF/${AMPUSER(number)})', '${EXTEN:'.$clen.'}')); 
+	$ext->add($id, $c, '', new ext_setvar('DB(CF/${AMPUSER})', '${EXTEN:'.$clen.'}')); 
 	$ext->add($id, $c, '', new ext_playback('call-fwd-unconditional&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
