@@ -11,6 +11,6 @@
 	</changelog>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
-	<location>release/2.3/callforward-1.1.1.2.tgz</location>
-	<md5sum>83b552d1c530cbe2f7d6c0d5d892c85b</md5sum>
+	<location>release/2.3/callforward-1.1.2.tgz</location>
+	<md5sum>dbdfab9a6a87a454228aa0e59963346d</md5sum>
 </module>
