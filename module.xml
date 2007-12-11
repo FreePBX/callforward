@@ -1,8 +1,9 @@
 <module>
 	<rawname>callforward</rawname>
 	<name>Call Forward</name>
-	<version>1.1.2</version>
+	<version>2.4.0</version>
 	<changelog>
+		*2.4.0* bumped for 2.4
 		*1.1.2* #2321 fixed CF AMPUSER(number) issue, syntax problem
 		*1.1.1.2* changed categories
 		*1.1.1.1* bump for rc1
@@ -11,6 +12,6 @@
 	</changelog>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
-	<location>release/2.3/callforward-1.1.2.tgz</location>
-	<md5sum>dbdfab9a6a87a454228aa0e59963346d</md5sum>
+	<location>release/2.4/callforward-2.4.0.tgz</location>
+	<md5sum>db06e39c7815af75f0ab7931703cda52</md5sum>
 </module>
