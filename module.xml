@@ -1,8 +1,9 @@
 <module>
 	<rawname>callforward</rawname>
 	<name>Call Forward</name>
-	<version>2.5.0</version>
+	<version>2.5.0.1</version>
 	<changelog>
+		*2.5.0.1* localization fixes
 		*2.5.0* localization fixes, Swedish
 		*2.4.0* bumped for 2.4
 		*1.1.2* #2321 fixed CF AMPUSER(number) issue, syntax problem
@@ -14,6 +15,6 @@
 	<description>Provides callforward featurecodes</description>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
-	<location>release/2.5/callforward-2.5.0.tgz</location>
-	<md5sum>91bb24da543bfabbe78e91fced6cc4a6</md5sum>
+	<location>release/2.5/callforward-2.5.0.1.tgz</location>
+	<md5sum>9a538da1acbeb58ad558ef00fdce7e1f</md5sum>
 </module>
