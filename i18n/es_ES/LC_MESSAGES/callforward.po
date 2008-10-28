@@ -1,0 +1,54 @@
+# translation of callforward.po to
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: callforward\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-17 11:10+0200\n"
+"PO-Revision-Date: 2008-10-28 18:56+0100\n"
+"Last-Translator: \n"
+"Language-Team:  <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: install.php:5
+msgid "Call Forward All Activate"
+msgstr "Transferir llamada Activar"
+
+#: install.php:12
+msgid "Call Forward All Deactivate"
+msgstr "Transferir llamada Desactivar"
+
+#: install.php:19
+msgid "Call Forward All Prompting Deactivate"
+msgstr "Transferir llamada Solicitar desactivar"
+
+#: install.php:27
+msgid "Call Forward Busy Activate"
+msgstr "Transferir llamada Ocupado activar"
+
+#: install.php:34
+msgid "Call Forward Busy Deactivate"
+msgstr "Transferir llamada Ocupado desactivar"
+
+#: install.php:41
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr "Transferir llamada Ocupado solicitar desactivar"
+
+#: install.php:49
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr "Transferir llamada No contesta/No disponible activar"
+
+#: install.php:56
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr "Transferir llamada No contesta/No disponible desactivar"
+
+#: module.xml
+msgid "Call Forward"
+msgstr "Transferir llamada"
+
