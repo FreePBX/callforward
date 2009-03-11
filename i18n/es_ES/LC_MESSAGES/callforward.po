@@ -1,54 +1,51 @@
-# translation of callforward.po to
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: callforward\n"
+"Project-Id-Version: FreePBX - módulo callforward module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-17 11:10+0200\n"
-"PO-Revision-Date: 2008-11-02 16:07+0100\n"
-"Last-Translator: \n"
-"Language-Team:  <es@li.org>\n"
+"PO-Revision-Date: 2009-01-22 01:10+0100\n"
+"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: install.php:5
 msgid "Call Forward All Activate"
-msgstr "Activar"
+msgstr "Activar todos los desvíos de llamada"
 
 #: install.php:12
 msgid "Call Forward All Deactivate"
-msgstr "Desactivar"
+msgstr "Desactivar todos los desvíos de llamada"
 
 #: install.php:19
 msgid "Call Forward All Prompting Deactivate"
-msgstr "Solicitar desactivar"
+msgstr ""
 
 #: install.php:27
 msgid "Call Forward Busy Activate"
-msgstr "Activar ocupado"
+msgstr "Activar desvío de llamada cuando esté ocupado"
 
 #: install.php:34
 msgid "Call Forward Busy Deactivate"
-msgstr "Desactivar ocupado"
+msgstr "Desactivar desvío de llamada cuando esté ocupado"
 
 #: install.php:41
 msgid "Call Forward Busy Prompting Deactivate"
-msgstr "Solicitar desactivar ocupado"
+msgstr ""
 
 #: install.php:49
 msgid "Call Forward No Answer/Unavailable Activate"
-msgstr "Activar No contesta/No disponible"
+msgstr "Activar desvío de llamada cuando no conteste o no esté disponible"
 
 #: install.php:56
 msgid "Call Forward No Answer/Unavailable Deactivate"
-msgstr "Desactivar llamada No contesta/No disponible"
+msgstr "Desactivar desvío de llamada cuando no conteste o no esté disponible"
 
 #: module.xml
 msgid "Call Forward"
-msgstr "Transferir llamada"
+msgstr "Desvío de llamadas"
 
