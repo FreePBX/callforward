@@ -64,7 +64,7 @@ function callforward_cfon($c) {
 	$ext->add($id, $c, '', new ext_gotoif('$["foo${toext}"="foo"]', 'startread'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('DB(CF/${fromext})', '${toext}')); 
-	$ext->add($id, $c, '', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
@@ -76,7 +76,7 @@ function callforward_cfon($c) {
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_setvar('DB(CF/${AMPUSER})', '${EXTEN:'.$clen.'}')); 
-	$ext->add($id, $c, '', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-unconditional&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${EXTEN:'.$clen.'}'));
@@ -96,7 +96,7 @@ function callforward_cfoff_any($c) {
 	$ext->add($id, $c, '', new ext_read('fromext', 'then-press-pound'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_dbdel('CF/${fromext}')); 
-	$ext->add($id, $c, '', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('cancelled'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
@@ -114,7 +114,7 @@ function callforward_cfoff($c) {
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_dbdel('CF/${AMPUSER}')); 
-	$ext->add($id, $c, '', new ext_playback('call-fwd-unconditional&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&de-activated')); // $cmd,n,Playback(...)
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// for any extension, dial *XX<exten>
@@ -124,7 +124,7 @@ function callforward_cfoff($c) {
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_dbdel('CF/${fromext}')); 
-	$ext->add($id, $c, '', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-unconditional&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('cancelled'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
@@ -152,7 +152,7 @@ function callforward_cfbon($c) {
 	$ext->add($id, $c, '', new ext_gotoif('$["foo${toext}"="foo"]', 'startread'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('DB(CFB/${fromext})', '${toext}')); 
-	$ext->add($id, $c, '', new ext_playback('call-fwd-on-busy&for&extension'));
+	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-on-busy&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
@@ -164,7 +164,7 @@ function callforward_cfbon($c) {
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_setvar('DB(CFB/${AMPUSER})', '${EXTEN:'.$clen.'}')); 
-	$ext->add($id, $c, '', new ext_playback('call-fwd-on-busy&for&extension'));
+	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-on-busy&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${EXTEN:'.$clen.'}'));
