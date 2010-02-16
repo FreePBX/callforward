@@ -20,6 +20,7 @@ function callforward_get_config($engine) {
 	
 	// This generates the dialplan
 	global $ext;  
+	global $amp_conf;  
 	switch($engine) {
 		case "asterisk":
 			// If Using CF then set this so AGI scripts can determine
@@ -55,12 +56,12 @@ function callforward_get_config($engine) {
 				$ext->addInclude('from-internal-additional','ext-cf-hints');
 				$contextname = 'ext-cf-hints';
 				$device_list = core_devices_list("all", false, true);
-        $base_offset = strlen($cf_code)+1;
+        $base_offset = strlen($cf_code);
 				foreach ($device_list as $device) {
           $offset = $base_offset + strlen($device['id']);
 					$ext->add($contextname, $cf_code.$device['id'], '', new ext_goto("1",$cf_code,"app-cf-toggle"));
 					$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_set("toext",'${EXTEN:'.$offset.'}'));
-					$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_goto("toext",$cf_code,"app-cf-toggle"));
+					$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_goto("setdirect",$cf_code,"app-cf-toggle"));
 					$ext->addHint($contextname, $cf_code.$device['id'], "Custom:DEVCF".$device['id']);
 				}
 			}
@@ -72,6 +73,10 @@ function callforward_get_config($engine) {
 // Unconditional Call Forwarding Toggle
 function callforward_cf_toggle($c) {
 	global $ext;
+	global $amp_conf;
+	global $version;
+
+	$DEVSTATE = version_compare($version, "1.6", "ge") ? "DEVICE_STATE" : "DEVSTATE";
 
 	$id = "app-cf-toggle"; // The context to be included
 
@@ -101,6 +106,10 @@ function callforward_cf_toggle($c) {
 	  $ext->add($id, $c, '', new ext_saydigits('${toext}'));
 	}
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, 'setdirect', new ext_answer(''));
+	$ext->add($id, $c, '', new ext_wait('1'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_goto('toext'));
 
 	$ext->add($id, $c, 'deactivate', new ext_dbdel('CF/${AMPUSER}')); 
 	if ($amp_conf['USEDEVSTATE']) {
@@ -116,12 +125,12 @@ function callforward_cf_toggle($c) {
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
-		$ext->add($id, $c, '', new ext_setvar($DEVSTATE.'(Custom:DND${AMPUSER})', '${STATE}'));
+		$ext->add($id, $c, '', new ext_setvar($DEVSTATE.'(Custom:CF${AMPUSER})', '${STATE}'));
 		$ext->add($id, $c, '', new ext_dbget('DEVICES','AMPUSER/${AMPUSER}/device'));
 		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
 		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
-		$ext->add($id, $c, 'begin', new ext_setvar($DEVSTATE.'(Custom:DEVDND${CUT(DEVICES,&,${ITER})})','${STATE}'));
+		$ext->add($id, $c, 'begin', new ext_setvar($DEVSTATE.'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
