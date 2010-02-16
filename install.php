@@ -27,6 +27,7 @@ _("Call Forward Busy Deactivate");
 _("Call Forward Busy Prompting Deactivate");
 _("Call Forward No Answer/Unavailable Activate");
 _("Call Forward No Answer/Unavailable Deactivate");
+_("Call Forward Toggle");
 }
 
 // Unconditional Call Forwarding
@@ -77,6 +78,12 @@ unset($fcc);
 $fcc = new featurecode('callforward', 'cfuoff');
 $fcc->setDescription('Call Forward No Answer/Unavailable Deactivate');
 $fcc->setDefault('*53');
+$fcc->update();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cf_toggle');
+$fcc->setDescription('Call Forward Toggle');
+$fcc->setDefault('*740');
 $fcc->update();
 unset($fcc);
 
