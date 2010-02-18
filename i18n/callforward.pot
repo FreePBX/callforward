@@ -1,4 +1,4 @@
-#This file is part of FreePBX.
+# This file is part of FreePBX.
 #
 #    FreePBX is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -13,15 +13,14 @@
 #    You should have received a copy of the GNU General Public License
 #    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright (C) 2008, 2009 Mikael Carlsson
-# Language template for callforward
+# FreePBX language template for callforward
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-17 11:10+0200\n"
+"POT-Creation-Date: 2010-02-18 22:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,38 +28,53 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: install.php:5
+#: callforward/callforward.i18n.php:5 callforward/install.php:21
+msgid "Call Forward"
+msgstr ""
+
+#: callforward/callforward.i18n.php:7
+msgid ""
+"Internal Options \n"
+"&\n"
+" Configuration"
+msgstr ""
+
+#: callforward/callforward.i18n.php:11
+msgid "Provides callforward featurecodes"
+msgstr ""
+
+#: callforward/install.php:22
 msgid "Call Forward All Activate"
 msgstr ""
 
-#: install.php:12
+#: callforward/install.php:23
 msgid "Call Forward All Deactivate"
 msgstr ""
 
-#: install.php:19
+#: callforward/install.php:24
 msgid "Call Forward All Prompting Deactivate"
 msgstr ""
 
-#: install.php:27
+#: callforward/install.php:25
 msgid "Call Forward Busy Activate"
 msgstr ""
 
-#: install.php:34
+#: callforward/install.php:26
 msgid "Call Forward Busy Deactivate"
 msgstr ""
 
-#: install.php:41
+#: callforward/install.php:27
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr ""
 
-#: install.php:49
+#: callforward/install.php:28
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr ""
 
-#: install.php:56
+#: callforward/install.php:29
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr ""
 
-#: module.xml
-msgid "Call Forward"
+#: callforward/install.php:30
+msgid "Call Forward Toggle"
 msgstr ""
