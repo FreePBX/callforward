@@ -15,12 +15,11 @@
 #
 # Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-17 11:10+0200\n"
+"POT-Creation-Date: 2010-02-27 17:34+0100\n"
 "PO-Revision-Date: 2009-04-20 11:18+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -28,38 +27,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: install.php:5
+msgid "Call Forward"
+msgstr "Transfert d'Appel"
+
+msgid ""
+"Internal Options \n"
+"&\n"
+" Configuration"
+msgstr ""
+
+msgid "Provides callforward featurecodes"
+msgstr ""
+
 msgid "Call Forward All Activate"
 msgstr "Transferts d'Appels Tous Actifs"
 
-#: install.php:12
 msgid "Call Forward All Deactivate"
 msgstr "Transferts d'Appels Tous Désactivés"
 
-#: install.php:19
 msgid "Call Forward All Prompting Deactivate"
 msgstr "Messages de Transferts d'Appels Tous Désactivés"
 
-#: install.php:27
 msgid "Call Forward Busy Activate"
 msgstr "Transfert d'Appels quand Occupé Activé"
 
-#: install.php:34
 msgid "Call Forward Busy Deactivate"
 msgstr "Transfert d'Appels quand Occupé Désactivé"
 
-#: install.php:41
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "Messages de Transfert d'Appels quand Occupé Désactivé"
 
-#: install.php:49
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "Transfert d'Appels quand Pas de Réponse/Indisponible Activé"
 
-#: install.php:56
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "Transfert d'Appels quand Pas de Réponse/Indisponible Désactivé"
 
-#: module.xml
-msgid "Call Forward"
-msgstr "Transfert d'Appel"
+msgid "Call Forward Toggle"
+msgstr ""

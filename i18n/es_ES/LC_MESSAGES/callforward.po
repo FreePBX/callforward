@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo callforward module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-17 11:10+0200\n"
+"POT-Creation-Date: 2010-02-27 17:34+0100\n"
 "PO-Revision-Date: 2009-01-22 01:10+0100\n"
 "Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
 "Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
@@ -13,39 +13,41 @@ msgstr ""
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: install.php:5
-msgid "Call Forward All Activate"
-msgstr "Activar todos los desvíos de llamada"
-
-#: install.php:12
-msgid "Call Forward All Deactivate"
-msgstr "Desactivar todos los desvíos de llamada"
-
-#: install.php:19
-msgid "Call Forward All Prompting Deactivate"
-msgstr ""
-
-#: install.php:27
-msgid "Call Forward Busy Activate"
-msgstr "Activar desvío de llamada cuando esté ocupado"
-
-#: install.php:34
-msgid "Call Forward Busy Deactivate"
-msgstr "Desactivar desvío de llamada cuando esté ocupado"
-
-#: install.php:41
-msgid "Call Forward Busy Prompting Deactivate"
-msgstr ""
-
-#: install.php:49
-msgid "Call Forward No Answer/Unavailable Activate"
-msgstr "Activar desvío de llamada cuando no conteste o no esté disponible"
-
-#: install.php:56
-msgid "Call Forward No Answer/Unavailable Deactivate"
-msgstr "Desactivar desvío de llamada cuando no conteste o no esté disponible"
-
-#: module.xml
 msgid "Call Forward"
 msgstr "Desvío de llamadas"
 
+msgid ""
+"Internal Options \n"
+"&\n"
+" Configuration"
+msgstr ""
+
+msgid "Provides callforward featurecodes"
+msgstr ""
+
+msgid "Call Forward All Activate"
+msgstr "Activar todos los desvíos de llamada"
+
+msgid "Call Forward All Deactivate"
+msgstr "Desactivar todos los desvíos de llamada"
+
+msgid "Call Forward All Prompting Deactivate"
+msgstr ""
+
+msgid "Call Forward Busy Activate"
+msgstr "Activar desvío de llamada cuando esté ocupado"
+
+msgid "Call Forward Busy Deactivate"
+msgstr "Desactivar desvío de llamada cuando esté ocupado"
+
+msgid "Call Forward Busy Prompting Deactivate"
+msgstr ""
+
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr "Activar desvío de llamada cuando no conteste o no esté disponible"
+
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr "Desactivar desvío de llamada cuando no conteste o no esté disponible"
+
+msgid "Call Forward Toggle"
+msgstr ""
