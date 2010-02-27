@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-27 13:44+0100\n"
+"POT-Creation-Date: 2010-02-27 17:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,53 +28,41 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: callforward/callforward.i18n.php:5 callforward/install.php:21
 msgid "Call Forward"
 msgstr ""
 
-#: callforward/callforward.i18n.php:7
 msgid ""
 "Internal Options \n"
 "&\n"
 " Configuration"
 msgstr ""
 
-#: callforward/callforward.i18n.php:11
 msgid "Provides callforward featurecodes"
 msgstr ""
 
-#: callforward/install.php:22
 msgid "Call Forward All Activate"
 msgstr ""
 
-#: callforward/install.php:23
 msgid "Call Forward All Deactivate"
 msgstr ""
 
-#: callforward/install.php:24
 msgid "Call Forward All Prompting Deactivate"
 msgstr ""
 
-#: callforward/install.php:25
 msgid "Call Forward Busy Activate"
 msgstr ""
 
-#: callforward/install.php:26
 msgid "Call Forward Busy Deactivate"
 msgstr ""
 
-#: callforward/install.php:27
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr ""
 
-#: callforward/install.php:28
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr ""
 
-#: callforward/install.php:29
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr ""
 
-#: callforward/install.php:30
 msgid "Call Forward Toggle"
 msgstr ""
