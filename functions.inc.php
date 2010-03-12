@@ -21,6 +21,8 @@ function callforward_get_config($engine) {
 	// This generates the dialplan
 	global $ext;  
 	global $amp_conf;  
+	global $version;
+	global $DEVSTATE;
 	switch($engine) {
 		case "asterisk":
 			// If Using CF then set this so AGI scripts can determine
@@ -28,6 +30,8 @@ function callforward_get_config($engine) {
 			if ($amp_conf['USEDEVSTATE']) {
 				$ext->addGlobal('CFDEVSTATE','TRUE');
 			}
+	    $DEVSTATE = version_compare($version, "1.6", "ge") ? "DEVICE_STATE" : "DEVSTATE";
+
 			if (is_array($featurelist = featurecodes_getModuleFeatures($modulename))) {
 				foreach($featurelist as $item) {
 					$featurename = $item['featurename'];
@@ -74,9 +78,7 @@ function callforward_get_config($engine) {
 function callforward_cf_toggle($c) {
 	global $ext;
 	global $amp_conf;
-	global $version;
-
-	$DEVSTATE = version_compare($version, "1.6", "ge") ? "DEVICE_STATE" : "DEVSTATE";
+	global $DEVSTATE;
 
 	$id = "app-cf-toggle"; // The context to be included
 
@@ -140,6 +142,8 @@ function callforward_cf_toggle($c) {
 // Unconditional Call Forwarding
 function callforward_cfon($c) {
 	global $ext;
+	global $amp_conf;
+	global $DEVSTATE;
 
 	$id = "app-cf-on"; // The context to be included
 
@@ -163,7 +167,7 @@ function callforward_cfon($c) {
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
 	if ($amp_conf['FCBEEPONLY']) {
-		$ext->add($id, $c, 'hook_2', new ext_playback('beep')); // $cmd,n,Playback(...)
+		$ext->add($id, $c, 'hook_1', new ext_playback('beep')); // $cmd,n,Playback(...)
 	} else {
 	  $ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
 	  $ext->add($id, $c, '', new ext_saydigits('${fromext}'));
@@ -208,6 +212,8 @@ function callforward_cfon($c) {
 
 function callforward_cfoff_any($c) {
 	global $ext;
+  global $amp_conf;
+	global $DEVSTATE;
 
 	$id = "app-cf-off-any"; // The context to be included
 
@@ -244,6 +250,8 @@ function callforward_cfoff_any($c) {
 
 function callforward_cfoff($c) {
 	global $ext;
+  global $amp_conf;
+	global $DEVSTATE;
 
 	$id = "app-cf-off"; // The context to be included
 

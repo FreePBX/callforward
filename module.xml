@@ -1,10 +1,12 @@
 <module>
 	<rawname>callforward</rawname>
 	<name>Call Forward</name>
-	<version>2.7.0.1</version>
+	<version>2.7.0.3</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<changelog>
+		*2.7.0.3* #4105 again
+		*2.7.0.2* #4103, #4104, #4105
 		*2.7.0.1* localizations
 		*2.7.0.0* #4047 CF toggle + devstate and hint additions
 		*2.6.0.1* Added publisher/lic
@@ -21,6 +23,6 @@
 	<description>Provides callforward featurecodes</description>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
-	<location>release/2.7/callforward-2.7.0.1.tgz</location>
-	<md5sum>6b7f6233fb6601df656a09718420e1a7</md5sum>
+	<location>release/2.7/callforward-2.7.0.2.tgz</location>
+	<md5sum>0aa4cdc91da096bb87241d2d853d7ce6</md5sum>
 </module>
