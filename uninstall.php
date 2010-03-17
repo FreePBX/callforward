@@ -19,7 +19,47 @@
 // TODO, is this needed...?
 // is this global...? what if we include this files
 // from a function...?
+
 global $astman;
+
+// Unconditional Call Forwarding
+$fcc = new featurecode('callforward', 'cfon');
+$fcc->delete();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfoff');
+$fcc->delete();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfoff_any');
+$fcc->delete();
+unset($fcc);
+
+// Call Forward on Busy
+$fcc = new featurecode('callforward', 'cfbon');
+$fcc->delete();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfboff');
+$fcc->delete();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfboff_any');
+$fcc->delete();
+unset($fcc);
+
+// Call Forward on No Answer/Unavailable (i.e. phone not registered)
+$fcc = new featurecode('callforward', 'cfuon');
+$fcc->delete();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfuoff');
+$fcc->delete();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cf_toggle');
+$fcc->delete();
+unset($fcc);
 
 // remove all Call Forward options in effect on extensions
 if ($astman) {
@@ -29,5 +69,4 @@ if ($astman) {
 } else {
 	fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 }
-
 ?>
