@@ -59,14 +59,16 @@ function callforward_get_config($engine) {
 			if ($amp_conf['USEDEVSTATE'] && $cf_code != '') {
 				$ext->addInclude('from-internal-additional','ext-cf-hints');
 				$contextname = 'ext-cf-hints';
-				$device_list = core_devices_list("all", false, true);
+				$device_list = core_devices_list("all", 'full', true);
         $base_offset = strlen($cf_code);
 				foreach ($device_list as $device) {
-          $offset = $base_offset + strlen($device['id']);
-					$ext->add($contextname, $cf_code.$device['id'], '', new ext_goto("1",$cf_code,"app-cf-toggle"));
-					$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_set("toext",'${EXTEN:'.$offset.'}'));
-					$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_goto("setdirect",$cf_code,"app-cf-toggle"));
-					$ext->addHint($contextname, $cf_code.$device['id'], "Custom:DEVCF".$device['id']);
+          if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+            $offset = $base_offset + strlen($device['id']);
+					  $ext->add($contextname, $cf_code.$device['id'], '', new ext_goto("1",$cf_code,"app-cf-toggle"));
+					  $ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_set("toext",'${EXTEN:'.$offset.'}'));
+					  $ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_goto("setdirect",$cf_code,"app-cf-toggle"));
+					  $ext->addHint($contextname, $cf_code.$device['id'], "Custom:DEVCF".$device['id']);
+          }
 				}
 			}
 
