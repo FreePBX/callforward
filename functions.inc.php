@@ -124,7 +124,7 @@ function callforward_cf_toggle($c) {
 
 	$ext->add($id, $c, 'deactivate', new ext_dbdel('CF/${fromext}')); 
 	if ($amp_conf['USEDEVSTATE']) {
-		$ext->add($id, $c, '', new ext_setvar('STATE', 'UNKNOWN'));
+		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
 	if ($amp_conf['FCBEEPONLY']) {
@@ -258,7 +258,7 @@ function callforward_cfoff_any($c) {
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_dbdel('CF/${fromext}')); 
 	if ($amp_conf['USEDEVSTATE']) {
-		$ext->add($id, $c, '', new ext_setvar('STATE', 'UNKNOWN'));
+		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
@@ -296,7 +296,7 @@ function callforward_cfoff($c) {
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_dbdel('CF/${fromext}')); 
 	if ($amp_conf['USEDEVSTATE']) {
-		$ext->add($id, $c, '', new ext_setvar('STATE', 'UNKNOWN'));
+		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
 	if ($amp_conf['FCBEEPONLY']) {
@@ -314,7 +314,7 @@ function callforward_cfoff($c) {
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_dbdel('CF/${fromext}')); 
 	if ($amp_conf['USEDEVSTATE']) {
-		$ext->add($id, $c, '', new ext_setvar('STATE', 'UNKNOWN'));
+		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
 	if ($amp_conf['FCBEEPONLY']) {
