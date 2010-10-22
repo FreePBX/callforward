@@ -27,6 +27,6 @@
 	<description>Provides callforward featurecodes</description>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
-	<location>release/2.8/callforward-2.8.0.4.tgz</location>
-	<md5sum>0cacfa87351b837c639a63ce8cd0d788</md5sum>
+	<location>release/2.9/callforward-2.8.0.4.tgz</location>
+	<md5sum>5fe75f0473fc614cbfded67ef86193e9</md5sum>
 </module>
