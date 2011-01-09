@@ -1,5 +1,6 @@
 <module>
 	<rawname>callforward</rawname>
+	<repo>standard</repo>
 	<name>Call Forward</name>
 	<version>2.8.0.4</version>
 	<publisher>FreePBX</publisher>
