@@ -22,7 +22,6 @@ function callforward_get_config($engine) {
 	global $ext;  
 	global $amp_conf;  
 	global $version;
-	global $DEVSTATE;
 	switch($engine) {
 		case "asterisk":
 			// If Using CF then set this so AGI scripts can determine
@@ -30,8 +29,6 @@ function callforward_get_config($engine) {
 			if ($amp_conf['USEDEVSTATE']) {
 				$ext->addGlobal('CFDEVSTATE','TRUE');
 			}
-	    $DEVSTATE = version_compare($version, "1.6", "ge") ? "DEVICE_STATE" : "DEVSTATE";
-
 			if (is_array($featurelist = featurecodes_getModuleFeatures($modulename))) {
 				foreach($featurelist as $item) {
 					$featurename = $item['featurename'];
@@ -80,7 +77,6 @@ function callforward_get_config($engine) {
 function callforward_cf_toggle($c) {
 	global $ext;
 	global $amp_conf;
-	global $DEVSTATE;
   global $version;
   $ast_ge_16 = version_compare($version, "1.6", "ge");
 
@@ -136,12 +132,12 @@ function callforward_cf_toggle($c) {
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
-		$ext->add($id, $c, '', new ext_setvar($DEVSTATE.'(Custom:CF${fromext})', '${STATE}'));
+		$ext->add($id, $c, '', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:CF${fromext})', '${STATE}'));
 		$ext->add($id, $c, '', new ext_dbget('DEVICES','AMPUSER/${fromext}/device'));
 		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
 		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
-		$ext->add($id, $c, 'begin', new ext_setvar($DEVSTATE.'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
+		$ext->add($id, $c, 'begin', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
@@ -152,7 +148,6 @@ function callforward_cf_toggle($c) {
 function callforward_cfon($c) {
 	global $ext;
 	global $amp_conf;
-	global $DEVSTATE;
   global $version;
   $ast_ge_16 = version_compare($version, "1.6", "ge");
 
@@ -221,12 +216,12 @@ function callforward_cfon($c) {
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
-		$ext->add($id, $c, '', new ext_setvar($DEVSTATE.'(Custom:CF${fromext})', '${STATE}'));
+		$ext->add($id, $c, '', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:CF${fromext})', '${STATE}'));
 		$ext->add($id, $c, '', new ext_dbget('DEVICES','AMPUSER/${fromext}/device'));
 		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
 		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
-		$ext->add($id, $c, 'begin', new ext_setvar($DEVSTATE.'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
+		$ext->add($id, $c, 'begin', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
@@ -236,7 +231,6 @@ function callforward_cfon($c) {
 function callforward_cfoff_any($c) {
 	global $ext;
   global $amp_conf;
-	global $DEVSTATE;
   global $version;
   $ast_ge_16 = version_compare($version, "1.6", "ge");
 
@@ -268,12 +262,12 @@ function callforward_cfoff_any($c) {
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
-		$ext->add($id, $c, '', new ext_setvar($DEVSTATE.'(Custom:CF${fromext})', '${STATE}'));
+		$ext->add($id, $c, '', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:CF${fromext})', '${STATE}'));
 		$ext->add($id, $c, '', new ext_dbget('DEVICES','AMPUSER/${fromext}/device'));
 		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
 		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
-		$ext->add($id, $c, 'begin', new ext_setvar($DEVSTATE.'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
+		$ext->add($id, $c, 'begin', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
@@ -283,7 +277,6 @@ function callforward_cfoff_any($c) {
 function callforward_cfoff($c) {
 	global $ext;
   global $amp_conf;
-	global $DEVSTATE;
 
 	$id = "app-cf-off"; // The context to be included
 
@@ -328,12 +321,12 @@ function callforward_cfoff($c) {
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
-		$ext->add($id, $c, '', new ext_setvar($DEVSTATE.'(Custom:CF${fromext})', '${STATE}'));
+		$ext->add($id, $c, '', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:CF${fromext})', '${STATE}'));
 		$ext->add($id, $c, '', new ext_dbget('DEVICES','AMPUSER/${fromext}/device'));
 		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
 		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
-		$ext->add($id, $c, 'begin', new ext_setvar($DEVSTATE.'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
+		$ext->add($id, $c, 'begin', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:DEVCF${CUT(DEVICES,&,${ITER})})','${STATE}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
@@ -344,6 +337,7 @@ function callforward_cfoff($c) {
 function callforward_cfbon($c) {
 	global $ext;
   global $version;
+  global $amp_conf;
   $ast_ge_16 = version_compare($version, "1.6", "ge");
 
 	$id = "app-cf-busy-on"; // The context to be included
@@ -395,6 +389,7 @@ function callforward_cfbon($c) {
 function callforward_cfboff_any($c) {
 	global $ext;
   global $version;
+  global $amp_conf;
   $ast_ge_16 = version_compare($version, "1.6", "ge");
 
 	$id = "app-cf-busy-off-any"; // The context to be included
@@ -421,6 +416,7 @@ function callforward_cfboff_any($c) {
 
 function callforward_cfboff($c) {
 	global $ext;
+  global $amp_conf;
 
 	$id = "app-cf-busy-off"; // The context to be included
 
@@ -453,6 +449,7 @@ function callforward_cfboff($c) {
 function callforward_cfuon($c) {
 	global $ext;
   global $version;
+  global $amp_conf;
   $ast_ge_16 = version_compare($version, "1.6", "ge");
 
 	$id = "app-cf-unavailable-on"; // The context to be included
@@ -505,6 +502,7 @@ function callforward_cfuon($c) {
 
 function callforward_cfuoff($c) {
 	global $ext;
+  global $amp_conf;
 
 	$id = "app-cf-unavailable-off"; // The context to be included
 
