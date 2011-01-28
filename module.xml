@@ -2,10 +2,11 @@
 	<rawname>callforward</rawname>
 	<repo>standard</repo>
 	<name>Call Forward</name>
-	<version>2.9.0.0</version>
+	<version>2.9.0.1</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<changelog>
+		*2.9.0.1* #4758
 		*2.9.0.0* #4651
 		*2.8.0.4* #4578
 		*2.8.0.3* #4294
@@ -29,6 +30,6 @@
 	<description>Provides callforward featurecodes</description>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
-	<location>release/2.9/callforward-2.9.0.0.tgz</location>
-	<md5sum>4cef835a85ebe8fda24deb379b0e06a7</md5sum>
+	<location>release/2.9/callforward-2.9.0.1.tgz</location>
+	<md5sum>84bbf167b76fa585c0726f524764e92a</md5sum>
 </module>
