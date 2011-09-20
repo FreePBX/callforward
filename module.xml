@@ -28,7 +28,7 @@
 		*1.1* First release for 2.2
 	</changelog>
 	<description>Provides callforward featurecodes</description>
-	<category>Call Flow</category>
+	<category>Applications</category>
 	<location>release/2.9/callforward-2.9.0.1.tgz</location>
 	<md5sum>84bbf167b76fa585c0726f524764e92a</md5sum>
 </module>
