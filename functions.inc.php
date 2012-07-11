@@ -531,4 +531,79 @@ function callforward_cfuoff($c) {
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 }
 
+function callforward_get_extension($extension = '') {
+	global $astman;
+	
+	$cf_type = array('CF','CFU','CFB');
+	$users = array();
+	
+        foreach ($cf_type as $value) {
+		if ($extension) {
+			$users[$value] = $astman->database_get($value, $extension);
+		} else {
+                       	$users[] = $astman->database_show($value);
+		}
+	}
+        
+	return $users;
+}
+
+function callforward_get_number($extension = '', $type = 'CF') {
+	global $astman;
+
+	 switch ($type) {
+                case 'CFU':
+                        $cf_type = 'CFU';
+                break;
+                case 'CFB':
+                        $cf_type = 'CFB';
+                break;
+                case 'CF':
+                default:
+		        $cf_type = 'CF';
+		break;
+        }
+	
+	$number = $astman->database_get($cf_type, $extension);
+	if (is_numeric($number)) {
+		return $number;	
+	}
+}
+
+function callforward_set_number($extension, $number, $type = "CF") {
+	global $astman;
+
+	switch ($type) {
+		case 'CFU':
+			$cf_type = 'CFU';
+		break;
+		case 'CFB':
+			$cf_type = 'CFB';
+		break;
+		case 'CF':
+		default:
+			$cf_type = 'CF';
+		break;
+	}
+
+	return $astman->database_put($cf_type, $extension, $number);
+}
+
+function callforward_set_ringtimer($extension, $ringtimer = 0) {
+	global $astman;
+
+	if ($ringtimer > 120) {
+		$ringtimer = 120;
+	} else if ($ringtimer < -1) {
+		$ringtimer = -1;
+	}
+
+	return $astman->database_put("AMPUSER", $extension . '/cfringtimer', $ringtimer);
+}
+
+function callforward_get_ringtimer($extension) {
+	global $astman;
+
+	return $astman->database_get('AMPUSER', $extension . '/cfringtimer');
+}
 ?>
