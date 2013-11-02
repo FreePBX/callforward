@@ -33,6 +33,6 @@
 	</changelog>
 	<description>Provides callforward featurecodes</description>
 	<category>Applications</category>
-	<location>release/2.11/callforward-2.11.0.0.tgz</location>
-	<md5sum>936f2a8ed70495c15c34314958380d0e</md5sum>
+	<location>release/2.11/callforward-2.11.0.1.tgz</location>
+	<md5sum>b0c78e01abcf34dba530ca9732862868</md5sum>
 </module>
