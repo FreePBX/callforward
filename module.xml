@@ -33,4 +33,4 @@
 	<category>Applications</category>
 	<location>release/2.11/callforward-2.10.0.1.tgz</location>
 	<md5sum>dbf77a7b76420fd7b3ff5e83f4fd9573</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>
