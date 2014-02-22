@@ -140,12 +140,25 @@ function callforward_cf_toggle($c) {
 	}
 }
 
-// Unconditional Call Forwarding
+// Unconditional Call Forwarding, this extension
 function callforward_cfon($c) {
+	callforward_add_cfon($c, false);
+}
+
+// Unconditional Call Forwarding, any extension
+function callforward_cfpon($c) {
+	callforward_add_cfon($c, true);
+}
+
+function callforward_add_cfon($c, $prompt = false) {
 	global $ext;
 	global $amp_conf;
 
-	$id = "app-cf-on"; // The context to be included
+	if ($prompt) {
+		$id = "app-cf-prompting-on";
+	} else {
+		$id = "app-cf-on";
+	}
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
@@ -153,10 +166,16 @@ function callforward_cfon($c) {
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 
-	$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-unconditional&please-enter-your&extension&then-press-pound'));
-	$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["foo${fromext}"="foo"]?${AMPUSER}:${fromext})}'));	
-	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-
+	if ($prompt) {
+		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-unconditional&please-enter-your&extension&then-press-pound'));
+		$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["foo${fromext}"="foo"]?${AMPUSER}:${fromext})}'));	
+		$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
+	} else {
+		$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));	
+		$ext->add($id, $c, '', new ext_gotoif('$["${fromext}"!=""]', 'startread'));
+		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
+		$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	}
 	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
 	$ext->add($id, $c, '', new ext_gotoif('$["foo${toext}"="foo"]', 'startread'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)

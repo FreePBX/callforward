@@ -38,6 +38,12 @@ $fcc->setDefault('*72');
 $fcc->update();
 unset($fcc);
 
+$fcc = new featurecode('callforward', 'cfpon');
+$fcc->setDescription('Call Forward All Prompting Activate');
+$fcc->setDefault('*720');
+$fcc->update();
+unset($fcc);
+
 $fcc = new featurecode('callforward', 'cfoff');
 $fcc->setDescription('Call Forward All Deactivate');
 $fcc->setDefault('*73');
