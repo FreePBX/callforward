@@ -330,28 +330,49 @@ function callforward_cfoff($c) {
 
 // Call Forward on Busy
 function callforward_cfbon($c) {
+	callforward_add_cfbon($c, false);
+}
+
+// Call Forward on Busy Prompting
+function callforward_cfbon($c) {
+	callforward_add_cfbon($c, true);
+}
+
+function callforward_add_cfbon($c, $prompt = false) {
 	global $ext;
 	global $amp_conf;
 
-	$id = "app-cf-busy-on"; // The context to be included
+	if ($prompt) {
+		$id = "app-cf-busy-prompting-on";
+	} else {
+		$id = "app-cf-busy-on";
+	}
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-	$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-on-busy&please-enter-your&extension&then-press-pound'));
-	$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["foo${fromext}"="foo"]?${AMPUSER}:${fromext})}'));	
-	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
+	if ($prompt) {
+		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-on-busy&please-enter-your&extension&then-press-pound'));
+		$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["${fromext}"=""]?${AMPUSER}:${fromext})}'));
+		$ext->add($id, $c, '', new ext_wait('1'));
+	} else {
+		$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
+		$ext->add($id, $c, '', new ext_gotoif('$["${fromext}"!=""]', 'startread'));
+		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
+		$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	}
+
 	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
-	$ext->add($id, $c, '', new ext_gotoif('$["foo${toext}"="foo"]', 'startread'));
-	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
+	$ext->add($id, $c, '', new ext_gotoif('$["${toext}"=""]', 'startread'));
+	$ext->add($id, $c, '', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_setvar('DB(CFB/${fromext})', '${toext}')); 
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-on-busy&for&extension'));
 	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
 	$ext->add($id, $c, '', new ext_playback('is-set-to'));
 	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	$clen = strlen($c);
 	$c = "_$c.";

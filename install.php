@@ -63,6 +63,12 @@ $fcc->setDefault('*90');
 $fcc->update();
 unset($fcc);
 
+$fcc = new featurecode('callforward', 'cfbpon');
+$fcc->setDescription('Call Forward Busy Prompting Activate');
+$fcc->setDefault('*900');
+$fcc->update();
+unset($fcc);
+
 $fcc = new featurecode('callforward', 'cfboff');
 $fcc->setDescription('Call Forward Busy Deactivate');
 $fcc->setDefault('*91');
