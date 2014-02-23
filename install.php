@@ -38,6 +38,12 @@ $fcc->setDefault('*72');
 $fcc->update();
 unset($fcc);
 
+$fcc = new featurecode('callforward', 'cfpon');
+$fcc->setDescription('Call Forward All Prompting Activate');
+$fcc->setDefault('*720');
+$fcc->update();
+unset($fcc);
+
 $fcc = new featurecode('callforward', 'cfoff');
 $fcc->setDescription('Call Forward All Deactivate');
 $fcc->setDefault('*73');
@@ -57,6 +63,12 @@ $fcc->setDefault('*90');
 $fcc->update();
 unset($fcc);
 
+$fcc = new featurecode('callforward', 'cfbpon');
+$fcc->setDescription('Call Forward Busy Prompting Activate');
+$fcc->setDefault('*900');
+$fcc->update();
+unset($fcc);
+
 $fcc = new featurecode('callforward', 'cfboff');
 $fcc->setDescription('Call Forward Busy Deactivate');
 $fcc->setDefault('*91');
@@ -73,6 +85,12 @@ unset($fcc);
 $fcc = new featurecode('callforward', 'cfuon');
 $fcc->setDescription('Call Forward No Answer/Unavailable Activate');
 $fcc->setDefault('*52');
+$fcc->update();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfupon');
+$fcc->setDescription('Call Forward No Answer/Unavailable Prompting Activate');
+$fcc->setDefault('*520');
 $fcc->update();
 unset($fcc);
 
