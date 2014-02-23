@@ -1,22 +1,22 @@
 <?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-//This file is part of FreePBX.
+// This file is part of FreePBX.
 //
-//    FreePBX is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 2 of the License, or
-//    (at your option) any later version.
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-//    FreePBX is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
-//
-// Copyright (C) 2005 qldrob
-//
+// Copyright (C) 2005,2014 Rob Thomas <xrobau@gmail.com>
+
 //for translation only
 if (false) {
 _("Call Forward");
@@ -35,6 +35,12 @@ _("Call Forward Toggle");
 $fcc = new featurecode('callforward', 'cfon');
 $fcc->setDescription('Call Forward All Activate');
 $fcc->setDefault('*72');
+$fcc->update();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfpon');
+$fcc->setDescription('Call Forward All Prompting Activate');
+$fcc->setDefault('*720');
 $fcc->update();
 unset($fcc);
 
@@ -57,6 +63,12 @@ $fcc->setDefault('*90');
 $fcc->update();
 unset($fcc);
 
+$fcc = new featurecode('callforward', 'cfbpon');
+$fcc->setDescription('Call Forward Busy Prompting Activate');
+$fcc->setDefault('*900');
+$fcc->update();
+unset($fcc);
+
 $fcc = new featurecode('callforward', 'cfboff');
 $fcc->setDescription('Call Forward Busy Deactivate');
 $fcc->setDefault('*91');
@@ -73,6 +85,12 @@ unset($fcc);
 $fcc = new featurecode('callforward', 'cfuon');
 $fcc->setDescription('Call Forward No Answer/Unavailable Activate');
 $fcc->setDefault('*52');
+$fcc->update();
+unset($fcc);
+
+$fcc = new featurecode('callforward', 'cfupon');
+$fcc->setDescription('Call Forward No Answer/Unavailable Prompting Activate');
+$fcc->setDefault('*520');
 $fcc->update();
 unset($fcc);
 
