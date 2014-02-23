@@ -88,6 +88,12 @@ $fcc->setDefault('*52');
 $fcc->update();
 unset($fcc);
 
+$fcc = new featurecode('callforward', 'cfupon');
+$fcc->setDescription('Call Forward No Answer/Unavailable Prompting Activate');
+$fcc->setDefault('*520');
+$fcc->update();
+unset($fcc);
+
 $fcc = new featurecode('callforward', 'cfuoff');
 $fcc->setDescription('Call Forward No Answer/Unavailable Deactivate');
 $fcc->setDefault('*53');

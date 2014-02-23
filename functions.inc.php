@@ -334,7 +334,7 @@ function callforward_cfbon($c) {
 }
 
 // Call Forward on Busy Prompting
-function callforward_cfbon($c) {
+function callforward_cfbpon($c) {
 	callforward_add_cfbon($c, true);
 }
 
@@ -443,22 +443,40 @@ function callforward_cfboff($c) {
 
 // Call Forward on No Answer/Unavailable (i.e. phone not registered)
 function callforward_cfuon($c) {
+	callforward_add_cfuon($c, false);
+}
+
+function callforward_cfupon($c) {
+	callforward_add_cfuon($c, true);
+}
+
+function callforward_add_cfuon($c, $prompt=false) {
 	global $ext;
 	global $amp_conf;
 
-	$id = "app-cf-unavailable-on"; // The context to be included
+	if ($prompt) {
+		$id = "app-cf-unavailable-prompt-on";
+	} else {
+		$id = "app-cf-unavailable-on";
+	}
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
-	// prompt for extension
-	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
-	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-	$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-no-ans&please-enter-your&extension&then-press-pound'));
-	$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["foo${fromext}"="foo"]?${AMPUSER}:${fromext})}'));
-	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
+	$ext->add($id, $c, '', new ext_answer(''));
+	$ext->add($id, $c, '', new ext_wait('1'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	if ($prompt) {
+		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-no-ans&please-enter-your&extension&then-press-pound'));
+		$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["${fromext}"=""]?${AMPUSER}:${fromext})}'));
+		$ext->add($id, $c, '', new ext_wait('1'));
+	} else {
+		$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
+		$ext->add($id, $c, '', new ext_gotoif('$["${fromext}"!=""]', 'startread'));
+		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
+		$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	}
 	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
-	$ext->add($id, $c, '', new ext_gotoif('$["foo${toext}"="foo"]', 'startread'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${toext}"=""]', 'startread'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('DB(CFU/${fromext})', '${toext}')); 
 	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-no-ans&for&extension'));
