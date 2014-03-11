@@ -572,6 +572,7 @@ function callforward_get_number($extension = '', $type = 'CF') {
 
 function callforward_set_number($extension, $number, $type = "CF") {
 	global $astman;
+	global $amp_conf;
 
 	switch ($type) {
 	case 'CFU':
@@ -586,7 +587,25 @@ function callforward_set_number($extension, $number, $type = "CF") {
 		break;
 	}
 
-	return $astman->database_put($cf_type, $extension, $number);
+	if ($cf_type == 'CF' && $amp_conf['USEDEVSTATE']) {
+		$state = $number ? 'BUSY' : 'NOT_INUSE';
+
+		$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:" . $cf_type . $extension . ")", $state);
+
+		$devices = $astman->database_get("AMPUSER", $extension . "/device");
+		$device_arr = explode('&', $devices);
+		foreach ($device_arr as $device) {
+			$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:DEV" . $cf_type . $device . ")", $state);
+		}
+	}
+
+	if ($number) {
+		$ret = $astman->database_put($cf_type, $extension, $number);
+	} else {
+		$ret = $astman->database_del($cf_type, $extension);
+	}
+
+	return $ret;
 }
 
 function callforward_set_ringtimer($extension, $ringtimer = 0) {
