@@ -2,10 +2,11 @@
 	<rawname>callforward</rawname>
 	<repo>standard</repo>
 	<name>Call Forward</name>
-	<version>2.11.0.1</version>
+	<version>2.11.1</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<changelog>
+		*2.11.1* Removed the ability to callforward other xtns by default.
 		*2.11.0.1* #6857 related
 		*2.11.0.0* bump version
 		*2.10.0.1* #5478 
