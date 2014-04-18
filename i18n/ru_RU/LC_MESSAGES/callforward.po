@@ -18,55 +18,48 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2014-03-04 09:10+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Hebrew "
-"<http://git.freepbx.org/projects/freepbx/callforward/he/>\n"
-"Language: he_IL\n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"PO-Revision-Date: 2012-11-01 16:24+0400\n"
+"Last-Translator: Postmet <ceo@postmet.com>\n"
+"Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
 
 msgid "Call Forward"
-msgstr ""
+msgstr "Перенаправление вызова"
 
-#, fuzzy
 msgid "Applications"
-msgstr "יישומים"
+msgstr "Приложения"
 
 msgid "Provides callforward featurecodes"
-msgstr ""
+msgstr "Организует коды определения перенаправлений"
 
-#, fuzzy
 msgid "Call Forward All Activate"
-msgstr "הפניית כל השיחה העפל"
+msgstr "Задать перенаправление всез вызовов"
 
-#, fuzzy
 msgid "Call Forward All Deactivate"
-msgstr "הפניית כל השיחה בטל"
+msgstr "Снять перенаправление всех вызовов"
 
 msgid "Call Forward All Prompting Deactivate"
-msgstr ""
+msgstr "Снять перенаправление всех вызовов"
 
 msgid "Call Forward Busy Activate"
-msgstr ""
+msgstr "Задать перенаправление по занятости"
 
 msgid "Call Forward Busy Deactivate"
-msgstr ""
+msgstr "Снять перенаправление по занятости"
 
 msgid "Call Forward Busy Prompting Deactivate"
-msgstr ""
+msgstr "Снять перенаправление по занятости"
 
 msgid "Call Forward No Answer/Unavailable Activate"
-msgstr ""
+msgstr "Задать перенаправление по неответу или недоступности"
 
 msgid "Call Forward No Answer/Unavailable Deactivate"
-msgstr ""
+msgstr "Снять перенаправление по неответу или недоступности"
 
 msgid "Call Forward Toggle"
-msgstr ""
+msgstr "Переключить перенаправление"

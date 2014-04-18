@@ -1,24 +1,9 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-// This file is part of FreePBX.
+//	License for all code of this FreePBX module can be found in the license file inside the module directory
+//	Copyright 2013 Schmooze Com Inc.
 //
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as
-// published by the Free Software Foundation, either version 3 of the
-// License, or (at your option) any later version.
-
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
-// Copyright (C) 2005,2014 Rob Thomas <xrobau@gmail.com>
-//
-
 function callforward_get_config($engine) {
 	$modulename = 'callforward';
 
@@ -572,6 +557,7 @@ function callforward_get_number($extension = '', $type = 'CF') {
 
 function callforward_set_number($extension, $number, $type = "CF") {
 	global $astman;
+	global $amp_conf;
 
 	switch ($type) {
 	case 'CFU':
@@ -586,7 +572,25 @@ function callforward_set_number($extension, $number, $type = "CF") {
 		break;
 	}
 
-	return $astman->database_put($cf_type, $extension, $number);
+	if ($cf_type == 'CF' && $amp_conf['USEDEVSTATE']) {
+		$state = $number ? 'BUSY' : 'NOT_INUSE';
+
+		$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:" . $cf_type . $extension . ")", $state);
+
+		$devices = $astman->database_get("AMPUSER", $extension . "/device");
+		$device_arr = explode('&', $devices);
+		foreach ($device_arr as $device) {
+			$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:DEV" . $cf_type . $device . ")", $state);
+		}
+	}
+
+	if ($number) {
+		$ret = $astman->database_put($cf_type, $extension, $number);
+	} else {
+		$ret = $astman->database_del($cf_type, $extension);
+	}
+
+	return $ret;
 }
 
 function callforward_set_ringtimer($extension, $ringtimer = 0) {
