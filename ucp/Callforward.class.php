@@ -33,11 +33,78 @@ class Callforward extends Modules{
 	}
 
 	public function getSettingsDisplay($ext) {
-		$out[] = array(
-			"title" => _('Call Forwarding'),
-			"content" => 'Ok Content!',
-			"size" => 6
+		$displayvars = array(
+			"ringtime" => $this->UCP->FreePBX->Callforward->getRingtimerByExtension($ext),
+			"CFU" => $this->UCP->FreePBX->Callforward->getNumberByExtension($ext,'CFU'),
+			"CFB" => $this->UCP->FreePBX->Callforward->getNumberByExtension($ext,'CFB'),
+			"CF" => $this->UCP->FreePBX->Callforward->getNumberByExtension($ext,'CF'),
+		);
+		for($i = 1;$i<=120;$i++) {
+			$displayvars['cfringtimes'][$i] = $i;
+		}
+		$out = array(
+			array(
+				"title" => _('Call Forwarding'),
+				"content" => $this->load_view(__DIR__.'/views/settings.php',$displayvars).$this->LoadScripts(),
+				"size" => 6
+			)
 		);
 		return $out;
+	}
+
+		/**
+	 * Determine what commands are allowed
+	 *
+	 * Used by Ajax Class to determine what commands are allowed by this class
+	 *
+	 * @param string $command The command something is trying to perform
+	 * @param string $settings The Settings being passed through $_POST or $_PUT
+	 * @return bool True if pass
+	 */
+	function ajaxRequest($command, $settings) {
+		if(!$this->_checkExtension($_POST['ext'])) {
+			return false;
+		}
+		switch($command) {
+			case 'settings':
+				return true;
+			default:
+				return false;
+			break;
+		}
+	}
+
+	/**
+	 * The Handler for all ajax events releated to this class
+	 *
+	 * Used by Ajax Class to process commands
+	 *
+	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
+	 */
+	function ajaxHandler() {
+		$return = array("status" => false, "message" => "");
+		switch($_REQUEST['command']) {
+			case 'settings':
+				if(isset($_POST['ringtimer'])) {
+					$this->UCP->FreePBX->Callforward->setRingtimerByExtension($_POST['ext'],$_POST['ringtimer']);
+				}
+				if(isset($_POST['type'])) {
+					if(!empty($_POST['number'])) {
+						$this->UCP->FreePBX->Callforward->setNumberByExtension($_POST['ext'],$_POST['number'],$_POST['type']);
+					} else {
+						$this->UCP->FreePBX->Callforward->delNumberByExtension($_POST['ext'],$_POST['type']);
+					}
+				}
+				return array("status" => true, "alert" => "success", "message" => _('Call Forwarding Has Been Updated!'));
+				break;
+			default:
+				return $return;
+			break;
+		}
+	}
+
+	private function _checkExtension($extension) {
+		$user = $this->UCP->User->getUser();
+		return in_array($extension,$user['assigned']);
 	}
 }
