@@ -11,13 +11,16 @@ var Callforward = new function() {
 		$('#cfringtimer').change(function() {
 			Callforward.saveSettings({ringtimer: $(this).val()});
 		});
-		$('.cfnumber input[type="text"]').blur(function() {
-			var el = $(this).prop("name");
-			if($('.cfnumber input[data-el="'+el+'"]').is(':checked')) {
-				if($(this).val() !== '') {
-					Callforward.saveSettings({number: $(this).val(), type: $(this).data('type')});
+		$('.cfnumber input[type="text"]').change(function() {
+			$(this).blur(function() {
+				var el = $(this).prop("name");
+				if($('.cfnumber input[data-el="'+el+'"]').is(':checked')) {
+					if($(this).val() !== '') {
+						Callforward.saveSettings({number: $(this).val(), type: $(this).data('type')});
+					}
 				}
-			}
+				$(this).off('blur');
+			});
 		});
 		$('.cfnumber input[type="checkbox"]').change(function() {
 			var el = $(this).data("el");
