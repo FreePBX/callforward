@@ -45,7 +45,7 @@ class Callforward extends Modules{
 		$out = array(
 			array(
 				"title" => _('Call Forwarding'),
-				"content" => $this->load_view(__DIR__.'/views/settings.php',$displayvars).$this->LoadScripts(),
+				"content" => $this->load_view(__DIR__.'/views/settings.php',$displayvars),
 				"size" => 6
 			)
 		);

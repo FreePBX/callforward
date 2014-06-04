@@ -1,10 +1,7 @@
-var Callforward = new function() {
-	this.initalized = false;
-	this.init = function() {
-		//prevent multiple loads of this class which end up destroying content and rebinding a gazillon times
-		if(this.initalized) {
-			return false;
-		}
+var CallforwardC = UCPC.extend({
+	init: function(){
+	},
+	settingsDisplay: function() {
 		$('#module-Callforward form .input-group').each(function( index ) {
 			$(this).find('input[type="text"]').prop('disabled',!$(this).find('input[type="checkbox"]').is(':checked'));
 		});
@@ -34,8 +31,13 @@ var Callforward = new function() {
 				$('#'+el).prop('disabled',false);
 			}
 		});
-	};
-	this.saveSettings = function(data) {
+	},
+	settingsHide: function() {
+		$('#cfringtimer').off('change');
+		$('.cfnumber input[type="text"]').off('change');
+		$('.cfnumber input[type="checkbox"]').off('change');
+	},
+	saveSettings: function(data) {
 		data.ext = ext;
 		$.post( "index.php?quietmode=1&module=callforward&command=settings", data, function( data ) {
 			$('#module-Callforward .message').text(data.message).addClass('alert-'+data.alert).fadeIn('fast', function() {
@@ -45,12 +47,6 @@ var Callforward = new function() {
 				});
 			});
 		});
-	};
-};
-
-//MUST REMAIN AT BOTTOM!
-//This might not be needed as most browser seem to run doc ready anyways
-//TODO: This should be in the higher up. each module should have this functionality from here on out!
-$(function() {
-	Callforward.init();
+	}
 });
+var Callforward = new CallforwardC();
