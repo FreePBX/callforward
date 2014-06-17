@@ -1,4 +1,4 @@
-var CallforwardC = UCPC.extend({
+var CallforwardC = UCPMC.extend({
 	init: function(){
 	},
 	settingsDisplay: function() {
@@ -8,7 +8,7 @@ var CallforwardC = UCPC.extend({
 		$('#cfringtimer').change(function() {
 			Callforward.saveSettings({ringtimer: $(this).val()});
 		});
-		$('.cfnumber input[type="text"]').change(function() {
+		$('#module-Callforward .cfnumber input[type="text"]').change(function() {
 			$(this).blur(function() {
 				var el = $(this).prop("name");
 				if($('.cfnumber input[data-el="'+el+'"]').is(':checked')) {
@@ -19,7 +19,7 @@ var CallforwardC = UCPC.extend({
 				$(this).off('blur');
 			});
 		});
-		$('.cfnumber input[type="checkbox"]').change(function() {
+		$('#module-Callforward .cfnumber input[type="checkbox"]').change(function() {
 			var el = $(this).data("el");
 			if(!$(this).is(':checked')) {
 				$('#'+el).prop('disabled',true);
@@ -41,11 +41,11 @@ var CallforwardC = UCPC.extend({
 		data.ext = ext;
 		$.post( "index.php?quietmode=1&module=callforward&command=settings", data, function( data ) {
 			$('#module-Callforward .message').text(data.message).addClass('alert-'+data.alert).fadeIn('fast', function() {
-				$('.masonry-container').packery();
 				$(this).delay(2000).fadeOut('fast', function() {
 					$('.masonry-container').packery();
 				});
 			});
+			$('.masonry-container').packery();
 		});
 	}
 });
