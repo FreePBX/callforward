@@ -7,7 +7,7 @@
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<changelog>
-		*12.0.5* Fix ambiguous feature codes
+		*12.0.5* #7404 Fix ambiguous feature codes
 		*12.0.4* UCP work
 		*12.0.3* Restructure Parts of UCP
 		*12.0.2* Detect change on change then blur for UCP
