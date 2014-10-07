@@ -18,13 +18,15 @@ _("Call Forward Toggle");
 // Unconditional Call Forwarding
 $fcc = new featurecode('callforward', 'cfon');
 $fcc->setDescription('Call Forward All Activate');
+$fcc->setHelpText('Defines the Feature Code to use for Activating call Forwarding. Alternatively you can also dial *72NPANXX to forward without a prompt');
 $fcc->setDefault('*72');
 $fcc->update();
 unset($fcc);
 
 $fcc = new featurecode('callforward', 'cfpon');
 $fcc->setDescription('Call Forward All Prompting Activate');
-$fcc->setDefault('*93');
+$fcc->setHelpText('Defines the Feature Code to use for Activating call Forward propmting. This will prompt user for a number');
+$fcc->setDefault('*720');
 $fcc->update();
 unset($fcc);
 
@@ -49,7 +51,7 @@ unset($fcc);
 
 $fcc = new featurecode('callforward', 'cfbpon');
 $fcc->setDescription('Call Forward Busy Prompting Activate');
-$fcc->setDefault('*94');
+$fcc->setDefault('*900');
 $fcc->update();
 unset($fcc);
 
@@ -74,7 +76,7 @@ unset($fcc);
 
 $fcc = new featurecode('callforward', 'cfupon');
 $fcc->setDescription('Call Forward No Answer/Unavailable Prompting Activate');
-$fcc->setDefault('*95');
+$fcc->setDefault('*520');
 $fcc->update();
 unset($fcc);
 
@@ -86,7 +88,7 @@ unset($fcc);
 
 $fcc = new featurecode('callforward', 'cf_toggle');
 $fcc->setDescription('Call Forward Toggle');
-$fcc->setDefault('*96');
+$fcc->setDefault('*740');
 $fcc->update();
 unset($fcc);
 
