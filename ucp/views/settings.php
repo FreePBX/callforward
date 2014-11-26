@@ -15,9 +15,9 @@
 		<label for="call_forward" class="help"><?php echo _('Unconditional')?> <i class="fa fa-question-circle"></i></label></br>
 		<div class="input-group cfnumber">
 			<span class="input-group-addon">
-				<input type="checkbox" id="call_forward_number_enable" name="call_forward_number_enable" data-el="call_forward" <?php echo !empty($CFU) ? 'checked' : ''?>>
+				<input type="checkbox" id="call_forward_number_enable" name="call_forward_number_enable" data-el="call_forward" <?php echo !empty($CF) ? 'checked' : ''?>>
 			</span>
-			<input type="text" class="form-control" id="call_forward" name="call_forward" data-type="CFU" value="<?php echo $CFU?>">
+			<input type="text" class="form-control" id="call_forward" name="call_forward" data-type="CF" value="<?php echo $CF?>">
 		</div>
 		<span class="help-block help-hidden" data-for="call_forward"><?php echo _('Forward immediately regardless of current state of line/PBX')?></span>
 	</div>
@@ -25,9 +25,9 @@
 		<label for="call_forward_unavailable" class="help"><?php echo _('Unavailable')?> <i class="fa fa-question-circle"></i></label></br>
 		<div class="input-group cfnumber">
 			<span class="input-group-addon">
-				<input type="checkbox" id="call_forward_unavailable_enable" name="call_forward_unavailable_enable" data-el="call_forward_unavailable" <?php echo !empty($CF) ? 'checked' : ''?>>
+				<input type="checkbox" id="call_forward_unavailable_number_enable" name="call_forward_unavailable_number_enable" data-el="call_forward_unavailable" <?php echo !empty($CFU) ? 'checked' : ''?>>
 			</span>
-			<input type="text" class="form-control" id="call_forward_unavailable" name="call_forward_unavailable" data-type="CF" value="<?php echo $CF?>">
+			<input type="text" class="form-control" id="call_forward_unavailable" name="call_forward_unavailable" data-type="CFU" value="<?php echo $CFU?>">
 		</div>
 		<span class="help-block help-hidden" data-for="call_forward_unavailable"><?php echo _('Preconfigured number to which calls are forwarded if the customer endpoint becomes unresponsive due to an Internet outage or software/configuration failure of endpoint')?></span>
 	</div>
