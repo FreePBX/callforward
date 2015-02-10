@@ -10,6 +10,7 @@ class Callforward implements BMO {
 
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
+		$this->astman = $freepbx->astman;
 	}
 
 	public function doConfigPageInit($page) {
@@ -40,7 +41,7 @@ class Callforward implements BMO {
 		$users = array();
 
 		foreach ($cf_type as $value) {
-			$users[$value] = $this->FreePBX->astman->database_get($value, $extension);
+			$users[$value] = $this->astman->database_get($value, $extension);
 		}
 
 		return $users;
@@ -60,8 +61,8 @@ class Callforward implements BMO {
 			break;
 		}
 
-		$number = $this->FreePBX->astman->database_get($cf_type, $extension);
-		return is_numeric($number) ? $number : false;
+		$number = $this->astman->database_get($cf_type, $extension);
+		return $number ? $number : false;
 	}
 
 	function setNumberByExtension($extension, $number, $type = "CF") {
@@ -78,7 +79,17 @@ class Callforward implements BMO {
 			break;
 		}
 
-		return $this->FreePBX->astman->database_put($cf_type, $extension, $number);
+		if ($cf_type == 'CF') {
+			$state = $this->FreePBX->Config->get('AST_FUNC_DEVICE_STATE');
+			$this->astman->set_global($state . "(Custom:" . $cf_type . $extension . ")", 'BUSY');
+			$devices = $this->astman->database_get("AMPUSER", $extension . "/device");
+			$device_arr = explode('&', $devices);
+			foreach ($device_arr as $device) {
+				$this->astman->set_global($state . "(Custom:DEV" . $cf_type . $device . ")", 'BUSY');
+			}
+		}
+
+		return $this->astman->database_put($cf_type, $extension, $number);
 	}
 
 	function delNumberByExtension($extension, $type = "CF") {
@@ -94,6 +105,16 @@ class Callforward implements BMO {
 				$cf_type = 'CF';
 			break;
 		}
+
+		if ($cf_type == 'CF') {
+			$state = $this->FreePBX->Config->get('AST_FUNC_DEVICE_STATE');
+			$this->astman->set_global($state . "(Custom:" . $cf_type . $extension . ")", 'NOT_INUSE');
+			$devices = $this->astman->database_get("AMPUSER", $extension . "/device");
+			$device_arr = explode('&', $devices);
+			foreach ($device_arr as $device) {
+				$this->astman->set_global($state . "(Custom:DEV" . $cf_type . $device . ")", 'NOT_INUSE');
+			}
+		}
 		return $this->FreePBX->astman->database_del($cf_type, $extension);
 	}
 
@@ -103,10 +124,10 @@ class Callforward implements BMO {
 		} else if ($ringtimer < -1) {
 			$ringtimer = -1;
 		}
-		return $this->FreePBX->astman->database_put("AMPUSER", $extension . '/cfringtimer', $ringtimer);
+		return $this->astman->database_put("AMPUSER", $extension . '/cfringtimer', $ringtimer);
 	}
 
 	function getRingtimerByExtension($extension) {
-		return $this->FreePBX->astman->database_get('AMPUSER', $extension . '/cfringtimer');
+		return $this->astman->database_get('AMPUSER', $extension . '/cfringtimer');
 	}
 }
