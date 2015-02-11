@@ -20,53 +20,60 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-11 16:50-0500\n"
 "PO-Revision-Date: 2014-03-04 09:10+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Hebrew "
-"<http://git.freepbx.org/projects/freepbx/callforward/he/>\n"
-"Language: he_IL\n"
+"Language-Team: Hebrew <http://git.freepbx.org/projects/freepbx/callforward/"
+"he/>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: he_IL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
+#: /usr/src/freepbx/callforward/install.php:6
 msgid "Call Forward"
 msgstr ""
 
-#, fuzzy
-msgid "Applications"
-msgstr "יישומים"
-
-msgid "Provides callforward featurecodes"
-msgstr ""
-
+#: /usr/src/freepbx/callforward/install.php:7
 #, fuzzy
 msgid "Call Forward All Activate"
 msgstr "הפניית כל השיחה העפל"
 
+#: /usr/src/freepbx/callforward/install.php:8
 #, fuzzy
 msgid "Call Forward All Deactivate"
 msgstr "הפניית כל השיחה בטל"
 
+#: /usr/src/freepbx/callforward/install.php:9
 msgid "Call Forward All Prompting Deactivate"
 msgstr ""
 
+#: /usr/src/freepbx/callforward/install.php:10
 msgid "Call Forward Busy Activate"
 msgstr ""
 
+#: /usr/src/freepbx/callforward/install.php:11
 msgid "Call Forward Busy Deactivate"
 msgstr ""
 
+#: /usr/src/freepbx/callforward/install.php:12
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr ""
 
+#: /usr/src/freepbx/callforward/install.php:13
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr ""
 
+#: /usr/src/freepbx/callforward/install.php:14
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr ""
 
+#: /usr/src/freepbx/callforward/install.php:15
 msgid "Call Forward Toggle"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Applications"
+#~ msgstr "יישומים"

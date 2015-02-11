@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-11 16:50-0500\n"
 "PO-Revision-Date: 2009-04-20 11:18+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -27,38 +27,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: /usr/src/freepbx/callforward/install.php:6
 msgid "Call Forward"
 msgstr "Transfert d'Appel"
 
-msgid "Applications"
-msgstr ""
-
-msgid "Provides callforward featurecodes"
-msgstr ""
-
+#: /usr/src/freepbx/callforward/install.php:7
 msgid "Call Forward All Activate"
 msgstr "Transferts d'Appels Tous Actifs"
 
+#: /usr/src/freepbx/callforward/install.php:8
 msgid "Call Forward All Deactivate"
 msgstr "Transferts d'Appels Tous Désactivés"
 
+#: /usr/src/freepbx/callforward/install.php:9
 msgid "Call Forward All Prompting Deactivate"
 msgstr "Messages de Transferts d'Appels Tous Désactivés"
 
+#: /usr/src/freepbx/callforward/install.php:10
 msgid "Call Forward Busy Activate"
 msgstr "Transfert d'Appels quand Occupé Activé"
 
+#: /usr/src/freepbx/callforward/install.php:11
 msgid "Call Forward Busy Deactivate"
 msgstr "Transfert d'Appels quand Occupé Désactivé"
 
+#: /usr/src/freepbx/callforward/install.php:12
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "Messages de Transfert d'Appels quand Occupé Désactivé"
 
+#: /usr/src/freepbx/callforward/install.php:13
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "Transfert d'Appels quand Pas de Réponse/Indisponible Activé"
 
+#: /usr/src/freepbx/callforward/install.php:14
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "Transfert d'Appels quand Pas de Réponse/Indisponible Désactivé"
 
+#: /usr/src/freepbx/callforward/install.php:15
 msgid "Call Forward Toggle"
 msgstr ""

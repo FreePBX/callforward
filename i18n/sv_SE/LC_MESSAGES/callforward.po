@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX callforward\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-11 16:50-0500\n"
 "PO-Revision-Date: 2011-03-19 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -28,41 +28,49 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: /usr/src/freepbx/callforward/install.php:6
 msgid "Call Forward"
 msgstr "Vidarekoppling"
 
-msgid "Applications"
-msgstr ""
-
-msgid "Provides callforward featurecodes"
-msgstr "Modulen tillhandahåller funktionskoder för vidarebefordran av samtal"
-
+#: /usr/src/freepbx/callforward/install.php:7
 msgid "Call Forward All Activate"
 msgstr "Aktivera konstant Vidarekoppling"
 
+#: /usr/src/freepbx/callforward/install.php:8
 msgid "Call Forward All Deactivate"
 msgstr "Avaktivera konstant Vidarekoppling för din anknytning"
 
+#: /usr/src/freepbx/callforward/install.php:9
 msgid "Call Forward All Prompting Deactivate"
 msgstr "Avaktivera konstant Vidarekoppling"
 
+#: /usr/src/freepbx/callforward/install.php:10
 msgid "Call Forward Busy Activate"
 msgstr "Aktivera Vidarekoppling vid upptaget"
 
+#: /usr/src/freepbx/callforward/install.php:11
 msgid "Call Forward Busy Deactivate"
 msgstr "Avaktivera Vidarekoppling vid upptaget för din anknytning"
 
+#: /usr/src/freepbx/callforward/install.php:12
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "Avaktivera Vidarekoppling vid upptaget"
 
+#: /usr/src/freepbx/callforward/install.php:13
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "Aktivera Vidarekoppling vid inget svar/otillgänglig"
 
+#: /usr/src/freepbx/callforward/install.php:14
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "Avaktivera Vidarekoppling vid inget svar/otillgänglig"
 
+#: /usr/src/freepbx/callforward/install.php:15
 msgid "Call Forward Toggle"
 msgstr "Slå om vidarebefordran"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr ""
+#~ "Modulen tillhandahåller funktionskoder för vidarebefordran av samtal"
 
 #~ msgid "Internal Options & Configuration"
 #~ msgstr "Interna val och konfigurationer"

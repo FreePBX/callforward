@@ -7,53 +7,63 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-11 16:50-0500\n"
 "PO-Revision-Date: 2015-02-05 21:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese "
-"<http://git.freepbx.org/projects/freepbx/callforward/zh_CN/>\n"
-"Language: zh_CN\n"
+"Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
+"callforward/zh_CN/>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+#: /usr/src/freepbx/callforward/install.php:6
 msgid "Call Forward"
 msgstr "呼叫转移"
 
-msgid "Applications"
-msgstr "应用"
-
-msgid "Provides callforward featurecodes"
-msgstr "提供呼叫前转功能代码"
-
+#: /usr/src/freepbx/callforward/install.php:7
 msgid "Call Forward All Activate"
 msgstr "呼叫转移 - 全部激活"
 
+#: /usr/src/freepbx/callforward/install.php:8
 msgid "Call Forward All Deactivate"
 msgstr "呼叫转移 - 全部关闭"
 
+#: /usr/src/freepbx/callforward/install.php:9
 msgid "Call Forward All Prompting Deactivate"
 msgstr "呼叫转移 - 全部提示关闭"
 
+#: /usr/src/freepbx/callforward/install.php:10
 msgid "Call Forward Busy Activate"
 msgstr "呼叫转移 - 忙时激活"
 
+#: /usr/src/freepbx/callforward/install.php:11
 msgid "Call Forward Busy Deactivate"
 msgstr "呼叫转移 - 忙时关闭"
 
+#: /usr/src/freepbx/callforward/install.php:12
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "呼叫转移 - 忙时提示关闭"
 
+#: /usr/src/freepbx/callforward/install.php:13
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "呼叫转移 - 无应答或不可用时激活"
 
+#: /usr/src/freepbx/callforward/install.php:14
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "呼叫转移 - 无应答或不可用时关闭"
 
+#: /usr/src/freepbx/callforward/install.php:15
 msgid "Call Forward Toggle"
 msgstr "呼叫前转触发"
+
+#~ msgid "Applications"
+#~ msgstr "应用"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "提供呼叫前转功能代码"
