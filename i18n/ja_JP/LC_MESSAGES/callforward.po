@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-11 17:23-0500\n"
+"POT-Creation-Date: 2015-02-20 19:03-0500\n"
 "PO-Revision-Date: 2013-11-07 12:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -47,67 +47,71 @@ msgstr ""
 "Language: Japanese\n"
 "X-Generator: Poedit 1.5.7\n"
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:35
+#: callforward.i18n.php:4 callforward.i18n.php:9
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: ucp/views/settings.php:35
 msgid "Busy"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/install.php:6
+#: callforward.i18n.php:3 callforward.i18n.php:7 install.php:6
 msgid "Call Forward"
 msgstr "通話転送"
 
-#: /usr/src/freepbx/callforward/install.php:7
+#: install.php:7
 msgid "Call Forward All Activate"
 msgstr "通話転送 全アクティブ"
 
-#: /usr/src/freepbx/callforward/install.php:8
+#: install.php:8
 msgid "Call Forward All Deactivate"
 msgstr "通話転送 全非アクティブ"
 
-#: /usr/src/freepbx/callforward/install.php:9
+#: install.php:9
 msgid "Call Forward All Prompting Deactivate"
 msgstr "通話転送 全プロンプト非アクティブ"
 
-#: /usr/src/freepbx/callforward/install.php:10
+#: install.php:10
 msgid "Call Forward Busy Activate"
 msgstr "通話転送 ビジーアクティブ"
 
-#: /usr/src/freepbx/callforward/install.php:11
+#: install.php:11
 msgid "Call Forward Busy Deactivate"
 msgstr "通話転送 ビジー非アクティブ"
 
-#: /usr/src/freepbx/callforward/install.php:12
+#: install.php:12
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "通話転送 ビジープロンプト非アクティブ"
 
-#: /usr/src/freepbx/callforward/install.php:13
+#: install.php:13
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "通話転送 応答なし/利用不可 アクティブ"
 
-#: /usr/src/freepbx/callforward/install.php:14
+#: install.php:14
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "通話転送 応答なし/利用不可 非アクティブ"
 
-#: /usr/src/freepbx/callforward/install.php:15
+#: install.php:15
 msgid "Call Forward Toggle"
 msgstr "通話転送切り替え"
 
-#: /usr/src/freepbx/callforward/ucp/Callforward.class.php:47
+#: ucp/Callforward.class.php:47
 msgid "Call Forwarding"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/Callforward.class.php:98
+#: ucp/Callforward.class.php:98
 msgid "Call Forwarding Has Been Updated!"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:4
+#: ucp/views/settings.php:4
 msgid "CallForward Ringtimer"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:22
+#: ucp/views/settings.php:22
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:12
+#: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
 "destinations that may be setup by an administrator on this account. The "
@@ -117,33 +121,31 @@ msgid ""
 "alternartive fail over destination for a call to go to."
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:32
+#: ucp/views/settings.php:32
 msgid ""
 "Preconfigured number to which calls are forwarded if the customer endpoint "
 "becomes unresponsive due to an Internet outage or software/configuration "
 "failure of endpoint"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:42
+#: ucp/views/settings.php:42
 msgid ""
 "Preconfigured number to which calls are forwarded if the customer endpoint "
 "is busy, usually due to being on an active call"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:9
+#: callforward.i18n.php:5 callforward.i18n.php:11
+msgid "Provides callforward featurecodes"
+msgstr "通話転送キーコードを提供します。"
+
+#: ucp/views/settings.php:9
 msgid "Seconds"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:25
+#: ucp/views/settings.php:25
 msgid "Unavailable"
 msgstr ""
 
-#: /usr/src/freepbx/callforward/ucp/views/settings.php:15
+#: ucp/views/settings.php:15
 msgid "Unconditional"
 msgstr ""
-
-#~ msgid "Applications"
-#~ msgstr "アプリケーション"
-
-#~ msgid "Provides callforward featurecodes"
-#~ msgstr "通話転送キーコードを提供します。"
