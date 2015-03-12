@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:03-0500\n"
-"PO-Revision-Date: 2014-07-21 15:04+0200\n"
+"PO-Revision-Date: 2015-03-11 21:30+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
-"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/"
-"callforward/bg/>\n"
+"Language-Team: Bulgarian "
+"<http://weblate.freepbx.org/projects/freepbx/callforward/bg_BG/>\n"
+"Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -28,7 +28,7 @@ msgstr "Приложения"
 
 #: ucp/views/settings.php:35
 msgid "Busy"
-msgstr ""
+msgstr "Заето"
 
 #: callforward.i18n.php:3 callforward.i18n.php:7 install.php:6
 msgid "Call Forward"
@@ -72,11 +72,11 @@ msgstr "Пренасочване на Разговор Превключи"
 
 #: ucp/Callforward.class.php:47
 msgid "Call Forwarding"
-msgstr ""
+msgstr "Пренасочване на Разговор"
 
 #: ucp/Callforward.class.php:98
 msgid "Call Forwarding Has Been Updated!"
-msgstr ""
+msgstr "Пренасочване на Разговор е Актуализирано!"
 
 #: ucp/views/settings.php:4
 msgid "CallForward Ringtimer"
