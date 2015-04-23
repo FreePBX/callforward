@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:03-0500\n"
-"PO-Revision-Date: 2015-04-23 00:59+0200\n"
+"PO-Revision-Date: 2015-04-23 01:05+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/callforward/fr_FR/>\n"
@@ -41,15 +41,15 @@ msgstr "Occupé"
 
 #: callforward.i18n.php:3 callforward.i18n.php:7 install.php:6
 msgid "Call Forward"
-msgstr "Transfert d'Appel"
+msgstr "Renvoi d'appel"
 
 #: install.php:7
 msgid "Call Forward All Activate"
-msgstr "Transferts d'Appels Tous Actifs"
+msgstr "Renvoi d'appels Tous Actifs"
 
 #: install.php:8
 msgid "Call Forward All Deactivate"
-msgstr "Transferts d'Appels Tous Désactivés"
+msgstr "Renvoi d'appel Tous Désactivés"
 
 #: install.php:9
 msgid "Call Forward All Prompting Deactivate"
@@ -57,7 +57,7 @@ msgstr "Messages de Transferts d'Appels Tous Désactivés"
 
 #: install.php:10
 msgid "Call Forward Busy Activate"
-msgstr "Transfert d'Appels quand Occupé Activé"
+msgstr "Renvoi d'appel occupé activé"
 
 #: install.php:11
 msgid "Call Forward Busy Deactivate"
@@ -85,7 +85,7 @@ msgstr "Renvoi d'appel"
 
 #: ucp/Callforward.class.php:98
 msgid "Call Forwarding Has Been Updated!"
-msgstr ""
+msgstr "Renvoi d'appel a été modifié !"
 
 #: ucp/views/settings.php:4
 msgid "CallForward Ringtimer"
@@ -124,12 +124,12 @@ msgstr ""
 
 #: ucp/views/settings.php:9
 msgid "Seconds"
-msgstr ""
+msgstr "Secondes"
 
 #: ucp/views/settings.php:25
 msgid "Unavailable"
-msgstr ""
+msgstr "Indisponible"
 
 #: ucp/views/settings.php:15
 msgid "Unconditional"
-msgstr ""
+msgstr "Sans condition"
