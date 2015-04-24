@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:03-0500\n"
-"PO-Revision-Date: 2015-04-23 01:05+0200\n"
+"PO-Revision-Date: 2015-04-23 20:02+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/callforward/fr_FR/>\n"
@@ -128,7 +128,7 @@ msgstr "Secondes"
 
 #: ucp/views/settings.php:25
 msgid "Unavailable"
-msgstr "Indisponible"
+msgstr "Non disponible"
 
 #: ucp/views/settings.php:15
 msgid "Unconditional"
