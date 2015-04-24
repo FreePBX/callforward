@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo callforward module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:03-0500\n"
-"PO-Revision-Date: 2015-03-24 00:14+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"PO-Revision-Date: 2015-04-23 20:01+0200\n"
+"Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/callforward/es_ES/>\n"
 "Language: es_ES\n"
@@ -126,7 +126,7 @@ msgstr "Segundos"
 
 #: ucp/views/settings.php:25
 msgid "Unavailable"
-msgstr "Indisponible"
+msgstr "Non disponible"
 
 #: ucp/views/settings.php:15
 msgid "Unconditional"
