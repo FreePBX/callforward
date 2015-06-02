@@ -21,12 +21,17 @@ msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:03-0500\n"
-"PO-Revision-Date: 2012-11-01 16:24+0400\n"
-"Last-Translator: Postmet <ceo@postmet.com>\n"
-"Language-Team: Russian\n"
+"PO-Revision-Date: 2015-05-31 00:30+0200\n"
+"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
+"Language-Team: Russian "
+"<http://weblate.freepbx.org/projects/freepbx/callforward/ru_RU/>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: callforward.i18n.php:4 callforward.i18n.php:9
 msgid "Applications"
@@ -34,7 +39,7 @@ msgstr "Приложения"
 
 #: ucp/views/settings.php:35
 msgid "Busy"
-msgstr ""
+msgstr "Занято"
 
 #: callforward.i18n.php:3 callforward.i18n.php:7 install.php:6
 msgid "Call Forward"
@@ -78,19 +83,19 @@ msgstr "Переключить перенаправление"
 
 #: ucp/Callforward.class.php:47
 msgid "Call Forwarding"
-msgstr ""
+msgstr "Переадресация звонка"
 
 #: ucp/Callforward.class.php:98
 msgid "Call Forwarding Has Been Updated!"
-msgstr ""
+msgstr "Переадресация звонков обновлено!"
 
 #: ucp/views/settings.php:4
 msgid "CallForward Ringtimer"
-msgstr ""
+msgstr "Таймер звонка переадресации вызова"
 
 #: ucp/views/settings.php:22
 msgid "Forward immediately regardless of current state of line/PBX"
-msgstr ""
+msgstr "Перевести немедленно, независимо от текущего состояния линии/АТС"
 
 #: ucp/views/settings.php:12
 msgid ""
@@ -101,6 +106,13 @@ msgid ""
 "Your setting here will be forced to Always if there is no Voicemail or "
 "alternartive fail over destination for a call to go to."
 msgstr ""
+"Количество секунд вызова до перехода на голосовую почту или другое "
+"назначение при сбое, которые могут быть установлены администратором на этот "
+"аккаунт. Установка Всегда будет звонить в переадресацию, пока вызываемый не "
+"ответил или абонент не повешает трубку. Значение по умолчанию будет "
+"использовать значение, установленное во Времени Вызова. Ваши настройки здесь "
+"будут установлены на Всегда, если здесь нет Голосовой почты или "
+"альтернативного назначения при сбое вызова."
 
 #: ucp/views/settings.php:32
 msgid ""
@@ -108,12 +120,17 @@ msgid ""
 "becomes unresponsive due to an Internet outage or software/configuration "
 "failure of endpoint"
 msgstr ""
+"Предварительно настроенный номер, на который будут переадресованы звонки, "
+"если конечная точка клиентов перестает отвечать на запросы из-за интернет-"
+"отключения или сбоя программного обеспечения/конфигурации конечной точки"
 
 #: ucp/views/settings.php:42
 msgid ""
 "Preconfigured number to which calls are forwarded if the customer endpoint "
 "is busy, usually due to being on an active call"
 msgstr ""
+"Предварительно настроенный номер, на который будут переадресованы звонки, "
+"если конечная точка клиента занята, как правило, из-за активного вызова"
 
 #: callforward.i18n.php:5 callforward.i18n.php:11
 msgid "Provides callforward featurecodes"
@@ -121,12 +138,12 @@ msgstr "Организует коды определения перенапра�
 
 #: ucp/views/settings.php:9
 msgid "Seconds"
-msgstr ""
+msgstr "Секунд"
 
 #: ucp/views/settings.php:25
 msgid "Unavailable"
-msgstr ""
+msgstr "Недоступен"
 
 #: ucp/views/settings.php:15
 msgid "Unconditional"
-msgstr ""
+msgstr "Безусловный"
