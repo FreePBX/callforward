@@ -47,14 +47,15 @@ function callforward_get_config($engine) {
 			$device_list = core_devices_list("all", 'full', true);
 			$base_offset = strlen($cf_code);
 			foreach ($device_list as $device) {
-				if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+				if ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2') {
 					$offset = $base_offset + strlen($device['id']);
 					$ext->add($contextname, $cf_code.$device['id'], '', new ext_goto("1",$cf_code,"app-cf-toggle"));
 					$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_set("toext",'${EXTEN:'.$offset.'}'));
 					$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_goto("setdirect",$cf_code,"app-cf-toggle"));
-					$ext->addHint($contextname, $cf_code.$device['id'], "Custom:DEVCF".$device['id']);
+					//$ext->addHint($contextname, $cf_code.$device['id'], "Custom:DEVCF".$device['id']);
 				}
 			}
+			$ext->addHint($contextname, "_$cf_code".'X.', "Custom:DEVCF".'${EXTEN:'.strlen($cf_code).'}');
 		}
 
 		break;
