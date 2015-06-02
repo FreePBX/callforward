@@ -2,30 +2,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo callforward module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:03-0500\n"
+"POT-Creation-Date: 2015-06-01 23:31-0400\n"
 "PO-Revision-Date: 2015-04-23 20:01+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/callforward/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
+"callforward/es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: callforward.i18n.php:4 callforward.i18n.php:9
-msgid "Applications"
-msgstr "Aplicaciones"
-
 #: ucp/views/settings.php:35
 msgid "Busy"
 msgstr "Ocupado"
 
-#: callforward.i18n.php:3 callforward.i18n.php:7 install.php:6
+#: install.php:6
 msgid "Call Forward"
 msgstr "Desvío de llamadas"
 
@@ -116,10 +112,6 @@ msgstr ""
 "Número pre-configurado a la que se reenviarán las llamadas si el punto final "
 "al cliente está ocupado, por lo general debido a que en una llamada activa"
 
-#: callforward.i18n.php:5 callforward.i18n.php:11
-msgid "Provides callforward featurecodes"
-msgstr "Provee \"featurecodes\" para desvío de llamadas"
-
 #: ucp/views/settings.php:9
 msgid "Seconds"
 msgstr "Segundos"
@@ -131,3 +123,9 @@ msgstr "Non disponible"
 #: ucp/views/settings.php:15
 msgid "Unconditional"
 msgstr "Incondicional"
+
+#~ msgid "Applications"
+#~ msgstr "Aplicaciones"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "Provee \"featurecodes\" para desvío de llamadas"

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:03-0500\n"
+"POT-Creation-Date: 2015-06-01 23:31-0400\n"
 "PO-Revision-Date: 2013-11-07 12:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -47,15 +47,11 @@ msgstr ""
 "Language: Japanese\n"
 "X-Generator: Poedit 1.5.7\n"
 
-#: callforward.i18n.php:4 callforward.i18n.php:9
-msgid "Applications"
-msgstr "アプリケーション"
-
 #: ucp/views/settings.php:35
 msgid "Busy"
 msgstr ""
 
-#: callforward.i18n.php:3 callforward.i18n.php:7 install.php:6
+#: install.php:6
 msgid "Call Forward"
 msgstr "通話転送"
 
@@ -134,10 +130,6 @@ msgid ""
 "is busy, usually due to being on an active call"
 msgstr ""
 
-#: callforward.i18n.php:5 callforward.i18n.php:11
-msgid "Provides callforward featurecodes"
-msgstr "通話転送キーコードを提供します。"
-
 #: ucp/views/settings.php:9
 msgid "Seconds"
 msgstr ""
@@ -149,3 +141,9 @@ msgstr ""
 #: ucp/views/settings.php:15
 msgid "Unconditional"
 msgstr ""
+
+#~ msgid "Applications"
+#~ msgstr "アプリケーション"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "通話転送キーコードを提供します。"
