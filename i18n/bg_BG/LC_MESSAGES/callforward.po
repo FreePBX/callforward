@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:03-0500\n"
-"PO-Revision-Date: 2015-03-11 21:30+0200\n"
+"PO-Revision-Date: 2015-07-08 00:08+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian "
 "<http://weblate.freepbx.org/projects/freepbx/callforward/bg_BG/>\n"
@@ -80,11 +80,13 @@ msgstr "Пренасочване на Разговор е Актуализира
 
 #: ucp/views/settings.php:4
 msgid "CallForward Ringtimer"
-msgstr ""
+msgstr "Таймер на Звънене за Пренасочване на Разговор"
 
 #: ucp/views/settings.php:22
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr ""
+"Незабавно пренасочва разговора независимо от текущото състояние на "
+"линията/тел.централа"
 
 #: ucp/views/settings.php:12
 msgid ""
@@ -115,12 +117,12 @@ msgstr "Предоставя специални кодове за пренасо
 
 #: ucp/views/settings.php:9
 msgid "Seconds"
-msgstr ""
+msgstr "Секунди"
 
 #: ucp/views/settings.php:25
 msgid "Unavailable"
-msgstr ""
+msgstr "Не Отговаря"
 
 #: ucp/views/settings.php:15
 msgid "Unconditional"
-msgstr ""
+msgstr "Безусловно"
