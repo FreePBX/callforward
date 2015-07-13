@@ -6,12 +6,15 @@ if (false) {
 _("Call Forward");
 _("Call Forward All Activate");
 _("Call Forward All Deactivate");
+_("Call Forward All Prompting Activate");
 _("Call Forward All Prompting Deactivate");
 _("Call Forward Busy Activate");
 _("Call Forward Busy Deactivate");
+_("Call Forward Busy Prompting Activate");
 _("Call Forward Busy Prompting Deactivate");
 _("Call Forward No Answer/Unavailable Activate");
 _("Call Forward No Answer/Unavailable Deactivate");
+_("Call Forward No Answer/Unavailable Prompting Activate");
 _("Call Forward Toggle");
 }
 
