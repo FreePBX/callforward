@@ -72,6 +72,9 @@ function callforward_cf_toggle($c) {
 	$id = "app-cf-toggle"; // The context to be included
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
 
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
@@ -89,12 +92,9 @@ function callforward_cf_toggle($c) {
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
 	if ($amp_conf['FCBEEPONLY']) {
-		$ext->add($id, $c, 'hook_on', new ext_playback('beep')); // $cmd,n,Playback(...)
+		$ext->add($id, $c, '', new ext_playback('beep')); // $cmd,n,Playback(...)
 	} else {
-		$ext->add($id, $c, 'hook_on', new ext_playback('call-fwd-unconditional&for&extension'));
-		$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-		$ext->add($id, $c, '', new ext_playback('is-set-to'));
-		$ext->add($id, $c, '', new ext_saydigits('${toext}'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 	}
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 	$ext->add($id, $c, 'setdirect', new ext_answer(''));
@@ -126,6 +126,21 @@ function callforward_cf_toggle($c) {
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
 	}
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-unconditional&jp-wo'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 // Unconditional Call Forwarding, this extension
@@ -149,13 +164,16 @@ function callforward_add_cfon($c, $prompt = false) {
 	}
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 
 	if ($prompt) {
-		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-unconditional&please-enter-your&extension&then-press-pound'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 		$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["foo${fromext}"="foo"]?${AMPUSER}:${fromext})}'));
 		$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	} else {
@@ -164,7 +182,7 @@ function callforward_add_cfon($c, $prompt = false) {
 		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
 		$ext->add($id, $c, '', new ext_macro('hangupcall'));
 	}
-	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $c, 'startread', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
 	$ext->add($id, $c, '', new ext_gotoif('$["foo${toext}"="foo"]', 'startread'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('DB(CF/${fromext})', '${toext}'));
@@ -175,10 +193,7 @@ function callforward_add_cfon($c, $prompt = false) {
 	if ($amp_conf['FCBEEPONLY']) {
 		$ext->add($id, $c, 'hook_1', new ext_playback('beep')); // $cmd,n,Playback(...)
 	} else {
-		$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
-		$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-		$ext->add($id, $c, '', new ext_playback('is-set-to'));
-		$ext->add($id, $c, '', new ext_saydigits('${toext}'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_2'));
 	}
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
@@ -197,10 +212,7 @@ function callforward_add_cfon($c, $prompt = false) {
 	if ($amp_conf['FCBEEPONLY']) {
 		$ext->add($id, $c, 'hook_2', new ext_playback('beep')); // $cmd,n,Playback(...)
 	} else {
-		$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-unconditional&for&extension'));
-		$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-		$ext->add($id, $c, '', new ext_playback('is-set-to'));
-		$ext->add($id, $c, '', new ext_saydigits('${toext}'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_3'));
 	}
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
@@ -216,6 +228,40 @@ function callforward_add_cfon($c, $prompt = false) {
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
 	}
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-unconditional&please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_2', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_3', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-unconditional&extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_2', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-unconditional&jp-wo'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_3', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-unconditional&jp-wo'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 function callforward_cfoff_any($c) {
@@ -226,11 +272,14 @@ function callforward_cfoff_any($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
+
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-
-	$ext->add($id, $c, '', new ext_read('fromext', 'please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["foo${fromext}"="foo"]?${AMPUSER}:${fromext})}'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_dbdel('CF/${fromext}'));
@@ -238,9 +287,7 @@ function callforward_cfoff_any($c) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
-	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
-	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-	$ext->add($id, $c, '', new ext_playback('cancelled'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	if ($amp_conf['USEDEVSTATE']) {
@@ -255,6 +302,22 @@ function callforward_cfoff_any($c) {
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
 	}
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-unconditional&jp-wo&cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 function callforward_cfoff($c) {
@@ -264,6 +327,10 @@ function callforward_cfoff($c) {
 	$id = "app-cf-off"; // The context to be included
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
 
 	// for this extension
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
@@ -278,7 +345,7 @@ function callforward_cfoff($c) {
 	if ($amp_conf['FCBEEPONLY']) {
 		$ext->add($id, $c, 'hook_1', new ext_playback('beep')); // $cmd,n,Playback(...)
 	} else {
-		$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-unconditional&de-activated')); // $cmd,n,Playback(...)
+		$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 	}
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
@@ -287,6 +354,7 @@ function callforward_cfoff($c) {
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
+	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_dbdel('CF/${fromext}'));
 	if ($amp_conf['USEDEVSTATE']) {
@@ -296,9 +364,7 @@ function callforward_cfoff($c) {
 	if ($amp_conf['FCBEEPONLY']) {
 		$ext->add($id, $c, 'hook_2', new ext_playback('beep')); // $cmd,n,Playback(...)
 	} else {
-		$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-unconditional&for&extension'));
-		$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-		$ext->add($id, $c, '', new ext_playback('cancelled'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
 	}
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
@@ -314,6 +380,22 @@ function callforward_cfoff($c) {
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
 	}
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_playback('call-fwd-unconditional&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_playback('call-fwd-unconditional&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-unconditional&jp-wo&cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 // Call Forward on Busy
@@ -337,12 +419,15 @@ function callforward_add_cfbon($c, $prompt = false) {
 	}
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	if ($prompt) {
-		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-on-busy&please-enter-your&extension&then-press-pound'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 		$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["${fromext}"=""]?${AMPUSER}:${fromext})}'));
 		$ext->add($id, $c, '', new ext_wait('1'));
 	} else {
@@ -352,16 +437,10 @@ function callforward_add_cfbon($c, $prompt = false) {
 		$ext->add($id, $c, '', new ext_macro('hangupcall'));
 	}
 
-	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
-	$ext->add($id, $c, '', new ext_gotoif('$["${toext}"=""]', 'startread'));
-	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_setvar('DB(CFB/${fromext})', '${toext}'));
-	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-on-busy&for&extension'));
-	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-	$ext->add($id, $c, '', new ext_playback('is-set-to'));
-	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $c, 'startread', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_2'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
-
+	
 	$clen = strlen($c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
@@ -370,11 +449,49 @@ function callforward_add_cfbon($c, $prompt = false) {
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_setvar('toext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_setvar('DB(CFB/${fromext})', '${toext}'));
-	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-on-busy&for&extension'));
-	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-	$ext->add($id, $c, '', new ext_playback('is-set-to'));
-	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_3'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-on-busy&please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());	
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_gotoif('$["${toext}"=""]', 'hook_1'));
+	$ext->add($id, $lang, '', new ext_wait('1'));
+	$ext->add($id, $lang, '', new ext_setvar('DB(CFB/${fromext})', '${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_2', new ext_playback('call-fwd-on-busy&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_3', new ext_playback('call-fwd-on-busy&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-on-busy&extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());	
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_gotoif('$["${toext}"=""]', 'hook_1'));
+	$ext->add($id, $lang, '', new ext_wait('1'));
+	$ext->add($id, $lang, '', new ext_setvar('DB(CFB/${fromext})', '${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_2', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-on-busy&jp-wo'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_3', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-on-busy&jp-wo'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 function callforward_cfboff_any($c) {
@@ -384,18 +501,37 @@ function callforward_cfboff_any($c) {
 	$id = "app-cf-busy-off-any"; // The context to be included
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
 
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_read('fromext', 'please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["foo${fromext}"="foo"]?${AMPUSER}:${fromext})}'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_dbdel('CFB/${fromext}'));
-	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-on-busy&for&extension'));
-	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-	$ext->add($id, $c, '', new ext_playback('cancelled'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('call-fwd-on-busy&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-on-busy&jp-wo'));
+	$ext->add($id, $lang, '', new ext_playback('cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 function callforward_cfboff($c) {
@@ -406,13 +542,17 @@ function callforward_cfboff($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
+
 	// for this extension
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_dbdel('CFB/${fromext}'));
-	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-on-busy&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// for any extension, dial *XX<exten>
@@ -420,13 +560,29 @@ function callforward_cfboff($c) {
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
+	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_dbdel('CFB/${fromext}'));
-	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-on-busy&for&extension'));
-	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-	$ext->add($id, $c, '', new ext_playback('cancelled'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_playback('call-fwd-on-busy&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('call-fwd-on-busy&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_playback('call-fwd-on-busy&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-on-busy&jp-wo'));
+	$ext->add($id, $lang, '', new ext_playback('cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 // Call Forward on No Answer/Unavailable (i.e. phone not registered)
@@ -449,12 +605,15 @@ function callforward_add_cfuon($c, $prompt=false) {
 	}
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
 
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_macro('user-callerid'));
 	if ($prompt) {
-		$ext->add($id, $c, '', new ext_read('fromext', 'call-fwd-no-ans&please-enter-your&extension&then-press-pound'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 		$ext->add($id, $c, '', new ext_setvar('fromext', '${IF($["${fromext}"=""]?${AMPUSER}:${fromext})}'));
 		$ext->add($id, $c, '', new ext_wait('1'));
 	} else {
@@ -463,14 +622,11 @@ function callforward_add_cfuon($c, $prompt=false) {
 		$ext->add($id, $c, '', new ext_playback('agent-loggedoff'));
 		$ext->add($id, $c, '', new ext_macro('hangupcall'));
 	}
-	$ext->add($id, $c, 'startread', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $c, 'startread', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${toext}"=""]', 'startread'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('DB(CFU/${fromext})', '${toext}'));
-	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-no-ans&for&extension'));
-	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-	$ext->add($id, $c, '', new ext_playback('is-set-to'));
-	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $c, 'startread', new ext_gosub('1', 'lang-playback', $id, 'hook_2'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// assume this extension and forward to number after the feature code
@@ -482,11 +638,44 @@ function callforward_add_cfuon($c, $prompt=false) {
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_setvar('toext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_setvar('DB(CFU/${fromext})', '${toext}'));
-	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-no-ans&for&extension'));
-	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-	$ext->add($id, $c, '', new ext_playback('is-set-to'));
-	$ext->add($id, $c, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $c, 'startread', new ext_gosub('1', 'lang-playback', $id, 'hook_3'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-no-ans&please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_2', new ext_playback('call-fwd-no-ans&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_3', new ext_playback('call-fwd-no-ans&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-no-ans&extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_2', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-no-ans&jp-wo'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_return());
+	// hook_3 is technically the same content as hook_2 but leaving it in for clarity's sake
+	$ext->add($id, $lang, 'hook_3', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-no-ans&jp-wo'));
+	$ext->add($id, $lang, '', new ext_saydigits('${toext}'));
+	$ext->add($id, $lang, '', new ext_playback('is-set-to'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 function callforward_cfuoff($c) {
@@ -494,6 +683,9 @@ function callforward_cfuoff($c) {
 	global $amp_conf;
 
 	$id = "app-cf-unavailable-off"; // The context to be included
+	// for i18n playback in multiple languages
+	$ext->add($id, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$id.',${CHANNEL(language)})}]', $id.',${CHANNEL(language)},${ARG1}', $id.',en,${ARG1}'));
+	$ext->add($id, 'lang-playback', '', new ext_return());
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
@@ -503,7 +695,7 @@ function callforward_cfuoff($c) {
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_dbdel('CFU/${fromext}'));
-	$ext->add($id, $c, 'hook_1', new ext_playback('call-fwd-no-ans&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_0'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// for any extension, dial *XX<exten>
@@ -511,12 +703,29 @@ function callforward_cfuoff($c) {
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
+	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_setvar('fromext', '${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_dbdel('CFU/${fromext}'));
-	$ext->add($id, $c, 'hook_2', new ext_playback('call-fwd-no-ans&for&extension'));
-	$ext->add($id, $c, '', new ext_saydigits('${fromext}'));
-	$ext->add($id, $c, '', new ext_playback('cancelled'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+
+	//en English
+	$lang = 'en';
+	$ext->add($id, $lang, 'hook_0', new ext_playback('call-fwd-no-ans&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('call-fwd-no-ans&for&extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
+	//ja Japanese
+	$lang = 'ja';
+	$ext->add($id, $lang, 'hook_0', new ext_playback('call-fwd-no-ans&de-activated')); // $cmd,n,Playback(...)
+	$ext->add($id, $lang, '', new ext_return());
+	$ext->add($id, $lang, 'hook_1', new ext_playback('extension'));
+	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
+	$ext->add($id, $lang, '', new ext_playback('jp-no&call-fwd-no-ans&jp-wo'));
+	$ext->add($id, $lang, '', new ext_playback('cancelled'));
+	$ext->add($id, $lang, '', new ext_return());
 }
 
 function callforward_get_extension($extension = '') {
