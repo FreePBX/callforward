@@ -626,7 +626,7 @@ function callforward_add_cfuon($c, $prompt=false) {
 	$ext->add($id, $c, '', new ext_gotoif('$["${toext}"=""]', 'startread'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_setvar('DB(CFU/${fromext})', '${toext}'));
-	$ext->add($id, $c, 'startread', new ext_gosub('1', 'lang-playback', $id, 'hook_2'));
+	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_2'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// assume this extension and forward to number after the feature code
