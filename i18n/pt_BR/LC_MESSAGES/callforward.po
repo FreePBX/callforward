@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 23:31-0400\n"
+"POT-Creation-Date: 2015-07-20 23:02-0400\n"
 "PO-Revision-Date: 2015-02-20 19:03-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -35,30 +35,42 @@ msgid "Call Forward All Deactivate"
 msgstr ""
 
 #: install.php:9
-msgid "Call Forward All Prompting Deactivate"
+msgid "Call Forward All Prompting Activate"
 msgstr ""
 
 #: install.php:10
-msgid "Call Forward Busy Activate"
+msgid "Call Forward All Prompting Deactivate"
 msgstr ""
 
 #: install.php:11
-msgid "Call Forward Busy Deactivate"
+msgid "Call Forward Busy Activate"
 msgstr ""
 
 #: install.php:12
-msgid "Call Forward Busy Prompting Deactivate"
+msgid "Call Forward Busy Deactivate"
 msgstr ""
 
 #: install.php:13
-msgid "Call Forward No Answer/Unavailable Activate"
+msgid "Call Forward Busy Prompting Activate"
 msgstr ""
 
 #: install.php:14
-msgid "Call Forward No Answer/Unavailable Deactivate"
+msgid "Call Forward Busy Prompting Deactivate"
 msgstr ""
 
 #: install.php:15
+msgid "Call Forward No Answer/Unavailable Activate"
+msgstr ""
+
+#: install.php:16
+msgid "Call Forward No Answer/Unavailable Deactivate"
+msgstr ""
+
+#: install.php:17
+msgid "Call Forward No Answer/Unavailable Prompting Activate"
+msgstr ""
+
+#: install.php:18
 msgid "Call Forward Toggle"
 msgstr ""
 

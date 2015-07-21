@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 23:31-0400\n"
+"POT-Creation-Date: 2015-07-20 23:02-0400\n"
 "PO-Revision-Date: 2013-11-07 12:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -64,30 +64,42 @@ msgid "Call Forward All Deactivate"
 msgstr "通話転送 全非アクティブ"
 
 #: install.php:9
+msgid "Call Forward All Prompting Activate"
+msgstr ""
+
+#: install.php:10
 msgid "Call Forward All Prompting Deactivate"
 msgstr "通話転送 全プロンプト非アクティブ"
 
-#: install.php:10
+#: install.php:11
 msgid "Call Forward Busy Activate"
 msgstr "通話転送 ビジーアクティブ"
 
-#: install.php:11
+#: install.php:12
 msgid "Call Forward Busy Deactivate"
 msgstr "通話転送 ビジー非アクティブ"
 
-#: install.php:12
+#: install.php:13
+msgid "Call Forward Busy Prompting Activate"
+msgstr ""
+
+#: install.php:14
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "通話転送 ビジープロンプト非アクティブ"
 
-#: install.php:13
+#: install.php:15
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "通話転送 応答なし/利用不可 アクティブ"
 
-#: install.php:14
+#: install.php:16
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "通話転送 応答なし/利用不可 非アクティブ"
 
-#: install.php:15
+#: install.php:17
+msgid "Call Forward No Answer/Unavailable Prompting Activate"
+msgstr ""
+
+#: install.php:18
 msgid "Call Forward Toggle"
 msgstr "通話転送切り替え"
 

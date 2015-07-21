@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 23:31-0400\n"
+"POT-Creation-Date: 2015-07-20 23:02-0400\n"
 "PO-Revision-Date: 2015-05-31 00:30+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -50,30 +50,42 @@ msgid "Call Forward All Deactivate"
 msgstr "Снять перенаправление всех вызовов"
 
 #: install.php:9
+msgid "Call Forward All Prompting Activate"
+msgstr ""
+
+#: install.php:10
 msgid "Call Forward All Prompting Deactivate"
 msgstr "Снять перенаправление всех вызовов"
 
-#: install.php:10
+#: install.php:11
 msgid "Call Forward Busy Activate"
 msgstr "Задать перенаправление по занятости"
 
-#: install.php:11
+#: install.php:12
 msgid "Call Forward Busy Deactivate"
 msgstr "Снять перенаправление по занятости"
 
-#: install.php:12
+#: install.php:13
+msgid "Call Forward Busy Prompting Activate"
+msgstr ""
+
+#: install.php:14
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "Снять перенаправление по занятости"
 
-#: install.php:13
+#: install.php:15
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "Задать перенаправление по неответу или недоступности"
 
-#: install.php:14
+#: install.php:16
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "Снять перенаправление по неответу или недоступности"
 
-#: install.php:15
+#: install.php:17
+msgid "Call Forward No Answer/Unavailable Prompting Activate"
+msgstr ""
+
+#: install.php:18
 msgid "Call Forward Toggle"
 msgstr "Переключить перенаправление"
 
