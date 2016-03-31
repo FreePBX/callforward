@@ -50,12 +50,18 @@ function callforward_get_config($engine) {
 				foreach ($device_list as $device) {
 					if ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2') {
 						$offset = $base_offset + strlen($device['id']);
-						$ext->add($contextname, $cf_code.$device['id'], '', new ext_goto("1",$cf_code,"app-cf-toggle"));
 						$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_set("toext",'${EXTEN:'.$offset.'}'));
 						$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_goto("setdirect",$cf_code,"app-cf-toggle"));
-						//$ext->addHint($contextname, $cf_code.$device['id'], "Custom:DEVCF".$device['id']);
 					}
 				}
+			}
+			$sql = "SELECT LENGTH(id) as len FROM devices GROUP BY len";
+			$sth = FreePBX::Database()->prepare($sql);
+			$sth->execute();
+			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			foreach($rows as $row) {
+				$offset = $base_offset + $row['len'];
+				$ext->add($contextname, '_'.$cf_code.str_repeat('X',$row['len']), '', new ext_goto("1",$cf_code,"app-cf-toggle"));
 			}
 			$ext->addHint($contextname, "_$cf_code".'X.', "Custom:DEVCF".'${EXTEN:'.strlen($cf_code).'}');
 		}
@@ -440,7 +446,7 @@ function callforward_add_cfbon($c, $prompt = false) {
 	$ext->add($id, $c, 'startread', new ext_gosub('1', 'lang-playback', $id, 'hook_1'));
 	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_2'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
-	
+
 	$clen = strlen($c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
@@ -451,11 +457,11 @@ function callforward_add_cfbon($c, $prompt = false) {
 	$ext->add($id, $c, '', new ext_setvar('DB(CFB/${fromext})', '${toext}'));
 	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_3'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
-	
+
 	//en English
 	$lang = 'en';
 	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-on-busy&please-enter-your&extension&then-press-pound'));
-	$ext->add($id, $lang, '', new ext_return());	
+	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
 	$ext->add($id, $lang, '', new ext_gotoif('$["${toext}"=""]', 'hook_1'));
 	$ext->add($id, $lang, '', new ext_wait('1'));
@@ -474,7 +480,7 @@ function callforward_add_cfbon($c, $prompt = false) {
 	//ja Japanese
 	$lang = 'ja';
 	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-on-busy&extension&please-enter-your&then-press-pound'));
-	$ext->add($id, $lang, '', new ext_return());	
+	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
 	$ext->add($id, $lang, '', new ext_gotoif('$["${toext}"=""]', 'hook_1'));
 	$ext->add($id, $lang, '', new ext_wait('1'));
