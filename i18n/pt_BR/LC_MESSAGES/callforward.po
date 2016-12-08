@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-20 23:02-0400\n"
-"PO-Revision-Date: 2016-12-08 00:20+0200\n"
+"PO-Revision-Date: 2016-12-08 02:29+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/callforward/pt_BR/>\n"
@@ -38,40 +38,46 @@ msgid "Call Forward All Deactivate"
 msgstr "Desativar Todos os Desvios de Chamada"
 
 #: install.php:9
+#, fuzzy
 msgid "Call Forward All Prompting Activate"
-msgstr ""
+msgstr "Ativar Todas as Solicitações de Desvios de Chamada"
 
 #: install.php:10
+#, fuzzy
 msgid "Call Forward All Prompting Deactivate"
-msgstr ""
+msgstr "Desativar Todas as Solicitações de Desvios de Chamada"
 
 #: install.php:11
 msgid "Call Forward Busy Activate"
-msgstr ""
+msgstr "Ativar Desvio de Chamadas Quando Ocupado"
 
 #: install.php:12
 msgid "Call Forward Busy Deactivate"
-msgstr ""
+msgstr "Desativar Desvio de Chamadas Quando Ocupado"
 
 #: install.php:13
+#, fuzzy
 msgid "Call Forward Busy Prompting Activate"
-msgstr ""
+msgstr "Ativar Solicitações de Desvio de Chamadas Quando Ocupado"
 
 #: install.php:14
+#, fuzzy
 msgid "Call Forward Busy Prompting Deactivate"
-msgstr ""
+msgstr "Desativar Solicitações de Desvio de Chamadas Quando Ocupado"
 
 #: install.php:15
 msgid "Call Forward No Answer/Unavailable Activate"
-msgstr ""
+msgstr "Ativar Desvio de Chamada Quando Não Responde/Indisponível"
 
 #: install.php:16
 msgid "Call Forward No Answer/Unavailable Deactivate"
-msgstr ""
+msgstr "Desativar Desvio de Chamada Quando Não Responde/Indisponível"
 
 #: install.php:17
+#, fuzzy
 msgid "Call Forward No Answer/Unavailable Prompting Activate"
 msgstr ""
+"Ativar Solicitação de Desvio de Chamada Quando Não Responde/Indisponível"
 
 #: install.php:18
 msgid "Call Forward Toggle"
