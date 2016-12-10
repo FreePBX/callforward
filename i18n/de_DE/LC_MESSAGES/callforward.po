@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-20 23:02-0400\n"
-"PO-Revision-Date: 2016-12-09 15:58+0200\n"
+"PO-Revision-Date: 2016-12-09 18:47+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/callforward/de_DE/>\n"
@@ -89,11 +89,11 @@ msgstr "Anrufweiterleitung wurde aktualisiert!"
 
 #: ucp/views/settings.php:4
 msgid "CallForward Ringtimer"
-msgstr ""
+msgstr "Anrufweiterleitung nach ... mal Klingeln"
 
 #: ucp/views/settings.php:22
 msgid "Forward immediately regardless of current state of line/PBX"
-msgstr ""
+msgstr "Unabhängig vom aktuellen Zustand der Leitung / PBX sofort weiterleiten"
 
 #: ucp/views/settings.php:12
 msgid ""
@@ -104,6 +104,14 @@ msgid ""
 "Your setting here will be forced to Always if there is no Voicemail or "
 "alternartive fail over destination for a call to go to."
 msgstr ""
+"Anzahl der Sekunden wie lange es klingelt, bevor der Anruf zum "
+"Anrufbeantworter oder einem anderen Ziel, welches von einem Administrator "
+"auf diesem Konto eingerichtet werden kann, weitergeleitet wird. Bei der "
+"Einstellung \"Immer\" klingelt die Rufweiterleitung, bis sie beantwortet "
+"wird oder der Anrufer auflegt. Bei Standardeinstellung wird der in "
+"Klingeldauer eingestellten Wert verwendet. Ihre Einstellung hier wird immer "
+"erzwungen, wenn es keinen Anrufbeantworter oder kein alternatives Ziel für "
+"einen Anruf gibt."
 
 #: ucp/views/settings.php:32
 msgid ""
@@ -111,21 +119,26 @@ msgid ""
 "becomes unresponsive due to an Internet outage or software/configuration "
 "failure of endpoint"
 msgstr ""
+"Vorkonfigurierte Nummer, an die Anrufe weitergeleitet werden, wenn der "
+"Endpunkt des Kunden aufgrund eines Internetausfalls oder eines Software- / "
+"Konfigurationsfehlers des Endpunkts nicht mehr reagiert."
 
 #: ucp/views/settings.php:42
 msgid ""
 "Preconfigured number to which calls are forwarded if the customer endpoint "
 "is busy, usually due to being on an active call"
 msgstr ""
+"Vorkonfigurierte Nummer, an die Anrufe weitergeleitet werden, wenn der "
+"Endpunkt des Kunden besetzt ist, in der Regel aufgrund eines aktiven Anrufs."
 
 #: ucp/views/settings.php:9
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunden"
 
 #: ucp/views/settings.php:25
 msgid "Unavailable"
-msgstr ""
+msgstr "Nicht Verfügbar"
 
 #: ucp/views/settings.php:15
 msgid "Unconditional"
-msgstr ""
+msgstr "Uneingeschränkt"
