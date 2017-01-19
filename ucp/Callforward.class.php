@@ -32,25 +32,108 @@ class Callforward extends Modules{
 		$this->Modules = $Modules;
 	}
 
-	public function getSettingsDisplay($ext) {
+	public function getWidgetList() {
+		$widgetList = $this->getSimpleWidgetList();
+		return $widgetList;
+	}
+
+	public function poll($data) {
+		$states = array();
+		foreach($data as $ext) {
+			if(!$this->_checkExtension($ext)) {
+				continue;
+			}
+			$s = array('CFU','CFB','CF');
+			foreach(array('CFU','CFB','CF') as $type) {
+				$states[$ext][$type] = $this->UCP->FreePBX->Callforward->getNumberByExtension($ext,$type);
+			}
+		}
+
+		return array("states" => $states);
+	}
+
+	public function getSimpleWidgetList() {
+		$widgets = array();
+
+		$user = $this->UCP->User->getUser();
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
+
+		if (!empty($extensions)) {
+			foreach($extensions as $extension) {
+				$data = $this->UCP->FreePBX->Core->getDevice($extension);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->UCP->FreePBX->Core->getUser($extension);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
+
+				$widgets[$extension] = array(
+					"display" => $name,
+					"hasSettings" => true,
+					"description" => sprintf(_("Call Forwarding for %s"),$name),
+					"defaultsize" => array("height" => 7, "width" => 1),
+					"minsize" => array("height" => 7, "width" => 1)
+				);
+			}
+		}
+
+		if (empty($widgets)) {
+			return array();
+		}
+
+		return array(
+			"rawname" => "callforward",
+			"display" => _("Call Forwarding"),
+			"icon" => "fa fa-arrow-right",
+			"list" => $widgets
+		);
+	}
+
+	public function getWidgetDisplay($id) {
+		if (!$this->_checkExtension($id)) {
+			return array();
+		}
+
 		$displayvars = array(
-			"ringtime" => $this->UCP->FreePBX->Callforward->getRingtimerByExtension($ext),
-			"CFU" => $this->UCP->FreePBX->Callforward->getNumberByExtension($ext,'CFU'),
-			"CFB" => $this->UCP->FreePBX->Callforward->getNumberByExtension($ext,'CFB'),
-			"CF" => $this->UCP->FreePBX->Callforward->getNumberByExtension($ext,'CF'),
+			"extension" => $id,
+			"CFU" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CFU'),
+			"CFB" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CFB'),
+			"CF" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CF'),
+		);
+
+		$display = array(
+			'title' => _("Call Forwarding"),
+			'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)
+		);
+
+		return $display;
+	}
+
+	public function getSimpleWidgetSettingsDisplay($id) {
+		return $this->getWidgetSettingsDisplay($id);
+	}
+
+	public function getWidgetSettingsDisplay($id) {
+		if (!$this->_checkExtension($id)) {
+			return array();
+		}
+
+		$displayvars = array(
+			"ringtime" => $this->UCP->FreePBX->Callforward->getRingtimerByExtension($id)
 		);
 		for($i = 1;$i<=120;$i++) {
 			$displayvars['cfringtimes'][$i] = $i;
 		}
-		$out = array(
-			array(
-				"title" => _('Call Forwarding'),
-				"content" => $this->load_view(__DIR__.'/views/settings.php',$displayvars),
-				"size" => 6
-			)
+
+		$display = array(
+			'title' => _("Call Forward"),
+			'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)
 		);
-		return $out;
+
+		return $display;
 	}
+
 
 		/**
 	 * Determine what commands are allowed
@@ -85,14 +168,15 @@ class Callforward extends Modules{
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'settings':
-				if(isset($_POST['ringtimer'])) {
-					$this->UCP->FreePBX->Callforward->setRingtimerByExtension($_POST['ext'],$_POST['ringtimer']);
-				}
 				if(isset($_POST['type'])) {
-					if(!empty($_POST['number'])) {
-						$this->UCP->FreePBX->Callforward->setNumberByExtension($_POST['ext'],$_POST['number'],$_POST['type']);
+					if($_POST['type'] == 'ringtimer') {
+						$this->UCP->FreePBX->Callforward->setRingtimerByExtension($_POST['ext'],$_POST['value']);
 					} else {
-						$this->UCP->FreePBX->Callforward->delNumberByExtension($_POST['ext'],$_POST['type']);
+						if(isset($_POST['value'])) {
+							$this->UCP->FreePBX->Callforward->setNumberByExtension($_POST['ext'],$_POST['value'],$_POST['type']);
+						} else {
+							$this->UCP->FreePBX->Callforward->delNumberByExtension($_POST['ext'],$_POST['type']);
+						}
 					}
 				}
 				return array("status" => true, "alert" => "success", "message" => _('Call Forwarding Has Been Updated!'));
