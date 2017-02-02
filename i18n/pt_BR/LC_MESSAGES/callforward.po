@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-20 23:02-0400\n"
+"POT-Creation-Date: 2017-02-01 18:25-0800\n"
 "PO-Revision-Date: 2016-12-09 06:44+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/callforward/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/callforward/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,82 +21,102 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: ucp/views/settings.php:35
+#: ucp/views/settings.php:5
+msgid "Always"
+msgstr ""
+
+#: callforward.i18n.php:6
+msgid "Applications"
+msgstr ""
+
+#: ucp/views/widget.php:13 ucp/views/widget.php:15
 msgid "Busy"
 msgstr "Ocupado"
 
-#: install.php:6
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
 msgid "Call Forward"
 msgstr "Encaminhamento de Chamadas"
 
-#: install.php:7
+#: callforward.i18n.php:24 install.php:7
 msgid "Call Forward All Activate"
 msgstr "Ativar Todos os Encaminhamentos de Chamadas"
 
-#: install.php:8
+#: callforward.i18n.php:20 install.php:8
 msgid "Call Forward All Deactivate"
 msgstr "Desativar Todos os Encaminhamentos de Chamadas"
 
-#: install.php:9
+#: callforward.i18n.php:26 install.php:9
 msgid "Call Forward All Prompting Activate"
 msgstr "Ativar Todas as Solicitações de Encaminhamento de Chamadas"
 
-#: install.php:10
+#: callforward.i18n.php:22 install.php:10
 msgid "Call Forward All Prompting Deactivate"
 msgstr "Desativar Todas as Solicitações de Encaminhamento de Chamadas"
 
-#: install.php:11
+#: callforward.i18n.php:16 install.php:11
 msgid "Call Forward Busy Activate"
 msgstr "Ativar Encaminhamento de Chamadas Quando Ocupado"
 
-#: install.php:12
+#: callforward.i18n.php:12 install.php:12
 msgid "Call Forward Busy Deactivate"
 msgstr "Desativar Encaminhamento de Chamadas Quando Ocupado"
 
-#: install.php:13
+#: callforward.i18n.php:18 install.php:13
 msgid "Call Forward Busy Prompting Activate"
 msgstr "Ativar Solicitações de Encaminhamento de Chamadas Quando Ocupado"
 
-#: install.php:14
+#: callforward.i18n.php:14 install.php:14
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "Desativar Solicitações de Encaminhamento de Chamadas Quando Ocupado"
 
-#: install.php:15
+#: callforward.i18n.php:30 install.php:15
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "Ativar Encaminhamento de Chamadas Quando Não Responde/Indisponível"
 
-#: install.php:16
+#: callforward.i18n.php:28 install.php:16
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "Desativar Encaminhamento de Chamadas Quando Não Responde/Indisponível"
 
-#: install.php:17
+#: callforward.i18n.php:32 install.php:17
 msgid "Call Forward No Answer/Unavailable Prompting Activate"
 msgstr ""
-"Ativar Solicitação de Encaminhamento de Chamadas Quando Não "
-"Responde/Indisponível"
+"Ativar Solicitação de Encaminhamento de Chamadas Quando Não Responde/"
+"Indisponível"
 
-#: install.php:18
+#: callforward.i18n.php:10 install.php:18
 msgid "Call Forward Toggle"
 msgstr "Alternar Encaminhamento de Chamadas"
 
-#: ucp/Callforward.class.php:47
+#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
 msgid "Call Forwarding"
 msgstr "Encaminhamento de Chamadas"
 
-#: ucp/Callforward.class.php:98
+#: ucp/Callforward.class.php:182
 msgid "Call Forwarding Has Been Updated!"
 msgstr "Encaminhamento de Chamadas Foi Atualizado!"
 
-#: ucp/views/settings.php:4
+#: ucp/Callforward.class.php:74
+#, php-format
+msgid "Call Forwarding for %s"
+msgstr ""
+
+#: ucp/views/settings.php:2
 msgid "CallForward Ringtimer"
 msgstr "Timer do Toque do Encaminhamento de Chamadas"
 
-#: ucp/views/settings.php:22
-msgid "Forward immediately regardless of current state of line/PBX"
+#: ucp/views/settings.php:4
+msgid "Default"
 msgstr ""
-"Encaminhar imediatamente, independentemente do estado atual da linha/PBX"
 
-#: ucp/views/settings.php:12
+#: ucp/views/widget.php:5 ucp/views/widget.php:10 ucp/views/widget.php:15
+msgid "Disabled"
+msgstr ""
+
+#: ucp/views/widget.php:5 ucp/views/widget.php:10 ucp/views/widget.php:15
+msgid "Enabled"
+msgstr ""
+
+#: ucp/views/settings.php:10
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
 "destinations that may be setup by an administrator on this account. The "
@@ -113,33 +133,39 @@ msgstr ""
 "forçadas para \"Sempre\" se não houver correio de voz ou destinos adicionais "
 "alternativos em caso de falha."
 
-#: ucp/views/settings.php:32
-msgid ""
-"Preconfigured number to which calls are forwarded if the customer endpoint "
-"becomes unresponsive due to an Internet outage or software/configuration "
-"failure of endpoint"
+#: callforward.i18n.php:8
+msgid "Provides callforward featurecodes"
 msgstr ""
-"Número pré-configurado para onde as chamadas serão encaminhadas se um "
-"dispositivo não responder devido a uma interrupção na Internet ou falha de "
-"software/configuração"
 
-#: ucp/views/settings.php:42
-msgid ""
-"Preconfigured number to which calls are forwarded if the customer endpoint "
-"is busy, usually due to being on an active call"
-msgstr ""
-"Número pré-configurado para o onde as chamadas serão encaminhadas se o "
-"dispositvo do cliente estiver ocupado, geralmente por estar em uma chamada "
-"ativa"
-
-#: ucp/views/settings.php:9
+#: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr "Segundos"
 
-#: ucp/views/settings.php:25
+#: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
 msgstr "Indisponível"
 
-#: ucp/views/settings.php:15
+#: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "Incondicional"
+
+#~ msgid "Forward immediately regardless of current state of line/PBX"
+#~ msgstr ""
+#~ "Encaminhar imediatamente, independentemente do estado atual da linha/PBX"
+
+#~ msgid ""
+#~ "Preconfigured number to which calls are forwarded if the customer "
+#~ "endpoint becomes unresponsive due to an Internet outage or software/"
+#~ "configuration failure of endpoint"
+#~ msgstr ""
+#~ "Número pré-configurado para onde as chamadas serão encaminhadas se um "
+#~ "dispositivo não responder devido a uma interrupção na Internet ou falha "
+#~ "de software/configuração"
+
+#~ msgid ""
+#~ "Preconfigured number to which calls are forwarded if the customer "
+#~ "endpoint is busy, usually due to being on an active call"
+#~ msgstr ""
+#~ "Número pré-configurado para o onde as chamadas serão encaminhadas se o "
+#~ "dispositvo do cliente estiver ocupado, geralmente por estar em uma "
+#~ "chamada ativa"
