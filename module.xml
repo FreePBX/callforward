@@ -2,13 +2,14 @@
 	<rawname>callforward</rawname>
 	<repo>standard</repo>
 	<name>Call Forward</name>
-	<version>13.0.4</version>
+	<version>13.0.4.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.4.1* FREEPBX-14348 Call Forward prompts replacements
 		*13.0.4* FREEPBX-9740 Redid playback structure to allow for multilingual support, and added Japanese order
-		*13.0.3* FREEPBX-9564 UCP goes offline after changing settings			
+		*13.0.3* FREEPBX-9564 UCP goes offline after changing settings
 		*13.0.2* Version bump Beta
 		*13.0.1alpha1* Hint updates
 		*12.0.7* FREEPBX-8655 Call Forward unconditional and noanswer incorrect in UCP
