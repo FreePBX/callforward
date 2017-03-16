@@ -40,7 +40,7 @@ msgstr "Пренасочване на Разговор 'Общо' Изключи
 
 #: install.php:9
 msgid "Call Forward All Prompting Activate"
-msgstr ""
+msgstr "Пренасочване на Разговор 'Общо' Включи Напомняне"
 
 #: install.php:10
 msgid "Call Forward All Prompting Deactivate"
@@ -56,7 +56,7 @@ msgstr "Пренасочване на Разговор 'Заето' Изключ
 
 #: install.php:13
 msgid "Call Forward Busy Prompting Activate"
-msgstr ""
+msgstr "Пренасочване на Разговор 'Заето' Включи Напомняне"
 
 #: install.php:14
 msgid "Call Forward Busy Prompting Deactivate"
@@ -72,7 +72,7 @@ msgstr "Пренасочване на Разговор 'Не Отговаря' �
 
 #: install.php:17
 msgid "Call Forward No Answer/Unavailable Prompting Activate"
-msgstr ""
+msgstr "Пренасочване на Разговор 'Не Отговаря' Включи Напомняне"
 
 #: install.php:18
 msgid "Call Forward Toggle"
