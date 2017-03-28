@@ -89,7 +89,7 @@ function callforward_cf_toggle($c) {
 
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(CF/${fromext})}" = ""]', 'activate', 'deactivate'));
 
-	$ext->add($id, $c, 'activate', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $c, 'activate', new ext_read('toext', 'agent-newlocation'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${toext}"=""]', 'activate'));
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, 'toext', new ext_setvar('DB(CF/${fromext})', '${toext}'));
@@ -236,9 +236,9 @@ function callforward_add_cfon($c, $prompt = false) {
 	}
 	//en English
 	$lang = 'en';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-unconditional&please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-unconditional&please-enter-your-extension-then-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
-	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'agent-newlocation'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_2', new ext_playback('call-fwd-unconditional&for&extension'));
 	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
@@ -252,9 +252,9 @@ function callforward_add_cfon($c, $prompt = false) {
 	$ext->add($id, $lang, '', new ext_return());
 	//ja Japanese
 	$lang = 'ja';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-unconditional&extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-unconditional&extension&please-enter-your&vm-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
-	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&vm-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_2', new ext_playback('extension'));
 	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
@@ -310,7 +310,7 @@ function callforward_cfoff_any($c) {
 	}
 	//en English
 	$lang = 'en';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'please-enter-your-extension-then-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_1', new ext_playback('call-fwd-unconditional&for&extension'));
 	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
@@ -318,7 +318,7 @@ function callforward_cfoff_any($c) {
 	$ext->add($id, $lang, '', new ext_return());
 	//ja Japanese
 	$lang = 'ja';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'extension&please-enter-your&vm-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_1', new ext_playback('extension'));
 	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
@@ -460,9 +460,9 @@ function callforward_add_cfbon($c, $prompt = false) {
 
 	//en English
 	$lang = 'en';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-on-busy&please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-on-busy&please-enter-your-extension-then-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
-	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'agent-newlocation'));
 	$ext->add($id, $lang, '', new ext_gotoif('$["${toext}"=""]', 'hook_1'));
 	$ext->add($id, $lang, '', new ext_wait('1'));
 	$ext->add($id, $lang, '', new ext_setvar('DB(CFB/${fromext})', '${toext}'));
@@ -479,7 +479,7 @@ function callforward_add_cfbon($c, $prompt = false) {
 	$ext->add($id, $lang, '', new ext_return());
 	//ja Japanese
 	$lang = 'ja';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-on-busy&extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-on-busy&extension&please-enter-your&vm-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
 	$ext->add($id, $lang, '', new ext_gotoif('$["${toext}"=""]', 'hook_1'));
@@ -523,7 +523,7 @@ function callforward_cfboff_any($c) {
 
 	//en English
 	$lang = 'en';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'please-enter-your-extension-then-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_1', new ext_playback('call-fwd-on-busy&for&extension'));
 	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
@@ -531,7 +531,7 @@ function callforward_cfboff_any($c) {
 	$ext->add($id, $lang, '', new ext_return());
 	//ja Japanese
 	$lang = 'ja';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'extension&please-enter-your&vm-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_1', new ext_playback('extension'));
 	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
@@ -649,9 +649,9 @@ function callforward_add_cfuon($c, $prompt=false) {
 
 	//en English
 	$lang = 'en';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-no-ans&please-enter-your&extension&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-no-ans&please-enter-your-extension-then-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
-	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
+	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'agent-newlocation'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_2', new ext_playback('call-fwd-no-ans&for&extension'));
 	$ext->add($id, $lang, '', new ext_saydigits('${fromext}'));
@@ -665,7 +665,7 @@ function callforward_add_cfuon($c, $prompt=false) {
 	$ext->add($id, $lang, '', new ext_return());
 	//ja Japanese
 	$lang = 'ja';
-	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-no-ans&extension&please-enter-your&then-press-pound'));
+	$ext->add($id, $lang, 'hook_0', new ext_read('fromext', 'call-fwd-no-ans&extension&please-enter-your&vm-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
 	$ext->add($id, $lang, 'hook_1', new ext_read('toext', 'ent-target-attendant&then-press-pound'));
 	$ext->add($id, $lang, '', new ext_return());
