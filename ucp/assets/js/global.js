@@ -162,12 +162,12 @@ var CallforwardC = UCPMC.extend({
 			});
 		});
 	},
-	displaySimpleWidget: function(widget_type_id) {
+	displaySimpleWidget: function(widget_id) {
 		var self = this;
-		$(".widget-extra-menu[data-module=callforward][data-widget_type_id='"+widget_type_id+"'] input[type='checkbox']").change(function(e) {
+		$(".widget-extra-menu[data-id='"+widget_id+"'] input[type='checkbox']").change(function(e) {
 			var type = $(this).data("type"),
 					checked = $(this).is(':checked'),
-					extension = widget_type_id,
+					extension = $(".widget-extra-menu[data-id='"+widget_id+"']").data("widget_type_id"),
 					name = $(this).prop("name"),
 					parent = $(this).parents("."+name),
 					el = $(".grid-stack-item[data-widget_type_id='"+extension+"'][data-rawname=callforward] .widget-content input[data-type='"+type+"']");
@@ -195,5 +195,8 @@ var CallforwardC = UCPMC.extend({
 				});
 			}
 		});
+	},
+	displaySimpleWidgetSettings: function(widget_id) {
+		this.displayWidgetSettings(widget_id);
 	}
 });
