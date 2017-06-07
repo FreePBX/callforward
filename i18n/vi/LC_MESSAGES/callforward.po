@@ -47,7 +47,7 @@ msgstr "Chuyển tiếp cuộc gọi nhắc nhở người dùng kích hoạt"
 
 #: callforward.i18n.php:22 install.php:10
 msgid "Call Forward All Prompting Deactivate"
-msgstr "Chuyển tiếp cuộc gọi nhắc nhở người dùng đã ngưng  kích hoạt."
+msgstr "Chuyển tiếp cuộc gọi nhắc nhở người dùng đã ngưng  kích hoạt"
 
 #: callforward.i18n.php:16 install.php:11
 msgid "Call Forward Busy Activate"
