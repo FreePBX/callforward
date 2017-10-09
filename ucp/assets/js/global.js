@@ -186,13 +186,22 @@ var CallforwardC = UCPMC.extend({
 					el.bootstrapToggle(state);
 				}
 			} else {
-				self.showDialog(this, extension, function(state, number) {
-					if(state == 'on') {
-						parent.find(".display").removeClass("hidden").find(".text").text(number);
-					} else {
-						parent.find(".display").addClass("hidden").find(".text").text("");
-					}
-				});
+				if(checked) {
+					self.showDialog(this, extension, function(state, number) {
+						if(state == 'on') {
+							parent.find(".display").removeClass("hidden").find(".text").text(number);
+						} else {
+							el.bootstrapToggle('off');
+							parent.find(".display").addClass("hidden").find(".text").text("");
+						}
+					});
+				} else {
+					self.saveSettings(extension, type, '', function(data) {
+						if(!data.status) {
+							UCP.showAlert(data.message, 'danger');
+						}
+					});
+				}
 			}
 		});
 	},
