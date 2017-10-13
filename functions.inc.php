@@ -106,6 +106,7 @@ function callforward_cf_toggle($c) {
 	$ext->add($id, $c, 'setdirect', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_setvar('fromext', '${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_goto('toext'));
 
 	$ext->add($id, $c, 'deactivate', new ext_dbdel('CF/${fromext}'));
