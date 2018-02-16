@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-23 17:18-0500\n"
-"PO-Revision-Date: 2017-03-03 13:47+0200\n"
-"Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
-"callforward/de_DE/>\n"
+"PO-Revision-Date: 2018-02-16 17:03+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/callforward/de_DE/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,11 +23,11 @@ msgstr ""
 
 #: callforward.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Anwendungen"
 
 #: ucp/views/settings.php:35
 msgid "Busy"
-msgstr "Beschäftigt"
+msgstr "Besetzt"
 
 #: callforward.i18n.php:4 install.php:6
 msgid "Call Forward"
