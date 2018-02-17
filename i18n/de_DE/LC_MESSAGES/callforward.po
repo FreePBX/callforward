@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-23 17:18-0500\n"
-"PO-Revision-Date: 2018-02-16 17:03+0200\n"
+"PO-Revision-Date: 2018-02-16 20:05+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/callforward/de_DE/>\n"
@@ -137,7 +137,7 @@ msgstr ""
 
 #: callforward.i18n.php:8
 msgid "Provides callforward featurecodes"
-msgstr ""
+msgstr "Bietet Rufumleitung featurecodes"
 
 #: ucp/views/settings.php:9
 msgid "Seconds"
