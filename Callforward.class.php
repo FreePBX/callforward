@@ -65,6 +65,15 @@ class Callforward implements BMO {
 		return $number ? $number : false;
 	}
 
+	public function setMultipleNumberByExten($exten,$numbers){
+		foreach($numbers as $key => $val){
+			if(empty($val)){
+				continue;
+			}
+			$this->setNumberByExtension($exten,$val,$key);
+		}
+	}
+
 	function setNumberByExtension($extension, $number, $type = "CF") {
 		switch ($type) {
 			case 'CFU':
@@ -90,6 +99,12 @@ class Callforward implements BMO {
 		}
 
 		return $this->astman->database_put($cf_type, $extension, $number);
+	}
+	function delAllNumbersByExtension($exten){
+		$types = ['CFU','CFB','CF'];
+		foreach($types as $type){
+			$this->delNumberByExtension($exten,$type);
+		}
 	}
 
 	function delNumberByExtension($extension, $type = "CF") {
