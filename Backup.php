@@ -9,7 +9,7 @@ class Backup Extends Base\BackupBase{
     $configs = [];
     $devices = $this->FreePBX->Core->getAllDevicesByType();
     $devices = array_column($devices,'id');
-    foreach($devics as $exten){
+    foreach($devices as $exten){
       $configs[$exten] = [
         'numbers' => [
           'CF' => $cf->getNumberByExtension($exten,'CF'),
