@@ -8,7 +8,7 @@ class Backup Extends Base\BackupBase{
     $dirs = [];
     $configs = [];
     $devices = $this->FreePBX->Core->getAllDevicesByType();
-    $devices = array_column($devices,'id'));
+    $devices = array_column($devices,'id');
     foreach($devics as $exten){
       $configs[$exten] = [
         'numbers' => [
