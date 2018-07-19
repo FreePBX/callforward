@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2017-02-01 18:25-0800\n"
 "PO-Revision-Date: 2015-04-24 21:57+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -21,15 +21,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
+#: ucp/views/settings.php:5
+msgid "Always"
+msgstr ""
+
 #: callforward.i18n.php:6
 msgid "Applications"
 msgstr "Aplicações"
 
-#: ucp/views/settings.php:35
+#: ucp/views/widget.php:13 ucp/views/widget.php:15
 msgid "Busy"
 msgstr "Ocupado"
 
-#: callforward.i18n.php:4 install.php:6
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
 msgid "Call Forward"
 msgstr "Reencaminhamento de Chamadas"
 
@@ -81,23 +85,36 @@ msgstr ""
 msgid "Call Forward Toggle"
 msgstr ""
 
-#: ucp/Callforward.class.php:47
+#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
 msgid "Call Forwarding"
 msgstr ""
 
-#: ucp/Callforward.class.php:98
+#: ucp/Callforward.class.php:182
 msgid "Call Forwarding Has Been Updated!"
 msgstr ""
 
-#: ucp/views/settings.php:4
+#: ucp/Callforward.class.php:74
+#, php-format
+msgid "Call Forwarding for %s"
+msgstr ""
+
+#: ucp/views/settings.php:2
 msgid "CallForward Ringtimer"
 msgstr ""
 
-#: ucp/views/settings.php:22
-msgid "Forward immediately regardless of current state of line/PBX"
+#: ucp/views/settings.php:4
+msgid "Default"
 msgstr ""
 
-#: ucp/views/settings.php:12
+#: ucp/views/widget.php:5 ucp/views/widget.php:10 ucp/views/widget.php:15
+msgid "Disabled"
+msgstr ""
+
+#: ucp/views/widget.php:5 ucp/views/widget.php:10 ucp/views/widget.php:15
+msgid "Enabled"
+msgstr ""
+
+#: ucp/views/settings.php:10
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
 "destinations that may be setup by an administrator on this account. The "
@@ -107,31 +124,18 @@ msgid ""
 "alternartive fail over destination for a call to go to."
 msgstr ""
 
-#: ucp/views/settings.php:32
-msgid ""
-"Preconfigured number to which calls are forwarded if the customer endpoint "
-"becomes unresponsive due to an Internet outage or software/configuration "
-"failure of endpoint"
-msgstr ""
-
-#: ucp/views/settings.php:42
-msgid ""
-"Preconfigured number to which calls are forwarded if the customer endpoint "
-"is busy, usually due to being on an active call"
-msgstr ""
-
 #: callforward.i18n.php:8
 msgid "Provides callforward featurecodes"
 msgstr ""
 
-#: ucp/views/settings.php:9
+#: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr ""
 
-#: ucp/views/settings.php:25
+#: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
 msgstr ""
 
-#: ucp/views/settings.php:15
+#: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr ""

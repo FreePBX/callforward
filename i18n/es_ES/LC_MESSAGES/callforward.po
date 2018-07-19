@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo callforward module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2017-02-01 18:25-0800\n"
 "PO-Revision-Date: 2016-01-03 11:16+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -17,15 +17,19 @@ msgstr ""
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+#: ucp/views/settings.php:5
+msgid "Always"
+msgstr ""
+
 #: callforward.i18n.php:6
 msgid "Applications"
 msgstr "Aplicaciones"
 
-#: ucp/views/settings.php:35
+#: ucp/views/widget.php:13 ucp/views/widget.php:15
 msgid "Busy"
 msgstr "Ocupado"
 
-#: callforward.i18n.php:4 install.php:6
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
 msgid "Call Forward"
 msgstr "Desvío de llamadas"
 
@@ -77,23 +81,36 @@ msgstr "Activar Pedir Desvio de Llamadas en No Contesta/No Disponible"
 msgid "Call Forward Toggle"
 msgstr "Conmutador de Desvío"
 
-#: ucp/Callforward.class.php:47
+#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
 msgid "Call Forwarding"
 msgstr "Desvío"
 
-#: ucp/Callforward.class.php:98
+#: ucp/Callforward.class.php:182
 msgid "Call Forwarding Has Been Updated!"
 msgstr "Desvio de llamada ha sido actualizado!"
 
-#: ucp/views/settings.php:4
+#: ucp/Callforward.class.php:74
+#, php-format
+msgid "Call Forwarding for %s"
+msgstr ""
+
+#: ucp/views/settings.php:2
 msgid "CallForward Ringtimer"
 msgstr "Temporizador timbrado de Desvío de Llamada"
 
-#: ucp/views/settings.php:22
-msgid "Forward immediately regardless of current state of line/PBX"
-msgstr "Desvio inmediato independiente del estado de la línea/PBX"
+#: ucp/views/settings.php:4
+msgid "Default"
+msgstr ""
 
-#: ucp/views/settings.php:12
+#: ucp/views/widget.php:5 ucp/views/widget.php:10 ucp/views/widget.php:15
+msgid "Disabled"
+msgstr ""
+
+#: ucp/views/widget.php:5 ucp/views/widget.php:10 ucp/views/widget.php:15
+msgid "Enabled"
+msgstr ""
+
+#: ucp/views/settings.php:10
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
 "destinations that may be setup by an administrator on this account. The "
@@ -110,36 +127,38 @@ msgstr ""
 "verá forzado a \"Siempre\" si no hay correo de voz o destinos adicionales "
 "alternativos en caso de falla."
 
-#: ucp/views/settings.php:32
-msgid ""
-"Preconfigured number to which calls are forwarded if the customer endpoint "
-"becomes unresponsive due to an Internet outage or software/configuration "
-"failure of endpoint"
-msgstr ""
-"Número pre-configurado a la que se reenviarán las llamadas si el punto final "
-"al cliente deja de responder debido a una interrupción de Internet o de "
-"software / configuración de punto final"
-
-#: ucp/views/settings.php:42
-msgid ""
-"Preconfigured number to which calls are forwarded if the customer endpoint "
-"is busy, usually due to being on an active call"
-msgstr ""
-"Número pre-configurado a la que se reenviarán las llamadas si el punto final "
-"al cliente está ocupado, por lo general debido a que en una llamada activa"
-
 #: callforward.i18n.php:8
 msgid "Provides callforward featurecodes"
 msgstr "Provee \"featurecodes\" para desvío de llamadas"
 
-#: ucp/views/settings.php:9
+#: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr "Segundos"
 
-#: ucp/views/settings.php:25
+#: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
 msgstr "Non disponible"
 
-#: ucp/views/settings.php:15
+#: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "Incondicional"
+
+#~ msgid "Forward immediately regardless of current state of line/PBX"
+#~ msgstr "Desvio inmediato independiente del estado de la línea/PBX"
+
+#~ msgid ""
+#~ "Preconfigured number to which calls are forwarded if the customer "
+#~ "endpoint becomes unresponsive due to an Internet outage or software/"
+#~ "configuration failure of endpoint"
+#~ msgstr ""
+#~ "Número pre-configurado a la que se reenviarán las llamadas si el punto "
+#~ "final al cliente deja de responder debido a una interrupción de Internet "
+#~ "o de software / configuración de punto final"
+
+#~ msgid ""
+#~ "Preconfigured number to which calls are forwarded if the customer "
+#~ "endpoint is busy, usually due to being on an active call"
+#~ msgstr ""
+#~ "Número pre-configurado a la que se reenviarán las llamadas si el punto "
+#~ "final al cliente está ocupado, por lo general debido a que en una llamada "
+#~ "activa"
