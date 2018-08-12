@@ -13,4 +13,36 @@ class Restore Extends Base\RestoreBase{
       }
     }
   }
+  public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
+    $cf = $this->FreePBX->Callforward;
+    $astdb = $this->getAstDb($tmpfiledir . '/astdb');
+    if (isset($astdb['CF'])) {
+      foreach($astdb['CF'] as $exten => $val){
+        $cf->setNumberByExtension($exten, $val, 'CF');
+      }
+    }
+    if (isset($astdb['CFU'])) {
+      foreach ($astdb['CFU'] as $exten => $val) {
+        $cf->setNumberByExtension($exten, $val, 'CFU');
+      } 
+    }
+    if (isset($astdb['CFB'])) {
+      foreach ($astdb['CFB'] as $exten => $val) {
+        $cf->setNumberByExtension($exten, $val, 'CFB');
+      }
+    }
+    if(isset($astdb['AMPUSER'])){
+      foreach ($astdb['AMPUSER'] as $key => $value) {
+        if(strpos($key, 'ringtimer') === false){
+          continue;
+        }
+        $parts = explode('/', $key);
+        if($parts[1] !== 'ringtimer'){
+          continue;
+        }
+        $cf->setRingTimerByExtension($parts[0], $value);
+      }
+    }
+    return $this;
+  }
 }
