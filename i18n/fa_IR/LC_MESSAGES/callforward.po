@@ -10,24 +10,23 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 18:25-0800\n"
-"PO-Revision-Date: 2016-08-04 15:32+0200\n"
-"Last-Translator: psdk <hyavari26@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"callforward/fa_IR/>\n"
+"PO-Revision-Date: 2019-01-25 09:49+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/callforward/fa/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: ucp/views/settings.php:5
 msgid "Always"
-msgstr ""
+msgstr "همیشه"
 
 #: callforward.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "برنامه ها"
 
 #: ucp/views/widget.php:13 ucp/views/widget.php:15
 msgid "Busy"
@@ -96,7 +95,7 @@ msgstr "ارسال کردن تماس به روزرسانی شد!"
 #: ucp/Callforward.class.php:74
 #, php-format
 msgid "Call Forwarding for %s"
-msgstr ""
+msgstr "Call Forwarding for %1s"
 
 #: ucp/views/settings.php:2
 msgid "CallForward Ringtimer"
@@ -104,15 +103,15 @@ msgstr "زمان زنگ ارسال تماس"
 
 #: ucp/views/settings.php:4
 msgid "Default"
-msgstr ""
+msgstr "پیشفرض"
 
 #: ucp/views/widget.php:5 ucp/views/widget.php:10 ucp/views/widget.php:15
 msgid "Disabled"
-msgstr ""
+msgstr "غیر فعال شده"
 
 #: ucp/views/widget.php:5 ucp/views/widget.php:10 ucp/views/widget.php:15
 msgid "Enabled"
-msgstr ""
+msgstr "فعال شده"
 
 #: ucp/views/settings.php:10
 msgid ""
@@ -130,7 +129,7 @@ msgstr ""
 
 #: callforward.i18n.php:8
 msgid "Provides callforward featurecodes"
-msgstr ""
+msgstr "ویژگی های callforward را فراهم می کند"
 
 #: ucp/views/settings.php:7
 msgid "Seconds"
