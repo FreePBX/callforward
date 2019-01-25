@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 18:25-0800\n"
-"PO-Revision-Date: 2019-01-25 09:49+0000\n"
+"PO-Revision-Date: 2019-01-26 10:00+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/callforward/fa/>\n"
 "Language: fa_IR\n"
@@ -95,7 +95,7 @@ msgstr "ارسال کردن تماس به روزرسانی شد!"
 #: ucp/Callforward.class.php:74
 #, php-format
 msgid "Call Forwarding for %s"
-msgstr "Call Forwarding for %1s"
+msgstr "Call Forwarding for ٪1s"
 
 #: ucp/views/settings.php:2
 msgid "CallForward Ringtimer"
