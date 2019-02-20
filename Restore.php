@@ -11,9 +11,9 @@ class Restore Extends Base\RestoreBase{
 			$cf->setRingTimerByExtension($k,$v['ringtimer']);
 		 }
 	}
-	public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
+	public function processLegacy($pdo, $data, $tables, $unknownTables){
 		$cf = $this->FreePBX->Callforward;
-		$astdb = $this->getAstDb($tmpfiledir . '/astdb');
+		$astdb =  $data['astdb'];
 		if (isset($astdb['CF'])) {
 			foreach($astdb['CF'] as $exten => $val){
 				$cf->setNumberByExtension($exten, $val, 'CF');
@@ -41,6 +41,5 @@ class Restore Extends Base\RestoreBase{
 				$cf->setRingTimerByExtension($parts[0], $value);
 			}
 		}
-		return $this;
 	}
 }
