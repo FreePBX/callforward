@@ -9,7 +9,8 @@ class Restore Extends Base\RestoreBase{
 		foreach($configs as $k => $v){
 			$cf->setMultipleNumberByExten($k,$v['numbers']);
 			$cf->setRingTimerByExtension($k,$v['ringtimer']);
-		 }
+		}
+		$this->importFeatureCodes($configs['features']);
 	}
 	public function processLegacy($pdo, $data, $tables, $unknownTables){
 		$cf = $this->FreePBX->Callforward;
@@ -41,5 +42,7 @@ class Restore Extends Base\RestoreBase{
 				$cf->setRingTimerByExtension($parts[0], $value);
 			}
 		}
+
+		$this->restoreLegacyFeatureCodes($pdo);
 	}
 }
