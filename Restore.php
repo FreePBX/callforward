@@ -6,7 +6,7 @@ class Restore Extends Base\RestoreBase{
 	public function runRestore($jobid){
 		$configs = $this->getConfigs();
 		$cf = $this->FreePBX->Callforward;
-		foreach($configs as $k => $v){
+		foreach($configs['data'] as $k => $v){
 			$cf->setMultipleNumberByExten($k,$v['numbers']);
 			$cf->setRingTimerByExtension($k,$v['ringtimer']);
 		}

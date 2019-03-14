@@ -61,6 +61,9 @@ class Callforward implements BMO {
 	}
 
 	public function setMultipleNumberByExten($exten,$numbers){
+		if(empty($numbers)) {
+			return;
+		}
 		foreach($numbers as $key => $val){
 			if(empty($val)){
 				continue;
