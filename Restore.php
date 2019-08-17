@@ -3,7 +3,7 @@ namespace FreePBX\modules\Callforward;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
 
-	public function runRestore($jobid){
+	public function runRestore(){
 		$configs = $this->getConfigs();
 		$cf = $this->FreePBX->Callforward;
 		foreach($configs['data'] as $k => $v){
