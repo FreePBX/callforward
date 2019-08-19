@@ -6,10 +6,12 @@ class Restore Extends Base\RestoreBase{
 	public function runRestore($jobid){
 		$configs = $this->getConfigs();
 		$cf = $this->FreePBX->Callforward;
-		foreach($configs['data'] as $k => $v){
-			$cf->setMultipleNumberByExten($k,$v['numbers']);
-			$cf->setRingTimerByExtension($k,$v['ringtimer']);
-		}
+      	if(array_key_exists('data', $configs)) {
+          	foreach($configs['data'] as $k => $v){
+                $cf->setMultipleNumberByExten($k,$v['numbers']);
+                $cf->setRingTimerByExtension($k,$v['ringtimer']);
+            }
+        }
 		$this->importFeatureCodes($configs['features']);
 	}
 	public function processLegacy($pdo, $data, $tables, $unknownTables){
