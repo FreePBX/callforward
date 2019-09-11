@@ -2,11 +2,12 @@
 	<rawname>callforward</rawname>
 	<repo>standard</repo>
 	<name>Call Forward</name>
-	<version>15.0.9</version>
+	<version>15.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.10* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.9* Fixes FREEPBX-20445: Check, if index 'data' exists in $configs before accessing it 
 		*15.0.8* Call Forwarding Restore Fails
 		*15.0.7* backup
