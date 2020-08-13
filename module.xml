@@ -6,6 +6,8 @@
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
+	<description>The Call Forwarding module provides feature codes for call forwarding. Call Forwarding is used to forward calls from one user to another based on conditions such as busy, unavailable, and no answer.</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Call+Forwarding+Module</more-info>
 	<changelog>
 		*13.0.4.2* FREEPBX-15976 add fromext variable in dialplan
 		*13.0.4.1* FREEPBX-14348 Call Forward prompts replacements
