@@ -2,11 +2,12 @@
 	<rawname>callforward</rawname>
 	<repo>standard</repo>
 	<name>Call Forward</name>
-	<version>15.0.11</version>
+	<version>15.0.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.12* Packaging of ver 15.0.12
 		*15.0.11* Packaging of ver 15.0.11
 		*15.0.10* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.9* Fixes FREEPBX-20445: Check, if index 'data' exists in $configs before accessing it 
@@ -19,7 +20,7 @@
 		*15.0.2* Packaging of ver 15.0.2
 		*15.0.1* Fork from 14.0.1.3, impliment backup
 	</changelog>
-	<description>Provides callforward featurecodes</description>
+	<description>The Call Forwarding module provides feature codes for call forwarding. Call Forwarding is used to forward calls from one user to another based on conditions such as busy, unavailable, and no answer.</description>
   	<more-info>https://wiki.freepbx.org/display/F2/Call+Forwarding+Module</more-info>
 	<category>Applications</category>
 	<supported>

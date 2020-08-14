@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:25-0800\n"
+"POT-Creation-Date: 2020-08-14 05:14+0000\n"
 "PO-Revision-Date: 2016-12-09 06:44+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -133,13 +133,16 @@ msgstr ""
 "forçadas para \"Sempre\" se não houver correio de voz ou destinos adicionais "
 "alternativos em caso de falha."
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr ""
-
 #: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr "Segundos"
+
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
+msgstr ""
 
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
