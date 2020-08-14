@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 18:00-0400\n"
+"POT-Creation-Date: 2020-08-14 05:15+0000\n"
 "PO-Revision-Date: 2018-09-18 15:37+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/callforward/de/>\n"
@@ -133,13 +133,16 @@ msgstr ""
 "erzwungen, wenn es keinen Anrufbeantworter oder kein alternatives Ziel für "
 "einen Anruf gibt."
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "Bietet Rufumleitung featurecodes"
-
 #: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr "Sekunden"
+
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
+msgstr ""
 
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
@@ -148,6 +151,9 @@ msgstr "Nicht verfügbar"
 #: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "Uneingeschränkt"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "Bietet Rufumleitung featurecodes"
 
 #~ msgid "Forward immediately regardless of current state of line/PBX"
 #~ msgstr ""

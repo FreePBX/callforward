@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:25-0800\n"
+"POT-Creation-Date: 2020-08-14 05:15+0000\n"
 "PO-Revision-Date: 2019-01-26 10:00+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/callforward/fa/>\n"
@@ -127,13 +127,16 @@ msgstr ""
 "می شود تماس به مقصد منتقل شده و تا زمان پاسخ و یا قطع توسط تماس گیرنده در "
 "همین وضعیت بماند.تنظیمات پیش فرض مدت زمان زنگ را مشخص می کند."
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "ویژگی های callforward را فراهم می کند"
-
 #: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr "ثانیه"
+
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
+msgstr ""
 
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
@@ -142,6 +145,9 @@ msgstr "خارج از دسترس"
 #: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "بدون شرط"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "ویژگی های callforward را فراهم می کند"
 
 #~ msgid "Forward immediately regardless of current state of line/PBX"
 #~ msgstr "ارسال سریع بدون در نظر گرفتن وضعیت فعلی خط/PBX"

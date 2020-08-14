@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 18:00-0400\n"
+"POT-Creation-Date: 2020-08-14 05:15+0000\n"
 "PO-Revision-Date: 2018-05-28 15:29+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/callforward/it/>\n"
@@ -125,13 +125,16 @@ msgstr ""
 "L'impostazione qui sarà forzata su Sempre se non ci sono Voicemail o "
 "failover alternartive sulla destinazione per una chiamata a cui rivolgersi."
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "Fornisce featurecodes callforward"
-
 #: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr "Secondi"
+
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
+msgstr ""
 
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
@@ -140,6 +143,9 @@ msgstr "Non disponibile"
 #: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "Incondizionato"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "Fornisce featurecodes callforward"
 
 #~ msgid "Forward immediately regardless of current state of line/PBX"
 #~ msgstr ""

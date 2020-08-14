@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:25-0800\n"
+"POT-Creation-Date: 2020-08-14 05:15+0000\n"
 "PO-Revision-Date: 2013-11-07 12:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -150,12 +150,15 @@ msgid ""
 "alternartive fail over destination for a call to go to."
 msgstr ""
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "通話転送キーコードを提供します。"
-
 #: ucp/views/settings.php:7
 msgid "Seconds"
+msgstr ""
+
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
 msgstr ""
 
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
@@ -165,3 +168,6 @@ msgstr ""
 #: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr ""
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "通話転送キーコードを提供します。"
