@@ -9,7 +9,8 @@
 	<changelog>
 		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
-	<description>Provides callforward featurecodes</description>
+	<description>The Call Forwarding module provides feature codes for call forwarding. Call Forwarding is used to forward calls from one user to another based on conditions such as busy, unavailable, and no answer.</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Call+Forwarding+Module</more-info>
 	<category>Applications</category>
 	<supported>
 		<version>16.0</version>
