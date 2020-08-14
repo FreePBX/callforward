@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for callforward
-# Copyright (C) 2008-2018 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2020 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,6 +107,10 @@ msgstr ""
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr ""
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -128,10 +132,6 @@ msgstr ""
 msgid ""
 "Preconfigured number to which calls are forwarded if the customer endpoint "
 "is busy, usually due to being on an active call"
-msgstr ""
-
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
 msgstr ""
 
 #: ucp/views/settings.php:9

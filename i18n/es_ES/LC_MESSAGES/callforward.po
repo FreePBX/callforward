@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo callforward module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: 2016-01-03 11:16+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -93,6 +93,10 @@ msgstr "Temporizador timbrado de Desvío de Llamada"
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr "Desvio inmediato independiente del estado de la línea/PBX"
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -128,10 +132,6 @@ msgstr ""
 "Número pre-configurado a la que se reenviarán las llamadas si el punto final "
 "al cliente está ocupado, por lo general debido a que en una llamada activa"
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "Provee \"featurecodes\" para desvío de llamadas"
-
 #: ucp/views/settings.php:9
 msgid "Seconds"
 msgstr "Segundos"
@@ -143,3 +143,6 @@ msgstr "Non disponible"
 #: ucp/views/settings.php:15
 msgid "Unconditional"
 msgstr "Incondicional"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "Provee \"featurecodes\" para desvío de llamadas"

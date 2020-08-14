@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: 2017-03-03 13:47+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
@@ -99,6 +99,10 @@ msgstr "Anrufweiterleitung nach ... mal Klingeln"
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr "Unabhängig vom aktuellen Zustand der Leitung / PBX sofort weiterleiten"
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -134,10 +138,6 @@ msgid ""
 msgstr ""
 "Vorkonfigurierte Nummer, an die Anrufe weitergeleitet werden, wenn der "
 "Endpunkt des Kunden besetzt ist, in der Regel aufgrund eines aktiven Anrufs"
-
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr ""
 
 #: ucp/views/settings.php:9
 msgid "Seconds"

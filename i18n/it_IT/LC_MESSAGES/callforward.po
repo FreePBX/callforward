@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -89,6 +89,10 @@ msgstr ""
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr ""
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -110,10 +114,6 @@ msgstr ""
 msgid ""
 "Preconfigured number to which calls are forwarded if the customer endpoint "
 "is busy, usually due to being on an active call"
-msgstr ""
-
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
 msgstr ""
 
 #: ucp/views/settings.php:9

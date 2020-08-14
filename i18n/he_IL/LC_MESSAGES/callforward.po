@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: 2014-03-04 09:10+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Hebrew <http://git.freepbx.org/projects/freepbx/callforward/"
@@ -111,6 +111,10 @@ msgstr ""
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr ""
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -132,10 +136,6 @@ msgstr ""
 msgid ""
 "Preconfigured number to which calls are forwarded if the customer endpoint "
 "is busy, usually due to being on an active call"
-msgstr ""
-
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
 msgstr ""
 
 #: ucp/views/settings.php:9

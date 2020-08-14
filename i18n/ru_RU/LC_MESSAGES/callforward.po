@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: 2015-05-31 00:30+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -109,6 +109,10 @@ msgstr "Таймер звонка переадресации вызова"
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr "Перевести немедленно, независимо от текущего состояния линии/АТС"
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -144,10 +148,6 @@ msgstr ""
 "Предварительно настроенный номер, на который будут переадресованы звонки, "
 "если конечная точка клиента занята, как правило, из-за активного вызова"
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "Организует коды определения перенаправлений"
-
 #: ucp/views/settings.php:9
 msgid "Seconds"
 msgstr "Секунд"
@@ -159,3 +159,6 @@ msgstr "Недоступен"
 #: ucp/views/settings.php:15
 msgid "Unconditional"
 msgstr "Безусловный"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "Организует коды определения перенаправлений"

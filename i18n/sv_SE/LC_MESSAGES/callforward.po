@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX callforward\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: 2011-03-19 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -105,6 +105,10 @@ msgstr ""
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr ""
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -128,10 +132,6 @@ msgid ""
 "is busy, usually due to being on an active call"
 msgstr ""
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "Modulen tillhandahåller funktionskoder för vidarebefordran av samtal"
-
 #: ucp/views/settings.php:9
 msgid "Seconds"
 msgstr ""
@@ -143,6 +143,10 @@ msgstr ""
 #: ucp/views/settings.php:15
 msgid "Unconditional"
 msgstr ""
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr ""
+#~ "Modulen tillhandahåller funktionskoder för vidarebefordran av samtal"
 
 #~ msgid "Internal Options & Configuration"
 #~ msgstr "Interna val och konfigurationer"

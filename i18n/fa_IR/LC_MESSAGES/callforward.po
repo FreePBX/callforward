@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: 2016-08-04 15:32+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -97,6 +97,10 @@ msgstr "زمان زنگ ارسال تماس"
 msgid "Forward immediately regardless of current state of line/PBX"
 msgstr "ارسال سریع بدون در نظر گرفتن وضعیت فعلی خط/PBX"
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -127,10 +131,6 @@ msgid ""
 msgstr ""
 "تنظیم اولیه شماره برای انتقال تماس هایی که مقصد تماس اشغال می باشد، و در حال "
 "مکالمه است"
-
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr ""
 
 #: ucp/views/settings.php:9
 msgid "Seconds"

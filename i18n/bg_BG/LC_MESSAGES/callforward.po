@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-23 17:18-0500\n"
+"POT-Creation-Date: 2020-08-14 05:12+0000\n"
 "PO-Revision-Date: 2015-03-11 21:30+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -100,6 +100,10 @@ msgstr ""
 "Незабавно пренасочва разговора независимо от текущото състояние на линията/"
 "тел.централа"
 
+#: callforward.i18n.php:8
+msgid "Invalid description"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "Number of seconds to ring prior to going to voicemail or other fail over "
@@ -135,10 +139,6 @@ msgstr ""
 "Предварително конфигуриран номер, към който да се пренасочват обажданията "
 "ако телефона на потребителя е зает"
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "Предоставя специални кодове за пренасочване на разговор"
-
 #: ucp/views/settings.php:9
 msgid "Seconds"
 msgstr "Секунди"
@@ -150,3 +150,6 @@ msgstr "Не Отговаря"
 #: ucp/views/settings.php:15
 msgid "Unconditional"
 msgstr "Безусловно"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "Предоставя специални кодове за пренасочване на разговор"
