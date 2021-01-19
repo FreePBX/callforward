@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for callforward
-# Copyright (C) 2008-2019 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2020 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 09:33+0530\n"
+"POT-Creation-Date: 2020-11-25 04:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,12 +141,15 @@ msgid ""
 "alternartive fail over destination for a call to go to."
 msgstr ""
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr ""
-
 #: ucp/views/settings.php:7
 msgid "Seconds"
+msgstr ""
+
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
 msgstr ""
 
 #: ucp/views/widget.php:8

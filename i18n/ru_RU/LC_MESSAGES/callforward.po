@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:25-0800\n"
+"POT-Creation-Date: 2020-08-14 05:14+0000\n"
 "PO-Revision-Date: 2015-05-31 00:30+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -143,13 +143,16 @@ msgstr ""
 "будут установлены на Всегда, если здесь нет Голосовой почты или "
 "альтернативного назначения при сбое вызова."
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "Организует коды определения перенаправлений"
-
 #: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr "Секунд"
+
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
+msgstr ""
 
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
@@ -158,6 +161,9 @@ msgstr "Недоступен"
 #: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "Безусловный"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "Организует коды определения перенаправлений"
 
 #~ msgid "Forward immediately regardless of current state of line/PBX"
 #~ msgstr "Перевести немедленно, независимо от текущего состояния линии/АТС"

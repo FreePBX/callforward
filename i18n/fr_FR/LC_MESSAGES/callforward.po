@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:25-0800\n"
+"POT-Creation-Date: 2020-08-14 05:14+0000\n"
 "PO-Revision-Date: 2015-04-25 00:41+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -141,13 +141,16 @@ msgstr ""
 "toujours s'il n'y a pas de messagerie ou une destination alternative pour un "
 "l'appel."
 
-#: callforward.i18n.php:8
-msgid "Provides callforward featurecodes"
-msgstr "Fournit les codes de fonction du renvoi"
-
 #: ucp/views/settings.php:7
 msgid "Seconds"
 msgstr "Secondes"
+
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
+msgstr ""
 
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
@@ -156,6 +159,9 @@ msgstr "Non disponible"
 #: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "Sans condition"
+
+#~ msgid "Provides callforward featurecodes"
+#~ msgstr "Fournit les codes de fonction du renvoi"
 
 #~ msgid "Forward immediately regardless of current state of line/PBX"
 #~ msgstr ""
