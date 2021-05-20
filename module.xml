@@ -2,11 +2,12 @@
 	<rawname>callforward</rawname>
 	<repo>standard</repo>
 	<name>Call Forward</name>
-	<version>15.0.13</version>
+	<version>15.0.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.14* FREEI-3333 callforward Restore issue ( advr) 
 		*15.0.13* Packaging of ver 15.0.13
 		*15.0.12* Packaging of ver 15.0.12
 		*15.0.11* Packaging of ver 15.0.11
