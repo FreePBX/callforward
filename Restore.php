@@ -5,6 +5,8 @@ class Restore Extends Base\RestoreBase{
 
 	public function runRestore(){
 		$configs = $this->getConfigs();
+		global $astman;
+		$astman->database_deltree("CF");
 		$cf = $this->FreePBX->Callforward;
       	if(array_key_exists('data', $configs)) {
           	foreach($configs['data'] as $k => $v){
