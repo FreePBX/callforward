@@ -27,9 +27,13 @@ use \UCP\Modules as Modules;
 
 class Callforward extends Modules{
 	protected $module = 'Callforward';
+	private $user = null;
+	private $userId = false;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
+		$this->user = $this->UCP->User->getUser();
+		$this->userId = $this->user ? $this->user["id"] : false;
 	}
 
 	public function getWidgetList() {
@@ -55,8 +59,7 @@ class Callforward extends Modules{
 	public function getSimpleWidgetList() {
 		$widgets = array();
 
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Settings','assigned');
 
 		if (!empty($extensions)) {
 			foreach($extensions as $extension) {
@@ -188,8 +191,7 @@ class Callforward extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Settings','assigned');
 		$extensions = is_array($extensions) ? $extensions : array();
 		return in_array($extension,$extensions);
 	}
