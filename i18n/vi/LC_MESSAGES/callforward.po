@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 05:14+0000\n"
+"POT-Creation-Date: 2023-08-16 10:38+0000\n"
 "PO-Revision-Date: 2017-06-07 11:26+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -33,7 +33,7 @@ msgstr "Các ứng dụng"
 msgid "Busy"
 msgstr "Bận"
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "chuyển tiếp cuộc gọi"
 
@@ -93,11 +93,11 @@ msgstr ""
 msgid "Call Forward Toggle"
 msgstr "Chuyển cuộc gọi khi cuộc gọi đang chuyển chế độ"
 
-#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
+#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
 msgid "Call Forwarding"
 msgstr "Chuyển tiếp cuộc gọi"
 
-#: ucp/Callforward.class.php:182
+#: ucp/Callforward.class.php:158
 msgid "Call Forwarding Has Been Updated!"
 msgstr "Chuyển tiếp cuộc gọi đã được cập nhật!"
 

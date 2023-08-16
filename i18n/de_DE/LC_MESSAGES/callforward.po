@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 05:14+0000\n"
+"POT-Creation-Date: 2023-08-16 10:38+0000\n"
 "PO-Revision-Date: 2018-09-18 15:37+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/callforward/de/>\n"
@@ -32,7 +32,7 @@ msgstr "Anwendungen"
 msgid "Busy"
 msgstr "Besetzt"
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "Anrufweiterleitung"
 
@@ -86,11 +86,11 @@ msgstr ""
 msgid "Call Forward Toggle"
 msgstr "Anrufweiterleitung umschalten"
 
-#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
+#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
 msgid "Call Forwarding"
 msgstr "Anrufweiterleitung"
 
-#: ucp/Callforward.class.php:182
+#: ucp/Callforward.class.php:158
 msgid "Call Forwarding Has Been Updated!"
 msgstr "Anrufweiterleitung wurde aktualisiert!"
 

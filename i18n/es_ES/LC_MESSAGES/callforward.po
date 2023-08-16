@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo callforward module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 05:14+0000\n"
+"POT-Creation-Date: 2023-08-16 10:38+0000\n"
 "PO-Revision-Date: 2016-01-03 11:16+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -29,7 +29,7 @@ msgstr "Aplicaciones"
 msgid "Busy"
 msgstr "Ocupado"
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "Desvío de llamadas"
 
@@ -81,11 +81,11 @@ msgstr "Activar Pedir Desvio de Llamadas en No Contesta/No Disponible"
 msgid "Call Forward Toggle"
 msgstr "Conmutador de Desvío"
 
-#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
+#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
 msgid "Call Forwarding"
 msgstr "Desvío"
 
-#: ucp/Callforward.class.php:182
+#: ucp/Callforward.class.php:158
 msgid "Call Forwarding Has Been Updated!"
 msgstr "Desvio de llamada ha sido actualizado!"
 

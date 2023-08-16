@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 05:14+0000\n"
+"POT-Creation-Date: 2023-08-16 10:38+0000\n"
 "PO-Revision-Date: 2015-04-25 00:41+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -43,7 +43,7 @@ msgstr "Applications"
 msgid "Busy"
 msgstr "Occupé"
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "Renvoi d'appel"
 
@@ -95,11 +95,11 @@ msgstr ""
 msgid "Call Forward Toggle"
 msgstr "Basculer le renvoi"
 
-#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
+#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
 msgid "Call Forwarding"
 msgstr "Renvoi d'appel"
 
-#: ucp/Callforward.class.php:182
+#: ucp/Callforward.class.php:158
 msgid "Call Forwarding Has Been Updated!"
 msgstr "Renvoi d'appel a été modifié !"
 

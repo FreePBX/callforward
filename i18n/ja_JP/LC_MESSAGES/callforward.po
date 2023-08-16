@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 05:14+0000\n"
+"POT-Creation-Date: 2023-08-16 10:38+0000\n"
 "PO-Revision-Date: 2013-11-07 12:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -59,7 +59,7 @@ msgstr "アプリケーション"
 msgid "Busy"
 msgstr ""
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "通話転送"
 
@@ -111,11 +111,11 @@ msgstr ""
 msgid "Call Forward Toggle"
 msgstr "通話転送切り替え"
 
-#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
+#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
 msgid "Call Forwarding"
 msgstr ""
 
-#: ucp/Callforward.class.php:182
+#: ucp/Callforward.class.php:158
 msgid "Call Forwarding Has Been Updated!"
 msgstr ""
 

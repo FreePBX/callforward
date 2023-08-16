@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 05:14+0000\n"
+"POT-Creation-Date: 2023-08-16 10:38+0000\n"
 "PO-Revision-Date: 2014-03-04 09:10+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Hebrew <http://git.freepbx.org/projects/freepbx/callforward/"
@@ -45,7 +45,7 @@ msgstr "יישומים"
 msgid "Busy"
 msgstr ""
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr ""
 
@@ -99,11 +99,11 @@ msgstr ""
 msgid "Call Forward Toggle"
 msgstr ""
 
-#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
+#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
 msgid "Call Forwarding"
 msgstr ""
 
-#: ucp/Callforward.class.php:182
+#: ucp/Callforward.class.php:158
 msgid "Call Forwarding Has Been Updated!"
 msgstr ""
 

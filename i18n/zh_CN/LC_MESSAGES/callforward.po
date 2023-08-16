@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 05:14+0000\n"
+"POT-Creation-Date: 2023-08-16 10:38+0000\n"
 "PO-Revision-Date: 2015-02-05 21:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -34,7 +34,7 @@ msgstr "应用"
 msgid "Busy"
 msgstr ""
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "呼叫转移"
 
@@ -86,11 +86,11 @@ msgstr ""
 msgid "Call Forward Toggle"
 msgstr "呼叫前转触发"
 
-#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
+#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
 msgid "Call Forwarding"
 msgstr ""
 
-#: ucp/Callforward.class.php:182
+#: ucp/Callforward.class.php:158
 msgid "Call Forwarding Has Been Updated!"
 msgstr ""
 

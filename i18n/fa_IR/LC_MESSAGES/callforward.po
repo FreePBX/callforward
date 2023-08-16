@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 05:14+0000\n"
+"POT-Creation-Date: 2023-08-16 10:38+0000\n"
 "PO-Revision-Date: 2019-01-26 10:00+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/callforward/fa/>\n"
@@ -32,7 +32,7 @@ msgstr "برنامه ها"
 msgid "Busy"
 msgstr "مشغول"
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:130
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "ارسال تماس"
 
@@ -84,11 +84,11 @@ msgstr "فعال سازی اعلان ارسال تماس ها در حالت بد
 msgid "Call Forward Toggle"
 msgstr "تغییر وضعیت ارسال تماس"
 
-#: ucp/Callforward.class.php:87 ucp/Callforward.class.php:106
+#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
 msgid "Call Forwarding"
 msgstr "ارسال کردن تماس"
 
-#: ucp/Callforward.class.php:182
+#: ucp/Callforward.class.php:158
 msgid "Call Forwarding Has Been Updated!"
 msgstr "ارسال کردن تماس به روزرسانی شد!"
 
