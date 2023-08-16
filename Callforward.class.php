@@ -32,8 +32,8 @@ class Callforward implements BMO {
 		//CFU - Unconditional
 		//CFB - Busy
 		//CF - Unavailable
-		$cf_type = array('CF','CFU','CFB');
-		$users = array();
+		$cf_type = ['CF', 'CFU', 'CFB'];
+		$users = [];
 
 		foreach ($cf_type as $value) {
 			$users[$value] = $this->astman->database_get($value, $extension);
@@ -50,7 +50,7 @@ class Callforward implements BMO {
 	public function getWidgetListByModule($defaultexten, $userid,$widget) {
 		// if the widget_type_id is not defaultextension and widget_type_id is not in extensions
 		// then return only the defaultexten details
-		$widgets = array();
+		$widgets = [];
 		$widget_type_id = $widget['widget_type_id'];// this will be an extension number
 		$extensions = $this->FreePBX->Ucp->getCombinedSettingByID($userid,'Settings','assigned');
 		$extensions = is_array($extensions)?$extensions:[];
@@ -73,21 +73,14 @@ class Callforward implements BMO {
 	}
 
 	function getNumberByExtension($extension, $type = 'CF') {
-		switch ($type) {
-			case 'CFU':
-				$cf_type = 'CFU';
-			break;
-			case 'CFB':
-				$cf_type = 'CFB';
-			break;
-			case 'CF':
-			default:
-				$cf_type = 'CF';
-			break;
-		}
+		$cf_type = match ($type) {
+      'CFU' => 'CFU',
+      'CFB' => 'CFB',
+      default => 'CF',
+  };
 
 		$number = $this->astman->database_get($cf_type, $extension);
-		return $number ? $number : false;
+		return $number ?: false;
 	}
 
 	public function setMultipleNumberByExten($exten,$numbers){
@@ -103,24 +96,17 @@ class Callforward implements BMO {
 	}
 
 	function setNumberByExtension($extension, $number, $type = "CF") {
-		switch ($type) {
-			case 'CFU':
-				$cf_type = 'CFU';
-			break;
-			case 'CFB':
-				$cf_type = 'CFB';
-			break;
-			case 'CF':
-			default:
-				$cf_type = 'CF';
-			break;
-		}
+		$cf_type = match ($type) {
+      'CFU' => 'CFU',
+      'CFB' => 'CFB',
+      default => 'CF',
+  };
 
 		if ($cf_type == 'CF') {
 			$state = $this->FreePBX->Config->get('AST_FUNC_DEVICE_STATE');
 			$this->astman->set_global($state . "(Custom:" . $cf_type . $extension . ")", 'BUSY');
 			$devices = $this->astman->database_get("AMPUSER", $extension . "/device");
-			$device_arr = explode('&', $devices);
+			$device_arr = explode('&', (string) $devices);
 			foreach ($device_arr as $device) {
 				$this->astman->set_global($state . "(Custom:DEV" . $cf_type . $device . ")", 'BUSY');
 			}
@@ -136,24 +122,17 @@ class Callforward implements BMO {
 	}
 
 	function delNumberByExtension($extension, $type = "CF") {
-		switch ($type) {
-			case 'CFU':
-				$cf_type = 'CFU';
-			break;
-			case 'CFB':
-				$cf_type = 'CFB';
-			break;
-			case 'CF':
-			default:
-				$cf_type = 'CF';
-			break;
-		}
+		$cf_type = match ($type) {
+      'CFU' => 'CFU',
+      'CFB' => 'CFB',
+      default => 'CF',
+  };
 
 		if ($cf_type == 'CF') {
 			$state = $this->FreePBX->Config->get('AST_FUNC_DEVICE_STATE');
 			$this->astman->set_global($state . "(Custom:" . $cf_type . $extension . ")", 'NOT_INUSE');
 			$devices = $this->astman->database_get("AMPUSER", $extension . "/device");
-			$device_arr = explode('&', $devices);
+			$device_arr = explode('&', (string) $devices);
 			foreach ($device_arr as $device) {
 				$this->astman->set_global($state . "(Custom:DEV" . $cf_type . $device . ")", 'NOT_INUSE');
 			}

@@ -36,10 +36,10 @@ class Restore Extends Base\RestoreBase{
 		}
 		if(isset($astdb['AMPUSER'])){
 			foreach ($astdb['AMPUSER'] as $key => $value) {
-				if(strpos($key, 'ringtimer') === false){
+				if(!str_contains((string) $key, 'ringtimer')){
 					continue;
 				}
-				$parts = explode('/', $key);
+				$parts = explode('/', (string) $key);
 				if($parts[1] !== 'ringtimer'){
 					continue;
 				}

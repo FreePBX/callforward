@@ -45,11 +45,11 @@ function callforward_get_config($engine) {
 			$ext->addInclude('from-internal-additional','ext-cf-hints');
 			$contextname = 'ext-cf-hints';
 			$device_list = core_devices_list("all", 'full', true);
-			$base_offset = strlen($cf_code);
+			$base_offset = strlen((string) $cf_code);
 			if(!empty($device_list) && is_array($device_list)) {
 				foreach ($device_list as $device) {
 					if ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2') {
-						$offset = $base_offset + strlen($device['id']);
+						$offset = $base_offset + strlen((string) $device['id']);
 						$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_set("toext",'${EXTEN:'.$offset.'}'));
 						$ext->add($contextname, '_'.$cf_code.$device['id'].'.', '', new ext_goto("setdirect",$cf_code,"app-cf-toggle"));
 					}
@@ -63,7 +63,7 @@ function callforward_get_config($engine) {
 				$offset = $base_offset + $row['len'];
 				$ext->add($contextname, '_'.$cf_code.str_repeat('X',$row['len']), '', new ext_goto("1",$cf_code,"app-cf-toggle"));
 			}
-			$ext->addHint($contextname, "_$cf_code".'X.', "Custom:DEVCF".'${EXTEN:'.strlen($cf_code).'}');
+			$ext->addHint($contextname, "_$cf_code".'X.', "Custom:DEVCF".'${EXTEN:'.strlen((string) $cf_code).'}');
 		}
 
 		break;
@@ -204,7 +204,7 @@ function callforward_add_cfon($c, $prompt = false) {
 	}
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
-	$clen = strlen($c);
+	$clen = strlen((string) $c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -357,7 +357,7 @@ function callforward_cfoff($c) {
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// for any extension, dial *XX<exten>
-	$clen = strlen($c);
+	$clen = strlen((string) $c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -448,7 +448,7 @@ function callforward_add_cfbon($c, $prompt = false) {
 	$ext->add($id, $c, '', new ext_gosub('1', 'lang-playback', $id, 'hook_2'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
-	$clen = strlen($c);
+	$clen = strlen((string) $c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -563,7 +563,7 @@ function callforward_cfboff($c) {
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// for any extension, dial *XX<exten>
-	$clen = strlen($c);
+	$clen = strlen((string) $c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -637,7 +637,7 @@ function callforward_add_cfuon($c, $prompt=false) {
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// assume this extension and forward to number after the feature code
-	$clen = strlen($c);
+	$clen = strlen((string) $c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -706,7 +706,7 @@ function callforward_cfuoff($c) {
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 
 	// for any extension, dial *XX<exten>
-	$clen = strlen($c);
+	$clen = strlen((string) $c);
 	$c = "_$c.";
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
@@ -738,8 +738,8 @@ function callforward_cfuoff($c) {
 function callforward_get_extension($extension = '') {
 	global $astman;
 
-	$cf_type = array('CF','CFU','CFB');
-	$users = array();
+	$cf_type = ['CF', 'CFU', 'CFB'];
+	$users = [];
 
 	foreach ($cf_type as $value) {
 		if ($extension) {
@@ -755,18 +755,11 @@ function callforward_get_extension($extension = '') {
 function callforward_get_number($extension = '', $type = 'CF') {
 	global $astman;
 
-	switch ($type) {
-	case 'CFU':
-		$cf_type = 'CFU';
-		break;
-	case 'CFB':
-		$cf_type = 'CFB';
-		break;
-	case 'CF':
-	default:
-		$cf_type = 'CF';
-		break;
-	}
+	$cf_type = match ($type) {
+     'CFU' => 'CFU',
+     'CFB' => 'CFB',
+     default => 'CF',
+ };
 
 	$number = $astman->database_get($cf_type, $extension);
 	if (is_numeric($number)) {
@@ -778,18 +771,11 @@ function callforward_set_number($extension, $number, $type = "CF") {
 	global $astman;
 	global $amp_conf;
 
-	switch ($type) {
-	case 'CFU':
-		$cf_type = 'CFU';
-		break;
-	case 'CFB':
-		$cf_type = 'CFB';
-		break;
-	case 'CF':
-	default:
-		$cf_type = 'CF';
-		break;
-	}
+	$cf_type = match ($type) {
+     'CFU' => 'CFU',
+     'CFB' => 'CFB',
+     default => 'CF',
+ };
 
 	if ($cf_type == 'CF' && $amp_conf['USEDEVSTATE']) {
 		$state = $number ? 'BUSY' : 'NOT_INUSE';
@@ -797,7 +783,7 @@ function callforward_set_number($extension, $number, $type = "CF") {
 		$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:" . $cf_type . $extension . ")", $state);
 
 		$devices = $astman->database_get("AMPUSER", $extension . "/device");
-		$device_arr = explode('&', $devices);
+		$device_arr = explode('&', (string) $devices);
 		foreach ($device_arr as $device) {
 			$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:DEV" . $cf_type . $device . ")", $state);
 		}

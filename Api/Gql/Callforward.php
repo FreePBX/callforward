@@ -12,8 +12,7 @@ class Callforward extends Base {
 		if($this->checkAllReadScope()) {
 			$user = $this->typeContainer->get('coreuser');
 
-			$user->addFieldCallback(function() {
-				return [
+			$user->addFieldCallback(fn() => [
 					'callforward_unconditional' => [
 						'type' => Type::string(),
 						'description' => 'Call Forward No Answer/Unavailable',
@@ -54,8 +53,7 @@ class Callforward extends Base {
 							return $this->freepbx->Callforward->getRingtimerByExtension($user['extension']);
 						}
 					]
-				];
-			});
+				]);
 		}
 	}
 

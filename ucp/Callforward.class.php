@@ -42,22 +42,22 @@ class Callforward extends Modules{
 	}
 
 	public function poll($data) {
-		$states = array();
+		$states = [];
 		foreach($data as $ext) {
 			if(!$this->_checkExtension($ext)) {
 				continue;
 			}
-			$s = array('CFU','CFB','CF');
-			foreach(array('CFU','CFB','CF') as $type) {
+			$s = ['CFU', 'CFB', 'CF'];
+			foreach(['CFU', 'CFB', 'CF'] as $type) {
 				$states[$ext][$type] = $this->UCP->FreePBX->Callforward->getNumberByExtension($ext,$type);
 			}
 		}
 
-		return array("states" => $states);
+		return ["states" => $states];
 	}
 
 	public function getSimpleWidgetList() {
-		$widgets = array();
+		$widgets = [];
 
 		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Settings','assigned');
 
@@ -71,44 +71,25 @@ class Callforward extends Modules{
 					$name = $data['description'];
 				}
 
-				$widgets[$extension] = array(
-					"display" => $name,
-					"hasSettings" => true,
-					"description" => sprintf(_("Call Forwarding for %s"),$name),
-					"defaultsize" => array("height" => 7, "width" => 1),
-					"minsize" => array("height" => 7, "width" => 1)
-				);
+				$widgets[$extension] = ["display" => $name, "hasSettings" => true, "description" => sprintf(_("Call Forwarding for %s"),$name), "defaultsize" => ["height" => 7, "width" => 1], "minsize" => ["height" => 7, "width" => 1]];
 			}
 		}
 
 		if (empty($widgets)) {
-			return array();
+			return [];
 		}
 
-		return array(
-			"rawname" => "callforward",
-			"display" => _("Call Forwarding"),
-			"icon" => "fa fa-arrow-right",
-			"list" => $widgets
-		);
+		return ["rawname" => "callforward", "display" => _("Call Forwarding"), "icon" => "fa fa-arrow-right", "list" => $widgets];
 	}
 
 	public function getWidgetDisplay($id) {
 		if (!$this->_checkExtension($id)) {
-			return array();
+			return [];
 		}
 
-		$displayvars = array(
-			"extension" => $id,
-			"CFU" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CFU'),
-			"CFB" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CFB'),
-			"CF" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CF'),
-		);
+		$displayvars = ["extension" => $id, "CFU" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CFU'), "CFB" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CFB'), "CF" => $this->UCP->FreePBX->Callforward->getNumberByExtension($id,'CF')];
 
-		$display = array(
-			'title' => _("Call Forwarding"),
-			'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)
-		);
+		$display = ['title' => _("Call Forwarding"), 'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)];
 
 		return $display;
 	}
@@ -119,20 +100,15 @@ class Callforward extends Modules{
 
 	public function getWidgetSettingsDisplay($id) {
 		if (!$this->_checkExtension($id)) {
-			return array();
+			return [];
 		}
 
-		$displayvars = array(
-			"ringtime" => $this->UCP->FreePBX->Callforward->getRingtimerByExtension($id)
-		);
+		$displayvars = ["ringtime" => $this->UCP->FreePBX->Callforward->getRingtimerByExtension($id)];
 		for($i = 1;$i<=120;$i++) {
 			$displayvars['cfringtimes'][$i] = $i;
 		}
 
-		$display = array(
-			'title' => _("Call Forward"),
-			'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)
-		);
+		$display = ['title' => _("Call Forward"), 'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)];
 
 		return $display;
 	}
@@ -151,13 +127,10 @@ class Callforward extends Modules{
 		if(!$this->_checkExtension($_POST['ext'])) {
 			return false;
 		}
-		switch($command) {
-			case 'settings':
-				return true;
-			default:
-				return false;
-			break;
-		}
+		return match ($command) {
+      'settings' => true,
+      default => false,
+  };
 	}
 
 	/**
@@ -168,7 +141,7 @@ class Callforward extends Modules{
 	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
 	 */
 	function ajaxHandler() {
-		$return = array("status" => false, "message" => "");
+		$return = ["status" => false, "message" => ""];
 		switch($_REQUEST['command']) {
 			case 'settings':
 				if(isset($_POST['type'])) {
@@ -182,7 +155,7 @@ class Callforward extends Modules{
 						}
 					}
 				}
-				return array("status" => true, "alert" => "success", "message" => _('Call Forwarding Has Been Updated!'));
+				return ["status" => true, "alert" => "success", "message" => _('Call Forwarding Has Been Updated!')];
 				break;
 			default:
 				return $return;
@@ -192,7 +165,7 @@ class Callforward extends Modules{
 
 	private function _checkExtension($extension) {
 		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Settings','assigned');
-		$extensions = is_array($extensions) ? $extensions : array();
+		$extensions = is_array($extensions) ? $extensions : [];
 		return in_array($extension,$extensions);
 	}
 }
