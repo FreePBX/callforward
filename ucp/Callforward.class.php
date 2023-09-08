@@ -24,7 +24,7 @@
  */
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
-
+#[\AllowDynamicProperties]
 class Callforward extends Modules{
 	protected $module = 'Callforward';
 	private $user = null;
