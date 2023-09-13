@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-16 10:38+0000\n"
+"POT-Creation-Date: 2023-09-13 10:20+0000\n"
 "PO-Revision-Date: 2018-05-28 15:29+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/callforward/it/>\n"
@@ -19,63 +19,59 @@ msgstr ""
 msgid "Always"
 msgstr ""
 
-#: callforward.i18n.php:6
-msgid "Applications"
-msgstr "Applicazioni"
-
 #: ucp/views/widget.php:13 ucp/views/widget.php:15
 msgid "Busy"
 msgstr "Occupato"
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
+#: install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "Trasferimento di Chiamata"
 
-#: callforward.i18n.php:24 install.php:7
+#: install.php:7
 msgid "Call Forward All Activate"
 msgstr "Attiva Trasferimento di Chiamata Incondizionato"
 
-#: callforward.i18n.php:20 install.php:8
+#: install.php:8
 msgid "Call Forward All Deactivate"
 msgstr "Disattiva Trasferimento di Chiamata Incondizionato"
 
-#: callforward.i18n.php:26 install.php:9
+#: install.php:9
 msgid "Call Forward All Prompting Activate"
 msgstr "richiama tutti i prompt attivati"
 
-#: callforward.i18n.php:22 install.php:10
+#: install.php:10
 msgid "Call Forward All Prompting Deactivate"
 msgstr "Disattiva Trasferimento di Chiamata Incondizionato (chiede dettagli)"
 
-#: callforward.i18n.php:16 install.php:11
+#: install.php:11
 msgid "Call Forward Busy Activate"
 msgstr "Attiva Trasferimento di Chiamata su Occupato"
 
-#: callforward.i18n.php:12 install.php:12
+#: install.php:12
 msgid "Call Forward Busy Deactivate"
 msgstr "Disattiva Trasferimento di Chiamata su Occupato"
 
-#: callforward.i18n.php:18 install.php:13
+#: install.php:13
 msgid "Call Forward Busy Prompting Activate"
 msgstr "Attiva inoltro chiamata inoltrata"
 
-#: callforward.i18n.php:14 install.php:14
+#: install.php:14
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "Disattiva Trasferimento di Chiamata su Occupato (chiede dettagli) "
 
-#: callforward.i18n.php:30 install.php:15
+#: install.php:15
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "Attiva Trasferimento su Nessuna Risposta/Non disponibile"
 
-#: callforward.i18n.php:28 install.php:16
+#: install.php:16
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "Disattiva Trasferimento su Nessuna Risposta/Non disponibile"
 
-#: callforward.i18n.php:32 install.php:17
+#: install.php:17
 msgid "Call Forward No Answer/Unavailable Prompting Activate"
 msgstr "Inoltro chiamata Nessuna risposta / Non disponibile Attivazione"
 
-#: callforward.i18n.php:10 install.php:18
+#: install.php:18
 msgid "Call Forward Toggle"
 msgstr "deviazione di chiamata"
 
@@ -129,13 +125,6 @@ msgstr ""
 msgid "Seconds"
 msgstr "Secondi"
 
-#: callforward.i18n.php:8
-msgid ""
-"The Call Forwarding module provides feature codes for call forwarding. Call "
-"Forwarding is used to forward calls from one user to another based on "
-"conditions such as busy, unavailable, and no answer."
-msgstr ""
-
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
 msgstr "Non disponibile"
@@ -143,6 +132,9 @@ msgstr "Non disponibile"
 #: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "Incondizionato"
+
+#~ msgid "Applications"
+#~ msgstr "Applicazioni"
 
 #~ msgid "Provides callforward featurecodes"
 #~ msgstr "Fornisce featurecodes callforward"
