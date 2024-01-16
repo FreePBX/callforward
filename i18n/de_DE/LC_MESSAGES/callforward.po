@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 10:20+0000\n"
+"POT-Creation-Date: 2024-01-16 01:58-0500\n"
 "PO-Revision-Date: 2018-09-18 15:37+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/callforward/de/>\n"
@@ -24,61 +24,65 @@ msgstr ""
 msgid "Always"
 msgstr "Immer"
 
+#: callforward.i18n.php:6
+msgid "Applications"
+msgstr "Anwendungen"
+
 #: ucp/views/widget.php:13 ucp/views/widget.php:15
 msgid "Busy"
 msgstr "Besetzt"
 
-#: install.php:6 ucp/Callforward.class.php:111
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
 msgid "Call Forward"
 msgstr "Anrufweiterleitung"
 
-#: install.php:7
+#: callforward.i18n.php:24 install.php:7
 msgid "Call Forward All Activate"
 msgstr "Alle Anrufweiterleitungen aktivieren"
 
-#: install.php:8
+#: callforward.i18n.php:20 install.php:8
 msgid "Call Forward All Deactivate"
 msgstr "Alle Anrufweiterleitungen deaktivieren"
 
-#: install.php:9
+#: callforward.i18n.php:26 install.php:9
 msgid "Call Forward All Prompting Activate"
 msgstr "Alle Anrufweiterleitungen für angeforderte Nummer aktivieren"
 
-#: install.php:10
+#: callforward.i18n.php:22 install.php:10
 msgid "Call Forward All Prompting Deactivate"
 msgstr "Alle Anrufweiterleitungen für angeforderte Nummer deaktivieren"
 
-#: install.php:11
+#: callforward.i18n.php:16 install.php:11
 msgid "Call Forward Busy Activate"
 msgstr "Anrufweiterleitung bei Besetzt aktivieren"
 
-#: install.php:12
+#: callforward.i18n.php:12 install.php:12
 msgid "Call Forward Busy Deactivate"
 msgstr "Anrufweiterleitung bei Besetzt deaktivieren"
 
-#: install.php:13
+#: callforward.i18n.php:18 install.php:13
 msgid "Call Forward Busy Prompting Activate"
 msgstr "Anrufweiterleitung bei Besetzt für angeforderte Nummer aktivieren"
 
-#: install.php:14
+#: callforward.i18n.php:14 install.php:14
 msgid "Call Forward Busy Prompting Deactivate"
 msgstr "Anrufweiterleitung bei Besetzt für angeforderte Nummer deaktivieren"
 
-#: install.php:15
+#: callforward.i18n.php:30 install.php:15
 msgid "Call Forward No Answer/Unavailable Activate"
 msgstr "Anrufweiterleitung bei nicht Erreichbar / nicht Verfügbar aktivieren"
 
-#: install.php:16
+#: callforward.i18n.php:28 install.php:16
 msgid "Call Forward No Answer/Unavailable Deactivate"
 msgstr "Anrufweiterleitung bei nicht Erreichbar / nicht Verfügbar deaktivieren"
 
-#: install.php:17
+#: callforward.i18n.php:32 install.php:17
 msgid "Call Forward No Answer/Unavailable Prompting Activate"
 msgstr ""
 "Anrufweiterleitung bei nicht Erreichbar / nicht Verfügbar für angeforderte "
 "Nummer aktivieren"
 
-#: install.php:18
+#: callforward.i18n.php:10 install.php:18
 msgid "Call Forward Toggle"
 msgstr "Anrufweiterleitung umschalten"
 
@@ -133,6 +137,13 @@ msgstr ""
 msgid "Seconds"
 msgstr "Sekunden"
 
+#: callforward.i18n.php:8
+msgid ""
+"The Call Forwarding module provides feature codes for call forwarding. Call "
+"Forwarding is used to forward calls from one user to another based on "
+"conditions such as busy, unavailable, and no answer."
+msgstr ""
+
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
 msgid "Unavailable"
 msgstr "Nicht verfügbar"
@@ -140,9 +151,6 @@ msgstr "Nicht verfügbar"
 #: ucp/views/widget.php:3 ucp/views/widget.php:5
 msgid "Unconditional"
 msgstr "Uneingeschränkt"
-
-#~ msgid "Applications"
-#~ msgstr "Anwendungen"
 
 #~ msgid "Provides callforward featurecodes"
 #~ msgstr "Bietet Rufumleitung featurecodes"
