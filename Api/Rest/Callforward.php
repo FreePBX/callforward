@@ -12,7 +12,8 @@ class Callforward extends Base {
 		 */
 		$app->get('/users', function ($request, $response, $args) {
 			\FreePBX::Modules()->loadFunctionsInc('callforward');
-			return $response->withJson(callforward_get_extension());
+			$response->getBody()->write(json_encode(callforward_get_extension()));
+			return $response->withHeader('Content-Type', 'application/json');
 		})->add($this->checkAllReadScopeMiddleware());
 
 		/**
@@ -22,7 +23,8 @@ class Callforward extends Base {
 		 */
 		$app->get('/users/{id}', function ($request, $response, $args) {
 			\FreePBX::Modules()->loadFunctionsInc('callforward');
-			return $response->withJson(callforward_get_extension($args['id']));
+			$response->getBody()->write(json_encode(callforward_get_extension($args['id'])));
+			return $response->withHeader('Content-Type', 'application/json');
 		})->add($this->checkAllReadScopeMiddleware());
 
 		/**
@@ -32,7 +34,8 @@ class Callforward extends Base {
 		 */
 		$app->get('/users/{id}/ringtimer', function ($request, $response, $args) {
 			\FreePBX::Modules()->loadFunctionsInc('callforward');
-			return $response->withJson(callforward_get_ringtimer($args['id']));
+			$response->getBody()->write(json_encode(callforward_get_ringtimer($args['id'])));
+			return $response->withHeader('Content-Type', 'application/json');
 		})->add($this->checkAllReadScopeMiddleware());
 
 		/**
@@ -47,7 +50,8 @@ class Callforward extends Base {
 					callforward_set_number($args['id'], $params[$type], $type);
 				}
 			}
-			return $response->withJson(true);
+			$response->getBody()->write(json_encode(true));
+			return $response->withHeader('Content-Type', 'application/json');
 		})->add($this->checkAllWriteScopeMiddleware());
 
 		/**
@@ -57,7 +61,8 @@ class Callforward extends Base {
 		$app->put('/users/{id}/ringtimer', function ($request, $response, $args) {
 			\FreePBX::Modules()->loadFunctionsInc('callforward');
 			$params = $request->getParsedBody();
-			return $response->withJson(callforward_set_ringtimer($args['id'], $params['ringtimer']));
+			$response->getBody()->write(callforward_set_ringtimer($args['id'] ?? '', $params['ringtimer'] ?? ''));
+			return $response->withHeader('Content-Type', 'application/json');
 		})->add($this->checkAllWriteScopeMiddleware());
 	}
 }
