@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 01:58-0500\n"
+"POT-Creation-Date: 2024-05-28 10:02-0400\n"
 "PO-Revision-Date: 2016-12-09 06:44+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Busy"
 msgstr "Ocupado"
 
-#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:111
+#: callforward.i18n.php:4 install.php:6 ucp/Callforward.class.php:148
 msgid "Call Forward"
 msgstr "Encaminhamento de Chamadas"
 
@@ -87,15 +87,15 @@ msgstr ""
 msgid "Call Forward Toggle"
 msgstr "Alternar Encaminhamento de Chamadas"
 
-#: ucp/Callforward.class.php:82 ucp/Callforward.class.php:92
+#: ucp/Callforward.class.php:90 ucp/Callforward.class.php:129
 msgid "Call Forwarding"
 msgstr "Encaminhamento de Chamadas"
 
-#: ucp/Callforward.class.php:158
+#: ucp/Callforward.class.php:195
 msgid "Call Forwarding Has Been Updated!"
 msgstr "Encaminhamento de Chamadas Foi Atualizado!"
 
-#: ucp/Callforward.class.php:74
+#: ucp/Callforward.class.php:113
 #, php-format
 msgid "Call Forwarding for %s"
 msgstr ""
@@ -142,6 +142,18 @@ msgid ""
 "The Call Forwarding module provides feature codes for call forwarding. Call "
 "Forwarding is used to forward calls from one user to another based on "
 "conditions such as busy, unavailable, and no answer."
+msgstr ""
+
+#: ucp/Callforward.class.php:61
+msgid "The given extension is empty."
+msgstr ""
+
+#: ucp/Callforward.class.php:56
+msgid "There are no assigned extensions."
+msgstr ""
+
+#: ucp/Callforward.class.php:65
+msgid "This extension is not assigned to this user."
 msgstr ""
 
 #: ucp/views/widget.php:8 ucp/views/widget.php:10
