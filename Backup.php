@@ -7,8 +7,11 @@ class Backup Extends Base\BackupBase{
 		$configs = [
 			'features' => $this->dumpFeatureCodes()
 		];
+		$users = $this->FreePBX->Core->getAllUsers();
+		$users = array_column($users,'extension');
 		$devices = $this->FreePBX->Core->getAllDevicesByType();
 		$devices = array_column($devices,'id');
+		$devices = array_merge($devices, $users);
 		foreach($devices as $exten){
 			$configs['data'][$exten] = [
 				'numbers' => [
