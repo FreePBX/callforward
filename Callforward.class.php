@@ -80,7 +80,7 @@ class Callforward implements BMO {
   };
 
 		$number = $this->astman->database_get($cf_type, $extension);
-		return $number ?: false;
+		return $number ?? false;
 	}
 
 	public function setMultipleNumberByExten($exten,$numbers){
