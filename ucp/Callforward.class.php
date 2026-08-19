@@ -24,9 +24,9 @@
  */
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
-#[\AllowDynamicProperties]
 class Callforward extends Modules{
 	protected $module = 'Callforward';
+	private $Modules;
 	private $user = null;
 	private $userId = false;
 
@@ -45,10 +45,10 @@ class Callforward extends Modules{
 	 * validate against rules
 	 */
 	private function validate($extension = false) {
-		$data = array(
+		$data = [
 			'hasError' => false,
 			'errorMessages' => []
-		);
+		];
 
 		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Settings','assigned');
 		if (empty($extensions)) {
@@ -85,12 +85,12 @@ class Callforward extends Modules{
 	}
 
 	public function getSimpleWidgetList() {
-		$responseData = array(
+		$responseData = [
 			"rawname" => "callforward",
 			"display" => _("Call Forwarding"),
 			"icon" => "fa fa-arrow-right",
 			"list" => []
-		);
+		];
 		$errors = $this->validate();
 		if ($errors['hasError']) {
 			return array_merge($responseData, $errors);
@@ -105,7 +105,7 @@ class Callforward extends Modules{
 				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				if(empty($data) || empty($data['description'])) {
 					$data = $this->UCP->FreePBX->Core->getUser($extension);
-					$name = isset($data['name']) ?? '';
+					$name = $data['name'] ?? '';
 				} else {
 					$name = $data['description'];
 				}

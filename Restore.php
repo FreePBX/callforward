@@ -11,7 +11,7 @@ class Restore Extends Base\RestoreBase{
       	if(array_key_exists('data', $configs)) {
           	foreach($configs['data'] as $k => $v){
                 $cf->setMultipleNumberByExten($k,$v['numbers']);
-                $cf->setRingTimerByExtension($k,$v['ringtimer']);
+                $cf->setRingtimerByExtension($k,$v['ringtimer']);
             }
         }
 		$this->importFeatureCodes($configs['features']);
@@ -43,7 +43,7 @@ class Restore Extends Base\RestoreBase{
 				if($parts[1] !== 'ringtimer'){
 					continue;
 				}
-				$cf->setRingTimerByExtension($parts[0], $value);
+				$cf->setRingtimerByExtension($parts[0], $value);
 			}
 		}
 
