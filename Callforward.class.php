@@ -1,11 +1,13 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
-#[\AllowDynamicProperties]
 class Callforward implements BMO {
+	private $FreePBX;
+	private $db;
+	private $astman;
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
-			throw new Exception("Not given a FreePBX Object");
+			throw new \Exception("Not given a FreePBX Object");
 		}
 
 		$this->FreePBX = $freepbx;
@@ -61,7 +63,7 @@ class Callforward implements BMO {
 			$data = $this->FreePBX->Core->getDevice($defaultexten);
 			if(empty($data) || empty($data['description'])) {
 				$data = $this->FreePBX->Core->getUser($defaultexten);
-				$name = isset($data['name']) ? $data['name'] : (isset($data['username']) ? $data['username'] : $_POST['username']);
+				$name = $data['name'] ?? ($data['username'] ?? ($_POST['username'] ?? ''));
 			} else {
 				$name = $data['description'];
 			}
